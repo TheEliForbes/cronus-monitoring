@@ -1,5 +1,5 @@
 # TIKsm-setup
-A series of bash scripts to get a fresh Ubuntu 16.04 host setup with Telegraf, and InfluxDB.
+A series of bash scripts and instructions to get a fresh Ubuntu 16.04 host setup with Telegraf, and InfluxDB.
 
 1. Sudo ./dockerKube.bash
 
