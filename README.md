@@ -45,9 +45,13 @@ A series of bash scripts to prime a fresh Ubuntu 16.04 host for Telegraf, and In
 	
 	c. password
 	
-	d. sudo curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+	d. export PATH=$PATH:/usr/local/go/bin
+
+	e. export GOBIN=/usr/local/go/bin
 	
-	e. Exit
+	f. sudo curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+	
+	g. Exit
 
 
 3. Sudo ./tikInstall.bash
