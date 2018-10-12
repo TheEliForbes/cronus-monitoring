@@ -70,6 +70,9 @@ A series of bash scripts and instructions to get a fresh Ubuntu 16.04 host setup
 		
 		b. Modify urls in the array
 		urls = ["http://10.111.251.5:8080/metrics", "http://10.111.251.5:8081/metrics"]
+		
+			c. These urls may be incorrect for you, on your master,
+				i. kubectl get svc --all-namespaces
 
 
 5. Start Telegraf
