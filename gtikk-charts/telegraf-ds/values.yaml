@@ -56,6 +56,3 @@ config:
         total: false
         docker_label_exclude:
           - "annotation.kubernetes.io/*"
-    - cpu:
-        percpu: false
-        totalcpu: true
