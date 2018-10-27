@@ -137,7 +137,7 @@ config:
     - cpu:
         percpu: false
         totalcpu: true
-##      system:
+    - system:
 ##      aerospike:
 ##        servers:
 ##          - "localhost:3000"
