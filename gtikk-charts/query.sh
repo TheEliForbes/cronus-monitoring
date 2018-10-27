@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IP=(sudo kubectl get svc --namespace kube-system metrics-kube-state-metrics -o json | jq -r .spec.clusterIP)
+IP=$(sudo kubectl get svc --namespace kube-system data-influxdb -o json | jq -r .spec.clusterIP)
 URL="http://"$IP":8086"
 
 echo "Showing Database List"
