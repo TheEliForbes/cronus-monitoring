@@ -36,7 +36,7 @@ config:
     flush_jitter: "0s"
   outputs:
     - influxdb:
-        url: "http://data-influxdb.tick:8086"
+        url: "http://$IFDB_IP:8086"
         database: "telegraf"
         retention_policy: ""
         timeout: "5s"

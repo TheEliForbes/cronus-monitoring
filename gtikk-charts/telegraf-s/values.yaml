@@ -64,7 +64,7 @@ config:
   outputs:
     - influxdb:
         urls:
-          - "http://data-influxdb.tick:8086"
+          - "http://$IFDB_IP:8086"
         database: "telegraf"
 ##        retention_policy: ""
 ##        write_consistency: "any"
