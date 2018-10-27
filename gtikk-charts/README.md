@@ -3,7 +3,7 @@
 This is a collection of [Helm](https://github.com/kubernetes/helm) [Charts](https://github.com/kubernetes/charts) for the [InfluxData](https://influxdata.com/time-series-platform) TICK stack. This repo contains the following charts:
 
 - [influxdb](/influxdb/README.md)
-- [chronograf](/chronograf/README.md)
+- [grafana](/grafana/README.md)
 - [kapacitor](/kapacitor/README.md)
 - [telegraf-s](/telegraf-s/README.md)
 - [telegraf-ds](/telegraf-ds/README.md)
@@ -23,7 +23,7 @@ $ helm install --name data --namespace tick ./influxdb/
 $ helm install --name polling --namespace tick ./telegraf-s/
 $ helm install --name hosts --namespace tick ./telegraf-ds/
 $ helm install --name alerts --namespace tick ./kapacitor/
-$ helm install --name dash --namespace tick ./chronograf/
+$ helm install --name dash --namespace tick ./grafana/
 ```
 - Wait for the IP for chronograf to appear:
 ```bash
