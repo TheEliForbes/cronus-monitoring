@@ -64,7 +64,9 @@ config:
   outputs:
     - influxdb:
         urls:
-          - "http://${IFDB_IP}:8086"
+          - secretKeyRef:
+              key: influxurl
+              name: {{ .Release.Name }}-auth
         database: "telegraf"
 ##        retention_policy: ""
 ##        write_consistency: "any"
