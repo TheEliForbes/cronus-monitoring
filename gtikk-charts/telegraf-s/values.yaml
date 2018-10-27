@@ -64,7 +64,7 @@ config:
   outputs:
     - influxdb:
         urls:
-          - "http://$IFDB_IP:8086"
+          - "http://${IFDB_IP}:8086"
         database: "telegraf"
 ##        retention_policy: ""
 ##        write_consistency: "any"
@@ -336,7 +336,7 @@ config:
 ##          - "testing"
       prometheus:
         urls:
-            - $KSM_URL
+            - ${KSM_URL}
 ##          - "https://kubernetes.default:443/metrics"
 ##        name_prefix: "prom_"
 ##        bearer_token: "/var/run/secrets/kubernetes.io/serviceaccount/token"
