@@ -64,9 +64,7 @@ config:
   outputs:
     - influxdb:
         urls:
-          - secretKeyRef:
-              key: influxurl
-              name: {{ .Release.Name }}-auth
+          - "http://data-influxdb.tick:8086"
         database: "telegraf"
 ##        retention_policy: ""
 ##        write_consistency: "any"
@@ -336,9 +334,8 @@ config:
 ##        databases:
 ##          - "app_production"
 ##          - "testing"
-      prometheus:
-        urls:
-            - ${KSM_URL}
+##      prometheus:
+##        urls:
 ##          - "https://kubernetes.default:443/metrics"
 ##        name_prefix: "prom_"
 ##        bearer_token: "/var/run/secrets/kubernetes.io/serviceaccount/token"
