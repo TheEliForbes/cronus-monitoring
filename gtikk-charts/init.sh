@@ -21,7 +21,21 @@ if ! [ -x "$(command -v jq)" ]; then
 kubectl create -f rbac-config.yaml
 helm init --service-account tiller 
 
-:::::::::::::::  #15 Nops to wait for tiller to set up
+:
+:
+:
+:
+:
+:
+:
+:
+:
+:
+:
+:
+:
+:
+:  #15 Nops to wait for tiller to set up
 
 read -p "Would you like to initialize the GKIT? (y/n)" yn
 case $yn in
