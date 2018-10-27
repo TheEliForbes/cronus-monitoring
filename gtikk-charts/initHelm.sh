@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ![ -x "$(command -v helm)" ]; then
+if ! [ -x "$(command -v helm)" ]; then
 	echo 'Helm is not installed.'
 	read -p "Do you wish to install Helm?" yn
 	case $yn in
