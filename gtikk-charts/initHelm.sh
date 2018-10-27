@@ -20,7 +20,7 @@ helm init --service-account tiller
 :
 :
 :
-:
+:  #Nops to wait for tiller to set up
 read -p "Would you like to initialize the GKIT?" yn
 case $yn in
 	[Yy]* ) chmod +x create.sh; sudo ./create.sh;;
