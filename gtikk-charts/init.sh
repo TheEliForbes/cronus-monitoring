@@ -17,6 +17,7 @@ if ! [ -x "$(command -v jq)" ]; then
 		[Yy]* ) sudo apt install jq;;
 		[Nn]* ) exit;;
 		* ) echo "Please answer y/n."
+	esac
 fi
 		
 kubectl create -f rbac-config.yaml
