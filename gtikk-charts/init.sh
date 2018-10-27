@@ -29,3 +29,6 @@ case $yn in
 	[Nn]* ) exit;;
 	* ) echo "Please answer y/n.";;
 esac
+
+echo "Done. . ."
+
