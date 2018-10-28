@@ -84,7 +84,7 @@ spec:
         readinessProbe:
           httpGet:
             path: /healthz
-            port: 8080
+            port: 8085
           initialDelaySeconds: 5
           timeoutSeconds: 5
         resources:
