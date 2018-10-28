@@ -80,11 +80,11 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         ports:
-        - containerPort: 8087 
+        - containerPort: 8085 
         readinessProbe:
           httpGet:
             path: /healthz
-            port: 8087 
+            port: 8085 
           initialDelaySeconds: 5
           timeoutSeconds: 5
         resources:
