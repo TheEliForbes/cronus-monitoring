@@ -8,3 +8,6 @@ curl $URL"/query?q=show+databases"
 
 echo "Showing CPU Data"
 curl $URL"/query?q=select+*+from+telegraf..cpu"
+
+echo "Showing KSM Data"
+curl $URL"/query?q=select+*+from+telegraf..kube_pod_container_status_restarts_total"
