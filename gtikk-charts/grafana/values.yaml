@@ -141,17 +141,16 @@ plugins: []
 ## Configure grafana datasources
 ## ref: http://docs.grafana.org/administration/provisioning/#datasources
 ##
-
-datasources.yaml:
-  apiVersion: 1
-  datasources:
-  - name: 'default'
-    type: influxdb              
-    database: telegraf
-    url: http://data-influxdb.kube-system:8086
-    access: proxy
-    isDefault: true
-
+#datasources: {}
+ # datasources.yaml:
+  #  apiVersion: 1
+   # datasources:
+    #- name: 'default'
+     # type: influxdb              
+     # database: telegraf
+     # url: http://data-influxdb.kube-system:8086
+     # access: proxy
+     # isDefault: true
 #    apiVersion: 1
 #    datasources:
 #    - name: Prometheus
