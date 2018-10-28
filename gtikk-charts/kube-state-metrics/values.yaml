@@ -14,7 +14,7 @@ rbac:
   # If true, create & use RBAC resources
   create: false
   # Ignored if rbac.create is true
-  serviceAccountName: default
+  serviceAccountName: tiller
 
 ## Node labels for pod assignment
 ## Ref: https://kubernetes.io/docs/user-guide/node-selection/
