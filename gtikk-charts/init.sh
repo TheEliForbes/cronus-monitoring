@@ -10,13 +10,13 @@ if ! [ -x "$(command -v helm)" ]; then
 	esac
 fi
 
-kubectl create namespace tick
-kubectl create serviceaccount tiller --namespace tick
-kubectl create -f role-tiller.yaml
-kubectl create -f rolebinding-tiller.yaml
-helm init --service-account tiller --tiller-namespace tick
-#kubectl create -f rbac-config.yaml
-#helm init --service-account tiller 
+#kubectl create namespace tick
+#kubectl create serviceaccount tiller --namespace tick
+#kubectl create -f role-tiller.yaml
+#kubectl create -f rolebinding-tiller.yaml
+#helm init --service-account tiller --tiller-namespace tick
+kubectl create -f rbac-config.yaml
+helm init --service-account tiller 
 
 read -p "Would you like to initialize the GKIT? (y/n)" yn
 case $yn in
