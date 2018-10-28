@@ -1,4 +1,8 @@
+
 # GKIT/Helm
+
+## Installation
+
 1.   Clone the repo and dive in!
 
          git clone [https://github.com/Eliforbes42/TIKsm-setup](https://github.com/Eliforbes42/TIKsm-setup)
@@ -28,19 +32,29 @@
 
          ./query.sh
 
--   Add Data Source in Grafana
+## Usage
+
+1.    `./echoGrafanaIP.sh`
+2. > _Grafana is at http://your.grafana.cluster.ip_
+3.  Navigate there in your desktop VM's browser.
+
+### First-time Use
+1.  Add Data Source in Grafana
 
     -   Settings > Data Sources > Add data source
 
-    -   Name: influx
+    -   Name: `influx`
     -   Type: InfluxDB
     -   URL: [http://data-influxdb.kube-system:8086](http://data-influxdb.kube-system:8086)
     -   Access: Server
-    -   InfluxDB Details > Database: telegraf
+    -   InfluxDB Details > Database: `telegraf`
 
--   Import Dashboard
+2.   Import Dashboard
 
-    -   Create > Import > Upload .json File
-
-    -   Select file
-    -   Set InfluxDB datasource
+     -   Create > Import > Upload .json File
+   
+      -   Select file
+         
+           -[Restarts Dashboard-1540495620364.json](https://github.com/Eliforbes42/TIKsm-setup/blob/master/Restarts%20Dashboard-1540495620364.json "Restarts Dashboard-1540495620364.json")
+         
+      -   Set InfluxDB datasource, `influx`
