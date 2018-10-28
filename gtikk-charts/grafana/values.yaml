@@ -145,7 +145,7 @@ datasources:
   datasources.yaml:
     apiVersion: 1
     datasources:
-    - name: 'default'
+    - name: influx
       type: influxdb              
       database: telegraf
       url: http://data-influxdb.kube-system:8086
