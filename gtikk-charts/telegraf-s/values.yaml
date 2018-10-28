@@ -334,9 +334,9 @@ config:
 ##        databases:
 ##          - "app_production"
 ##          - "testing"
-##      prometheus:
-##        urls:
-##          - "http://metrics-kube-state-metrics.kube-system.svc.cluster.local:8085/metrics"
+      prometheus:
+        urls:
+          - "http://metrics-kube-state-metrics.kube-system.svc.cluster.local:8085/metrics"
 ##          - "https://kubernetes.default:443/metrics"
 ##        name_prefix: "prom_"
 ##        bearer_token: "/var/run/secrets/kubernetes.io/serviceaccount/token"
