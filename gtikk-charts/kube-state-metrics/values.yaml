@@ -5,7 +5,7 @@ image:
   tag: v1.4.0
   pullPolicy: IfNotPresent
 service:
-  port: 8080
+  port: 8087
   # Default to clusterIP for backward compatibility
   type: ClusterIP
   nodePort: 0
