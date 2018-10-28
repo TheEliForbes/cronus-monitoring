@@ -53,4 +53,4 @@ affinity: {}
 ## Set the URL of InfluxDB instance to create subscription on
 ## ref: https://docs.influxdata.com/kapacitor/v1.5/introduction/getting_started/
 ##
-influxURL: http://data-influxdb.kube-system:8086
+influxURL: http://data-influxdb.tick:8086

@@ -1,11 +1,9 @@
-# `tick-charts` 
-
-(https://github.com/influxdata/tick-charts)
+# `tick-charts`
 
 This is a collection of [Helm](https://github.com/kubernetes/helm) [Charts](https://github.com/kubernetes/charts) for the [InfluxData](https://influxdata.com/time-series-platform) TICK stack. This repo contains the following charts:
 
 - [influxdb](/influxdb/README.md)
-- [grafana](/chronograf/README.md)
+- [chronograf](/chronograf/README.md)
 - [kapacitor](/kapacitor/README.md)
 - [telegraf-s](/telegraf-s/README.md)
 - [telegraf-ds](/telegraf-ds/README.md)
@@ -25,15 +23,15 @@ $ helm install --name data --namespace tick ./influxdb/
 $ helm install --name polling --namespace tick ./telegraf-s/
 $ helm install --name hosts --namespace tick ./telegraf-ds/
 $ helm install --name alerts --namespace tick ./kapacitor/
-$ helm install --name dash --namespace tick ./grafana/
+$ helm install --name dash --namespace tick ./chronograf/
 ```
-- Wait for the IP for grafana to appear:
+- Wait for the IP for chronograf to appear:
 ```bash
-$ kubectl get svc -w --namespace tick -l app=dash-grafana
+$ kubectl get svc -w --namespace tick -l app=dash-chronograf
 ```
-- Open grafana in your browser and configure it
-  - InfluxDB URL: `http://data-influxdb.kube-system:8086`
-  - Kapacitor URL: `http://alerts-kapacitor.kube-system:9092`
+- Open chronograf in your browser and configure it
+  - InfluxDB URL: `http://data-influxdb.tick:8086`
+  - Kapacitor URL: `http://alerts-kapacitor.tick:9092`
   
 Or, just run `./create.sh` and let the shell script do it for you! You can also tear down the installation with `./destroy.sh`
 

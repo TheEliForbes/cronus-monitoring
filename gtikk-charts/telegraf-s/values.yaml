@@ -64,7 +64,7 @@ config:
   outputs:
     - influxdb:
         urls:
-          - "http://data-influxdb.kube-system:8086"
+          - "http://data-influxdb.tick:8086"
         database: "telegraf"
 ##        retention_policy: ""
 ##        write_consistency: "any"
@@ -134,10 +134,10 @@ config:
 # This may show errors in the logs, but this does not affect performance or functionality
   inputs:
 
-    - cpu:
-        percpu: false
-        totalcpu: true
-    - system:
+##      cpu:
+##        percpu: false
+##        totalcpu: true
+##      system:
 ##      aerospike:
 ##        servers:
 ##          - "localhost:3000"
@@ -231,15 +231,15 @@ config:
 ##          - "http://myhaproxy.com:1936/haproxy?stats"
     - influxdb:
         urls:
-          - "http://influxdb-influxdb.kube-system:8086/debug/vars"
+          - "http://influxdb-influxdb.tick:8086/debug/vars"
         timeout: "5s"
     - kapacitor:
         urls:
-          - "http://kap-kapacitor.kube-system:9092/debug/vars"
+          - "http://kap-kapacitor.tick:9092/debug/vars"
         timeout: "5s"
     - kapacitor:
         urls:
-          - "http://kap2-kapacitor.kube-system:9092/debug/vars"
+          - "http://kap2-kapacitor.tick:9092/debug/vars"
         timeout: "5s"
 ##      lustre2:
 ##        ost_procfiles:
@@ -336,7 +336,6 @@ config:
 ##          - "testing"
 ##      prometheus:
 ##        urls:
-##          - "http://metrics-kube-state-metrics.kube-system.svc.cluster.local:8085/metrics"
 ##          - "https://kubernetes.default:443/metrics"
 ##        name_prefix: "prom_"
 ##        bearer_token: "/var/run/secrets/kubernetes.io/serviceaccount/token"
