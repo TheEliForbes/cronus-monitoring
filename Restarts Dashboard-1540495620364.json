@@ -58,7 +58,7 @@
   "panels": [
     {
       "columns": [],
-      "datasource": "${DS_INFLUX}",
+      "datasource": "influx",
       "description": "The number of restarts for each individual container.",
       "fontSize": "100%",
       "gridPos": {
@@ -135,7 +135,7 @@
     },
     {
       "columns": [],
-      "datasource": "${DS_INFLUX}",
+      "datasource": "influx",
       "fontSize": "100%",
       "gridPos": {
         "h": 5,
@@ -219,7 +219,7 @@
     },
     {
       "columns": [],
-      "datasource": "${DS_INFLUX}",
+      "datasource": "influx",
       "description": "The reason that containers are waiting.",
       "fontSize": "100%",
       "gridPos": {
@@ -305,7 +305,7 @@
     },
     {
       "columns": [],
-      "datasource": "${DS_INFLUX}",
+      "datasource": "influx",
       "fontSize": "100%",
       "gridPos": {
         "h": 8,
