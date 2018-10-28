@@ -20,7 +20,7 @@ spec:
   {{- if .Values.service.nodePort }}
     nodePort: {{ .Values.service.nodePort }}
   {{- end }}
-    targetPort: 8080
+    targetPort: 8085
 {{- if .Values.service.loadBalancerIP }}
   loadBalancerIP: "{{ .Values.service.loadBalancerIP }}"
 {{- end }}
