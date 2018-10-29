@@ -12,6 +12,9 @@ image:
 service:
   type: ClusterIP
 
+##Alias namespace
+space: kube-system
+
 ## Persist data to a persitent volume
 ##
 persistence:

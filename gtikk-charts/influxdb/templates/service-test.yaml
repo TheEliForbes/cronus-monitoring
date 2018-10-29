@@ -14,5 +14,5 @@ spec:
     - name: curl
       image: radial/busyboxplus:curl
       command: ['curl']
-      args:  ['{{ template "fullname" . }}:{{ .Values.service.port }}/query?q=show+databases']
+      args:  ['{{ template "fullname" . }}.{{ .Values.space }}:{{ .Values.service.port }}/query?q=show+databases']
   restartPolicy: Never
