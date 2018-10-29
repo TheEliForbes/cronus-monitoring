@@ -46,4 +46,11 @@ if ! [ -x "$(command -v jq)" ]; then
 	esac
 fi
 
+read -p "Would you like to test the GKIT? (y/n)" yn
+case $yn in
+	[Yy]* ) chmod +x testHelm.sh; sudo ./testHelm.sh;;
+	[Nn]* ) exit;;
+	* ) echo "Please answer y/n.";;
+esac
+
 echo "Done. . ."
