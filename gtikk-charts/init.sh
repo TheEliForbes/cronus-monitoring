@@ -18,6 +18,15 @@ fi
 kubectl create -f rbac-config.yaml
 helm init --service-account tiller 
 
+echo "------------------------------"
+for ((i=30; i>0; i--))
+do	
+	echo -n "#"
+	sleep 1
+done
+echo ""
+echo "------------------------------"
+
 read -p "Would you like to initialize the GKIT? (y/n)" yn
 case $yn in
 	[Yy]* ) chmod +x create.sh; sudo ./create.sh;;
@@ -34,5 +43,12 @@ if ! [ -x "$(command -v jq)" ]; then
 		* ) echo "Please answer y/n."
 	esac
 fi
+
+read -p "Would you like to test the GKIT? (y/n)" yn
+case $yn in
+	[Yy]* ) chmod +x testHelm.sh; sudo ./testHelm.sh;;
+	[Nn]* ) exit;;
+	* ) echo "Please answer y/n.";;
+esac
 
 echo "Done. . ."
