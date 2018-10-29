@@ -28,6 +28,7 @@ do
 done
 echo "|"
 echo "-----------------"
+echo ""
 
 read -p "Would you like to initialize the GKIT? (y/n)" yn
 case $yn in
