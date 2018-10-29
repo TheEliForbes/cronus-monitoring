@@ -137,6 +137,15 @@ config:
     - cpu:
         percpu: false
         totalcpu: true
+    - disk:
+        ignore_fs:
+          - "tmpfs"
+          - "devtmpfs"
+    - diskio:    
+    - kernel:    
+    - mem:
+    - processes:
+    - swap:
     - system:
 ##      aerospike:
 ##        servers:
