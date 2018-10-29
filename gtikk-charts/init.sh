@@ -18,6 +18,16 @@ fi
 kubectl create -f rbac-config.yaml
 helm init --service-account tiller 
 
+echo "-----------------"
+echo -n "|"
+for ((i=15; i>0; i--))
+do
+	echo -n "#"
+	sleep 2
+done
+echo -n "|"
+echo "-----------------"
+
 read -p "Would you like to initialize the GKIT? (y/n)" yn
 case $yn in
 	[Yy]* ) chmod +x create.sh; sudo ./create.sh;;
