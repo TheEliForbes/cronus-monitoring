@@ -17,7 +17,8 @@ fi
 #helm init --service-account tiller --tiller-namespace tick
 kubectl create -f rbac-config.yaml
 helm init --service-account tiller 
-
+echo ""
+echo "Please wait 30 seconds for Tiller to set up"
 echo "------------------------------"
 for ((i=30; i>0; i--))
 do	
