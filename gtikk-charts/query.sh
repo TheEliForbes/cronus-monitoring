@@ -3,7 +3,7 @@
 IP=$(sudo kubectl get svc --namespace kube-system data-influxdb -o json | jq -r .spec.clusterIP)
 URL="http://"$IP":8086"
 
-for $opt in $@
+for opt in $@
 	case $opt in
 		--databases | -d) echo "Showing Database List"; 
 						  curl $URL"/query?q=show+databases";
