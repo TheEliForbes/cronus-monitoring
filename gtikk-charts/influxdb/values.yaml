@@ -14,7 +14,7 @@ service:
 
 ##Alias namespace
 space: kube-system
-
+sport: 8086
 ## Persist data to a persitent volume
 ##
 persistence:
