@@ -15,5 +15,6 @@ do
 		--ksm | -k) echo "Showing KSM Data";
 				    curl $URL"/query?q=select+*+from+telegraf..kube_pod_container_status_restarts_total";
 						  shift 1;;
+	    * ) curl $URL"/query?q="$opt;;
 	esac
 done
