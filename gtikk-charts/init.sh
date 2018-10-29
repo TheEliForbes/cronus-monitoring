@@ -23,8 +23,8 @@ echo "-----------------"
 echo -n "|"
 for ((i=30; i>0; i--))
 do
-	echo -n "#"
 	sleep 1
+	echo -n "#"
 done
 echo "|"
 echo "-----------------"
@@ -48,7 +48,7 @@ fi
 
 read -p "Would you like to test the GKIT? (y/n)" yn
 case $yn in
-	[Yy]* ) chmod +x testHelm.sh; sudo ./testHelm.sh;;
+	[Yy]* ) chmod +x testHelm.sh; ./testHelm.sh;;
 	[Nn]* ) exit;;
 	* ) echo "Please answer y/n.";;
 esac
