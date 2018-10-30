@@ -11,7 +11,7 @@ metadata:
     "helm.sh/hook": test-success
 spec:
   containers:
-    - name: credentials-test
+    - name: metrics-endpoint-test
       image: gcr.io/kubernetes-charts-ci/chart-testing:v1.0.5     
       command: ["sh","-c", "curl http://{{ template "kube-state-metrics.fullname" . }}:{{ .Values.service.port }}/metrics"]
   restartPolicy: Never
