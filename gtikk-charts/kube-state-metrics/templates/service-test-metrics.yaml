@@ -11,8 +11,7 @@ metadata:
     "helm.sh/hook": test-success
 spec:
   containers:
-    - name: curl
-      image: radial/busyboxplus:curl
-      command: ['curl']
-      args: ['http://{{ template "kube-state-metrics.fullname" . }}:{{ .Values.service.port }}/metrics']
+    - name: credentials-test
+      image: gcr.io/kubernetes-charts-ci/chart-testing:v1.0.5     
+      command: ["sh","-c", "curl http://{{ template "kube-state-metrics.fullname" . }}:{{ .Values.service.port }}/metrics"]
   restartPolicy: Never
