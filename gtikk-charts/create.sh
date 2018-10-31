@@ -11,6 +11,3 @@ case $yn in
 [Nn]* ) exit;;
 	* ) echo "Please answer y/n.";;
 esac
-#Replace Chronograf with Grafana
-#helm install --name dash --namespace tick ./chronograf/
-#kubectl get svc -w --namespace tick -l app=dash-chronograf
