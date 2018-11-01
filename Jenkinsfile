@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-     def SSHPASS = kube
+     def SSHPASS = 'kube'
   }
   stages {
     stage('sshStage'){
