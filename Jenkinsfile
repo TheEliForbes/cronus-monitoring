@@ -5,8 +5,10 @@ pipeline {
   }
   stages {
     stage('sshStage'){
-      steps {       
-        sh "sshpass -e ssh -o stricthostkeychecking=no kube@10.0.0.1 './reinstall.sh'"        
+      steps {
+        echo "Building..."
+        sh "sshpass -e ssh -o stricthostkeychecking=no kube@10.0.0.1 './reinstall.sh'"
+        echo "Done..."     
       }
     }
   }
