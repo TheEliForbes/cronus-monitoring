@@ -3,9 +3,9 @@ pipeline {
   stages {
     stage('myStage'){
       steps {
-        checkout scm
-        sh "chmod +x gtikk-charts/*.sh"
-        sh "./gtikk-charts/initHelm.sh" 
+        apt-get update -qq && apt-get install -y -qq sshpass
+        export SSHPASS=kube
+        sshpass -e ssh -o stricthostkeychecking=no kube@10.0.0.1 'git clone https://github.com/Eliforbes42/TIKsm-setup.git; ./create.sh'        
       }
     }
   }
