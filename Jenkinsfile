@@ -3,10 +3,9 @@ pipeline {
   stages {
     stage('myStage'){
       steps {
-        sh 'git clone https://github.com/Eliforbes42/TIKsm-setup.git'
-        sh 'cd TIKsm-setup/gtikk-charts'
-        sh 'chmod +x *.sh'
-        sh './initHelm.sh' 
+        checkout scm
+        sh "chmod +x gtikk-charts/*.sh"
+        sh "./gtikk-charts/initHelm.sh" 
       }
     }
   }
