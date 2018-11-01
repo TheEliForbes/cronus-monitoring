@@ -1,13 +1,11 @@
-pipeline {
-  agent any
-  environment {
-     def SSHPASS = kube
-  }
-  stages {
-    stage ('myStage') {
+node('node') {
+try{
+    stage('sshStage'){
       steps {       
-        sshpass -e ssh -o stricthostkeychecking=no kube@10.0.0.1 './reinstall.sh'        
+        sh "sshpass -e ssh -o stricthostkeychecking=no kube@10.0.0.1 './reinstall.sh'"        
       }
-    }
-  }
+   }
+catch (err) {
+   throw err
+}
 }
