@@ -31,6 +31,10 @@
 6.   Verify InfluxDB is operational, and receiving data from Telegraf
 
          ./query.sh
+       
+7.   You can also dive into the Kapacitor Container
+
+           ./connectToKapacitorContainer.sh
 
 ## Usage
 
