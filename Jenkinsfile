@@ -6,9 +6,9 @@ pipeline {
   stages {
     stage('sshStage'){
       steps {
-        echo "Building..."
+        echo "Building. . ."
         sh "sshpass -e ssh -o stricthostkeychecking=no kube@10.0.0.1 './reinstall.sh'"
-        echo "Done..."     
+        echo "Done. . ."     
       }
     }
   }
