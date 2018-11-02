@@ -12,7 +12,7 @@ case $1 in
 	case $yn in
 		[Yy]* ) chmod +x cleanUpTest.sh; ./cleanUpTest.sh;;
 		[Nn]* ) exit;;
-		* ) echo "Please answer y/n.";;
+		* ) echo "Please answer y/n..";;
 	esac;;
 esac
 echo "Done Testing!!!"
