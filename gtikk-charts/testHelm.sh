@@ -5,6 +5,7 @@ helm test metrics
 helm test data
 chmod +x cleanUpTest.sh
 ./cleanUpTest.sh
+echo "Done Testing!!!"
 #read -p "Do you wish to clean up the tests? (y/n)" yn
 #case $yn in
 #	[Yy]* ) chmod +x cleanUpTest.sh; ./cleanUpTest.sh;;
