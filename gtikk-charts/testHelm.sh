@@ -3,6 +3,7 @@
 
 helm test metrics
 helm test data
+helm test dash
 chmod +x cleanUpTest.sh
 ./cleanUpTest.sh
 
