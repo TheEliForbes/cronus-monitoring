@@ -1,5 +1,6 @@
 {
-  "__inputs": [
+  "dashboard": {
+    "__inputs": [
     {
       "name": "influx",
       "label": "influx",
@@ -459,3 +460,4 @@
   "uid": "iyFav8Jik",
   "version": 9
 }
+  }
