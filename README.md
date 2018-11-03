@@ -1,4 +1,5 @@
 
+
 # GKIT/Helm
 
 ## Installation
@@ -43,24 +44,13 @@
 1.    `./echoGrafanaIP.sh`
 2. > _Grafana is at http://your.grafana.cluster.ip_
 3.  Navigate there in your desktop VM's browser.
+	3.1 Everything should already be set up!
 
-### First-time Use
-1.  Add Data Source in Grafana
 
-    -   Settings > Data Sources > Add data source
 
-    -   Name: `influx`
-    -   Type: InfluxDB
-    -   URL: [http://data-influxdb.kube-system:8086](http://data-influxdb.kube-system:8086)
-    -   Access: Server
-    -   InfluxDB Details > Database: `telegraf`
 
-2.   Import Dashboard
-
-     -   Create > Import > Upload .json File
-   
-      -   Select file
-         
-           -[Restarts Dashboard-1540495620364.json](https://github.com/Eliforbes42/TIKsm-setup/blob/master/Restarts%20Dashboard-1540495620364.json "Restarts Dashboard-1540495620364.json")
-         
-      -   Set InfluxDB datasource, `influx`
+## Port Info
+* Kube-State-Metrics: `8085`
+* InfluxDB: `8086`
+* Kapacitor: `9092`
+* Grafana: `80`

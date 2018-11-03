@@ -7,7 +7,7 @@
 ## QuickStart
 
 ```bash
-$ helm install stable/influxdb --name foo --namespace bar
+$ helm install --name data --namespace kube-system influxdb
 ```
 
 ## Introduction
@@ -21,10 +21,10 @@ This chart bootstraps an InfluxDB deployment and service on a Kubernetes cluster
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release`:
+To install the chart with the release name `data`:
 
 ```bash
-$ helm install --name my-release stable/influxdb
+$ helm install --name data --namespace kube-system influxdb
 ```
 
 The command deploys InfluxDB on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -36,7 +36,7 @@ The command deploys InfluxDB on the Kubernetes cluster in the default configurat
 To uninstall/delete the `my-release` deployment:
 
 ```bash
-$ helm delete my-release --purge
+$ helm delete data --purge
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -50,7 +50,8 @@ The [full image documentation](https://hub.docker.com/_/influxdb/) contains more
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
 ```bash
-$ helm install --name my-release \
+$ helm install --name data \
+  --namespace kube-system \
   --set persistence.enabled=true,persistence.size=200Gi \
     stable/influxdb
 ```
@@ -60,7 +61,7 @@ The above command enables persistence and changes the size of the requested data
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
 ```bash
-$ helm install --name my-release -f values.yaml stable/influxdb
+$ helm install --name data -f values.yaml influxdb
 ```
 
 > **Tip**: You can use the default [values.yaml](values.yaml)

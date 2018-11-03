@@ -7,7 +7,7 @@
 ## QuickStart
 
 ```bash
-$ helm install stable/kapacitor --name foo --namespace bar
+$ helm install  --name alerts --namespace --kube-system kapacitor
 ```
 
 ## Introduction
@@ -21,10 +21,10 @@ This chart bootstraps A Kapacitor deployment and service on a Kubernetes cluster
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release`:
+To install the chart with the release name `alerts`:
 
 ```bash
-$ helm install --name my-release stable/kapacitor
+$ helm install  --name alerts --namespace --kube-system kapacitor
 ```
 
 The command deploys Kapacitor on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -33,10 +33,10 @@ The command deploys Kapacitor on the Kubernetes cluster in the default configura
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `my-release` deployment:
+To uninstall/delete the `alerts` deployment:
 
 ```bash
-$ helm delete my-release --purge
+$ helm delete alerts --purge
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -50,7 +50,8 @@ The [full image documentation](https://hub.docker.com/_/kapacitor/) contains mor
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
 ```bash
-$ helm install --name my-release \
+$ helm install --name alerts \
+  --namespace --kube-system \ 
   --set influxURL=http://myinflux.mytld:8086,persistence.enabled=true \
     stable/kapacitor
 ```

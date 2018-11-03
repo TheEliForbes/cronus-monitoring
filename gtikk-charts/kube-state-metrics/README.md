@@ -4,10 +4,10 @@
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release`:
+To install the chart with the release name `metrics`:
 
 ```bash
-$ helm install stable/kube-state-metrics
+$ helm install --name metrics --namespace --kube-system kube-state-metrics
 ```
 
 ## Configuration

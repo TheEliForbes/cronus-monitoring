@@ -5,7 +5,7 @@
 ## TL;DR
 
 ```console
-$ helm install stable/telegraf
+$ helm install --name polling --namespace kube-system telegraf
 ```
 
 ## Introduction
@@ -21,7 +21,7 @@ This chart bootstraps a `telegraf` deployment on a [Kubernetes](http://kubernete
 To install the chart with the release name `my-release`:
 
 ```console
-$ helm install --name my-release stable/telegraf
+$ helm install --name polling --namespace kube-system telegraf
 ```
 
 The command deploys Telegraf on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -30,10 +30,10 @@ The command deploys Telegraf on the Kubernetes cluster in the default configurat
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `my-release` deployment:
+To uninstall/delete the `polling` deployment:
 
 ```console
-$ helm delete my-release
+$ helm delete polling
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -43,9 +43,10 @@ The command removes all the Kubernetes components associated with the chart and 
 The default configuration parameters are listed in `values.yaml`. To change the defaults, specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
 ```console
-$ helm install --name my-release \
+$ helm install --name polling \
+  --namespace kube-state-metrics \
   --set single.enabled=false \
-    stable/telegraf
+    telegraf
 ```
 
 The above command prevents the single telegraf instance from deploying.
@@ -53,7 +54,7 @@ The above command prevents the single telegraf instance from deploying.
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart. For example,
 
 ```console
-$ helm install --name my-release -f values.yaml stable/telegraf
+$ helm install --name polling -f values.yaml telegraf
 ```
 
 Outputs and inputs are configured as arrays of key/value dictionaries. Additional examples and defaults can be found in [values.yaml](values.yaml)
@@ -62,7 +63,7 @@ Example:
 outputs:
   - influxdb:
       urls: []
-        # - "http://influxdb-influxdb.tick:8086"
+        # - "http://influxdb-influxdb.kube-system:8086"
       database: "telegraf"
 inputs:
   - cpu:
@@ -76,18 +77,6 @@ inputs:
 ## Telegraf Configuration
 
 This chart deploys the following by default:
-
-- `telegraf` (`telegraf-ds`) running in a daemonset with the following plugins enabled
-  * [`cpu`](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/system)
-  * [`disk`](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/system)
-  * [`docker`](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/docker)
-  * [`diskio`](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/system)
-  * [`kernel`](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/system)
-  * [`kubernetes`](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/kubernetes)
-  * [`mem`](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/system)
-  * [`processes`](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/system)
-  * [`swap`](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/system)
-  * [`system`](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/system)
 
 - A single `telegraf` deployment (`telegraf-s`) with an associated service running the following plugins:
   * [`prometheus`](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/prometheus)

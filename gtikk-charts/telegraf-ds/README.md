@@ -5,7 +5,7 @@
 ## TL;DR
 
 ```console
-$ helm install stable/telegraf-ds
+$ helm install --name hosts --namespace --kube-system telegraf-ds
 ```
 
 ## Introduction
@@ -18,10 +18,10 @@ This chart bootstraps a `telegraf-ds` deployment on a [Kubernetes](http://kubern
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release`:
+To install the chart with the release name `hosts`:
 
 ```console
-$ helm install --name my-release stable/telegraf-ds
+$ helm install --name hosts --namespace --kube-system stable/telegraf-ds
 ```
 
 The command deploys a Telegraf daemonset on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section as well as the [values.yaml](/values.yaml) file lists the parameters that can be configured during installation.
@@ -30,10 +30,10 @@ The command deploys a Telegraf daemonset on the Kubernetes cluster in the defaul
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `my-release` deployment:
+To uninstall/delete the `hosts` deployment:
 
 ```console
-$ helm delete my-release
+$ helm delete hosts
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -43,7 +43,8 @@ The command removes all the Kubernetes components associated with the chart and 
 The default configuration parameters are listed in `values.yaml`. To change the defaults, specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
 ```console
-$ helm install --name my-release \
+$ helm install --name hosts \
+  --namespace kube-system \
   --set config.outputs.influxdb.url=http://foo.bar:8086 \
     stable/telegraf-ds
 ```
@@ -53,7 +54,7 @@ The above command allows the chart to deploy by setting the InfluxDB URL for tel
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart. For example,
 
 ```console
-$ helm install --name my-release -f values.yaml stable/telegraf-ds
+$ helm install --name hosts --namespace --kube-system -f values.yaml stable/telegraf-ds
 ```
 
 ## Telegraf Configuration
