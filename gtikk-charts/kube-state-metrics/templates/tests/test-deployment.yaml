@@ -4,7 +4,7 @@ templates:
 tests:
   - it: should work
     set:
-      image.tag: {{ .Values.image.tag }}
+      image.tag: v1.4.0
     asserts:
       - isKind:
           of: Deployment
@@ -13,4 +13,4 @@ tests:
           pattern: -kube-state-metrics$
       - equal:
           path: spec.template.spec.containers[0].image
-          value: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          value: quay.io/coreos/kube-state-metrics:v1.4.0
