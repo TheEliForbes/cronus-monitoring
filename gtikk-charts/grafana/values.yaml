@@ -209,9 +209,11 @@ dashboards: {}
 ##   example-dashboard.json: |
 ##     RAW_JSON
 ##
-dashboardsConfigMaps: 
-  - custom-dashboards
+dashboardsConfigMaps: {}
 #  default: ""
+
+serverDashboardConfigMaps:
+  - custom-dashboards
 
 ## Grafana's primary configuration
 ## NOTE: values in map will be converted to ini format
