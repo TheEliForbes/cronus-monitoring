@@ -1,5 +1,4 @@
 {
-  "grafana_dashboard": {
     "__inputs": [
     {
       "name": "influx",
@@ -460,4 +459,3 @@
   "uid": "iyFav8Jik",
   "version": 9
 }
-  }
