@@ -28,6 +28,3 @@ tests:
       - matchRegex:
           path: metadata.name
           pattern: -kube-state-metrics$
-      - equal:
-          path: spec.template.spec.containers[0].image
-          value: quay.io/coreos/kube-state-metrics:v1.4.0
