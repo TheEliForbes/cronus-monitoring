@@ -1,0 +1,16 @@
+suite: test service
+templates:
+  - service.yaml
+tests:
+  - it: should have correct values
+    set:
+      image.tag: {{ .Values.image.tag }}
+    asserts:
+      - isKind:
+          of: Service
+      - matchRegex:
+          path: metadata.name
+          pattern: -kube-state-metrics$
+      - equal:
+          path: spec.template.spec.containers[0].image
+          value: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
