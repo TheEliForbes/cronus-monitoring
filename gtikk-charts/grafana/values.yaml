@@ -212,8 +212,8 @@ dashboards: {}
 dashboardsConfigMaps: {}
 #  default: ""
 
-serverDashboardConfigMaps:
-  - custom-dashboards
+#serverDashboardConfigMaps:
+ # - custom-dashboards
 
 ## Grafana's primary configuration
 ## NOTE: values in map will be converted to ini format
