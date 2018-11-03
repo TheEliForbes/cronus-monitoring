@@ -165,7 +165,6 @@ datasources:
 
 ## Configure grafana dashboard providers
 ## ref: http://docs.grafana.org/administration/provisioning/#dashboards
-
 ##
 ## `path` must be /var/lib/grafana/dashboards/<provider_name>
 ##
@@ -188,10 +187,10 @@ dashboardProviders:
 ##
 ## dashboards per provider, use provider name as key.
 ##
-dashboards: {}
+dashboards:
   default:
     deployment-dashboard:
-      url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/dashboards/restarts-dashboard.json
+      url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/Restarts%20Dashboard-1540495620364.json
 #    some-dashboard:
 #      json: |
 #        $RAW_JSON
