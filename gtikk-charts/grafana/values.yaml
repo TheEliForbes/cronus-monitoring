@@ -191,7 +191,7 @@ dashboardProviders:
 dashboards:
   default:
     deployment-dashboards: 
-      json: [ {{ (.Files "custom-dashboards/*.json") | indent 2 }} ]
+      json: {{ (.Files "custom-dashboards/*.json") | indent 2 }}
   #default:
     #deployment-dashboard:
      # url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/Restarts%20Dashboard-1540495620364.json
