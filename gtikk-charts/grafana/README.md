@@ -5,23 +5,23 @@
 ## TL;DR;
 
 ```console
-$ helm install stable/grafana
+$ helm install --name dash --namespace kube-system grafana
 ```
 
 ## Installing the Chart
 
-To install the chart with the release name `my-release`:
+To install the chart with the release name `dash`:
 
 ```console
-$ helm install --name my-release stable/grafana
+$ helm install --name dash --namespace kube-system stable/grafana
 ```
 
 ## Uninstalling the Chart
 
-To uninstall/delete the my-release deployment:
+To uninstall/delete the dash deployment:
 
 ```console
-$ helm delete my-release
+$ helm delete dash
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
