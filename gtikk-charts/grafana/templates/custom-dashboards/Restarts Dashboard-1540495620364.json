@@ -1,5 +1,5 @@
 {
-  "dashboard": {
+  "grafana_dashboard": {
     "__inputs": [
     {
       "name": "influx",

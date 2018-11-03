@@ -18,7 +18,7 @@ data:
     providers:
     - name: 'default'
       orgId: 1
-      folder: ''
+      folder: 'custom-dashboards'
       type: file
       disableDeletion: false
       options:
