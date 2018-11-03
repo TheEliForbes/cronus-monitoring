@@ -189,6 +189,8 @@ dashboardProviders:
 ##
 serverDashboardConfigMaps:
   - custom-dashboards
+  
+serverDashboardFiles: {}
 
 dashboards: {}
   #default:

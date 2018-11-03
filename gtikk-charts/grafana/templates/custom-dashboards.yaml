@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:   
   name: custom-dashboards 
 data:
-{{ (.Files.Glob "custom-dashboards/*.json").AsConfig | indent 2 }}
+ { (.Files.Glob "custom-dashboards/*.json").AsConfig | indent 2 }
