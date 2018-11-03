@@ -20,5 +20,4 @@
 .idea/
 *.tmproj
 
-# Testing Directory
- tests/
+tests
