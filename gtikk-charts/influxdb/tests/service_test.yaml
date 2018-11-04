@@ -1,0 +1,30 @@
+suite: test service
+templates:
+  - service.yaml
+tests:
+  - it: should have correct values
+    release:
+      name: data
+    set:
+      image.tag: 1.6.3-alpine
+    asserts:
+      - contains:
+          path: spec.ports[0]
+          content:
+            port: 8086
+            targetPort: 8086
+            protocol: TCP
+            name: api
+      - equal:
+          path: spec.type
+          value: ClusterIP
+      - equal:
+          path: spec.selector
+          value:
+            app: influxdb
+            release: data
+      - isKind:
+          of: Service
+      - matchRegex:
+          path: metadata.name
+          pattern: -influxdb$
