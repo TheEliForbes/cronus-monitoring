@@ -18,4 +18,5 @@ tests:
           pattern: -telegraf-s$
       - equal:
           path: spec.selector
-          value: polling-telegraf-s
+          value: 
+            app: polling-telegraf-s
