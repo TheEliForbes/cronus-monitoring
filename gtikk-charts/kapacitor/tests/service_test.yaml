@@ -20,7 +20,7 @@ tests:
       - equal:
           path: spec.selector
           value:
-            app: kapacitor         
+            app: alerts-kapacitor         
       - isKind:
           of: Service
       - matchRegex:
