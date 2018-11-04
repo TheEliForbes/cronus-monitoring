@@ -188,8 +188,14 @@ dashboardProviders:
 ## dashboards per provider, use provider name as key.
 ##
 dashboards: 
-  default: 
-    dashboard: { (.Files.Glob "dashboards/*.json") | indent 2 }
+{{- range $key, $value := {{ (.Files.Glob "dashboards/*.json") | indent 2 }} }}
+    {{- if hasKey $value "json" }}
+  {{ $key }}.json: |
+{{ $value.json | indent 4 }}
+    {{- end }}
+  {{- end }}
+  {{- end }}
+{{- end }}
    #default:
    #  deployment-dashboard:
    #    url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/Restarts%20Dashboard-1540495620364.json
