@@ -1,6 +1,6 @@
 suite: test deployment
 templates:
-  - deployment.yaml
+  - daemonset.yaml
 tests:
   - it: should work
     set:
