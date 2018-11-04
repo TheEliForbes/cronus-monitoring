@@ -194,12 +194,7 @@ serverDashboardFiles: {}
 
 keepOriginalDashboards: true
 
-dashboards:
-  default: 
-    all-dashboards: 
-      gnetId: 3152
-      revision: 2
-      datasource: influx
+dashboards: {}
   #  deployment-dashboard:
    #   url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/Restarts%20Dashboard-1540495620364.json
 #    some-dashboard:
@@ -220,8 +215,8 @@ dashboards:
 ##   example-dashboard.json: |
 ##     RAW_JSON
 ##
-dashboardsConfigMaps: {}
-#  default: ""
+dashboardsConfigMaps:
+  default: "all-dashboards"
 
 ## Grafana's primary configuration
 ## NOTE: values in map will be converted to ini format
