@@ -209,7 +209,7 @@ dashboards: {{ (.Files.Glob "dashboards/*.json") | indent 2 }}
 ##   example-dashboard.json: |
 ##     RAW_JSON
 ##
-dashboardsConfigMaps: 
+dashboardsConfigMaps: {}
   #data: {{ (.Files.Glob "dashboards/*.json").AsConfig | indent 2 }}
 
 ## Grafana's primary configuration
