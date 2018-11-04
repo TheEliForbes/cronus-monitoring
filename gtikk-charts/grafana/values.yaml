@@ -111,9 +111,6 @@ persistence:
 
 adminUser: admin
 adminPassword: strongpassword
-tests:
-  adminUser: admin
-  adminPassword: strongpassword
 
 ## Use an alternate scheduler, e.g. "stork".
 ## ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/
@@ -168,18 +165,18 @@ datasources:
 ##
 ## `path` must be /var/lib/grafana/dashboards/<provider_name>
 ##
-dashboardProviders:
-  dashboardproviders.yaml:
-    apiVersion: 1
-    providers:
-    - name: 'default'
-      orgId: 1
-      folder: ''
-      type: file
-      disableDeletion: false
-      editable: true
-      options:
-        path: /var/lib/grafana/dashboards/default
+#dashboardProviders:
+#  dashboardproviders.yaml:
+#    apiVersion: 1
+#    providers:
+#    - name: 'default'
+#      orgId: 1
+#      folder: ''
+#      type: file
+#      disableDeletion: false
+#      editable: true
+#      options:
+#        path: /var/lib/grafana/dashboards/default
 
 ## Configure grafana dashboard to import
 ## NOTE: To use dashboards you must also enable/configure dashboardProviders
@@ -187,14 +184,13 @@ dashboardProviders:
 ##
 ## dashboards per provider, use provider name as key.
 ##
-serverDashboardConfigmaps: 
-  default: "all-dashboards"
+serverDashboardConfigmaps: []
 
 serverDashboardFiles: {}
 
 keepOriginalDashboards: true
 
-dashboards: {}
+#dashboards: {}
   #  deployment-dashboard:
    #   url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/Restarts%20Dashboard-1540495620364.json
 #    some-dashboard:
@@ -215,8 +211,8 @@ dashboards: {}
 ##   example-dashboard.json: |
 ##     RAW_JSON
 ##
-dashboardsConfigMaps:
-  default: "all-dashboards"
+#dashboardsConfigMaps:
+#  default: "dash-grafana"
 
 ## Grafana's primary configuration
 ## NOTE: values in map will be converted to ini format
@@ -284,7 +280,7 @@ sidecar:
 #     cpu: 50m
 #     memory: 50Mi
   dashboards:
-    enabled: true
+    enabled: false
     # label that the configmaps with dashboards are marked with
     label: grafana_dashboard
     # folder in the pod that should hold the collected dashboards
