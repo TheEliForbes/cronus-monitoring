@@ -194,8 +194,8 @@ serverDashboardFiles: {}
 
 keepOriginalDashboards: true
 
-#dashboards:
- # default:
+dashboards:
+  default: "all-dashboards"
   #  deployment-dashboard:
    #   url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/Restarts%20Dashboard-1540495620364.json
 #    some-dashboard:
