@@ -6,13 +6,13 @@ metadata:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     heritage: "{{ .Release.Service }}"
     release: "{{ .Release.Name }}"
-  name: {{ template "grafana.fullname" . }}-server
+  name: "{{ template "grafana.fullname" . }}-dashboards"
 data:
   {{- if .Values.serverDashboardFiles }}
 {{ toYaml .Values.serverDashboardFiles | indent 2 }}
   {{ end }}
   {{- if .Values.keepOriginalDashboards }}
-{{ (.Files.Glob "custom-dashboards/*.json").AsConfig | indent 2 }}
+{{ (.Files.Glob "dashboards/*.json").AsConfig | indent 2 }}
   {{- end }}
   {{- if .Values.dataSource }}
 {{ toYaml .Values.dataSource | indent 2 }}
