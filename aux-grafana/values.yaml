@@ -13,7 +13,7 @@ annotations: {}
 
 ## If true, create a serviceMonitor for grafana
 ##
-selfServiceMonitor: true
+selfServiceMonitor: false
 ## Custom Labels to be added to ServiceMonitor
 ##
 additionalServiceMonitorLabels: {}
