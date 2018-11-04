@@ -188,7 +188,7 @@ dashboardProviders:
 ## dashboards per provider, use provider name as key.
 ##
 dashboards: 
-  default: {{ (.Files.Glob "dashboards/*.json") | indent 2 }}
+  default: { (.Files.Glob "dashboards/*.json") | indent 2 }
    #default:
    #  deployment-dashboard:
    #    url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/Restarts%20Dashboard-1540495620364.json
