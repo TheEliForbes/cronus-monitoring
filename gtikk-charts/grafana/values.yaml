@@ -211,8 +211,8 @@ keepOriginalDashboards: true
 ##   example-dashboard.json: |
 ##     RAW_JSON
 ##
-#dashboardsConfigMaps:
-#  default: "dash-grafana"
+#dashboardsConfigMaps: {}
+
 
 ## Grafana's primary configuration
 ## NOTE: values in map will be converted to ini format
