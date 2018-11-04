@@ -38,8 +38,6 @@ data:
     {{- if hasKey $value "json" }}
   {{ $key }}.json: |
 {{ $value.json | indent 4 }}
-    {{- end }}
+    {{- end -}}
   {{- end }}
   {{- end }}
-{{- end }}
-
