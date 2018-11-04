@@ -41,7 +41,7 @@ data:
       {{- end }}
     {{- end }}
     {{- end }}
-  {{- end }}
+
 #  download_dashboards.sh: |
 #    #!/usr/bin/env sh
 #    set -euf
