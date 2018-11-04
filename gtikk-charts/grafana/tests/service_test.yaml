@@ -4,9 +4,9 @@ templates:
 tests:
   - it: should have correct values
     release:
-      name: metrics
+      name: dash
     set:
-      image.tag: v1.4.0
+      image.tag: 5.3.2
     asserts:
       - contains:
           path: spec.ports
@@ -21,10 +21,10 @@ tests:
       - equal:
           path: spec.selector
           value:
-            app: kube-state-metrics
-            release: metrics
+            app: grafana
+            release: dash
       - isKind:
           of: Service
       - matchRegex:
           path: metadata.name
-          pattern: -kube-state-metrics$
+          pattern: -grafana$
