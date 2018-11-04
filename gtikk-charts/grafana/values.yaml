@@ -196,7 +196,10 @@ keepOriginalDashboards: true
 
 dashboards:
   default: 
-    dash: "all-dashboards"
+    all-dashboards: 
+      gnetId: 3152
+      revision: 2
+      datasource: influx
   #  deployment-dashboard:
    #   url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/Restarts%20Dashboard-1540495620364.json
 #    some-dashboard:
