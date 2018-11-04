@@ -1,5 +1,5 @@
 {
-  "__inputs": [
+  "dashboard":{"__inputs": [
     {
       "name": "influx",
       "label": "influx",
@@ -458,4 +458,5 @@
   "title": "Restarts Dashboard",
   "uid": "iyFav8Jik",
   "version": 9
+}
 }

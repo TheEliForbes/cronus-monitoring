@@ -1,5 +1,5 @@
 {
-  "__inputs": [
+  "dashboard": {"__inputs": [
     {
       "name": "influx",
       "label": "influx",
@@ -1542,4 +1542,5 @@
   "version": 8,
   "links": [],
   "gnetId": 747
+}
 }
