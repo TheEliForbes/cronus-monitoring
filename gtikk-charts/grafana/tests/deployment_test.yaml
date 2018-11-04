@@ -1,0 +1,16 @@
+suite: test deployment
+templates:
+  - deployment.yaml
+tests:
+  - it: should work
+    set:
+      image.tag: 5.3.2
+    asserts:
+      - isKind:
+          of: Deployment
+      - matchRegex:
+          path: metadata.name
+          pattern: -grafana$
+      - equal:
+          path: spec.template.spec.containers[2].image
+          value: grafana/grafana:5.3.2

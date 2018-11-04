@@ -1,0 +1,30 @@
+suite: test service
+templates:
+  - service.yaml
+tests:
+  - it: should have correct values
+    release:
+      name: metrics
+    set:
+      image.tag: v1.4.0
+    asserts:
+      - contains:
+          path: spec.ports
+          content:
+            port: 80
+            targetPort: 3000
+            protocol: TCP
+            name: service
+      - equal:
+          path: spec.type
+          value: ClusterIP
+      - equal:
+          path: spec.selector
+          value:
+            app: kube-state-metrics
+            release: metrics
+      - isKind:
+          of: Service
+      - matchRegex:
+          path: metadata.name
+          pattern: -kube-state-metrics$
