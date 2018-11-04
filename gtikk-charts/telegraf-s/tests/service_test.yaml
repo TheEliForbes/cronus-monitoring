@@ -1,0 +1,24 @@
+suite: test service
+templates:
+  - service.yaml
+tests:
+  - it: should have correct values
+    release:
+      name: polling
+    set:
+      image.tag: 1.8.1
+    asserts:      
+      - equal:
+          path: service.type
+          value: ClusterIP    
+      - isKind:
+          of: Service
+      - matchRegex:
+          path: metadata.name
+          pattern: -telegraf$
+      - equal:
+          path: image.tag
+          value: 1.8.1-alpine
+      - equal:
+          path: image.repo
+          value: telegraf
