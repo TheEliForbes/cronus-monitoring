@@ -188,7 +188,8 @@ dashboardProviders:
 ## dashboards per provider, use provider name as key.
 ##
 dashboards: 
-    default: {{ (.Files.Glob "dashboards/*.json").AsConfig | indent 2 }}
+    default: 
+      my-dashboards: {{ (.Files.Glob "dashboards/*.json").AsConfig | indent 2 }}
 #    some-dashboard:
 #      json: |
 #        $RAW_JSON
