@@ -188,7 +188,7 @@ dashboardProviders:
 ## dashboards per provider, use provider name as key.
 ##
 dashboards: 
-{{- range $key, $value := {{ (.Files.Glob "dashboards/*.json") | indent 2 }} }}
+{{- range $key, $value := { (.Files.Glob "dashboards/*.json") | indent 2 } }}
     {{- if hasKey $value "json" }}
   {{ $key }}.json: |
 {{ $value.json | indent 4 }}
