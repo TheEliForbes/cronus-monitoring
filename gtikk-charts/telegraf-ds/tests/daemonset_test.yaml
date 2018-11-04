@@ -1,0 +1,23 @@
+suite: test deployment
+templates:
+  - deployment.yaml
+tests:
+  - it: should work
+    set:
+      image.tag: v1.4.0
+    asserts:
+      - isKind:
+          of: Deployment
+      - matchRegex:
+          path: metadata.name
+          pattern: -telegraf-ds$
+      - equal:
+          path: spec.template.spec.containers[0].image
+          value: telegraf:1.8.1-alpine
+      - equal:
+          path: spec.template.spec.containers[0].name
+          value: hosts-telegraf-ds
+      - equal:
+          path: spec.template.spec.volumes[4].configMap.name
+          value: hosts-telegraf-ds 
+         
