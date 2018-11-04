@@ -187,7 +187,7 @@ datasources:
 ##
 ## dashboards per provider, use provider name as key.
 ##
-serverDashboardConfigmaps: {}
+serverDashboardConfigmaps: []
 
 serverDashboardFiles: {}
 
@@ -215,7 +215,7 @@ keepOriginalDashboards: true
 ##   example-dashboard.json: |
 ##     RAW_JSON
 ##
-dashboardsConfigMaps: {}
+#dashboardsConfigMaps: {}
 #  default: ""
 
 ## Grafana's primary configuration
