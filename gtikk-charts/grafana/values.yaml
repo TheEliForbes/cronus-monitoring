@@ -220,8 +220,7 @@ dashboards:
 ##   example-dashboard.json: |
 ##     RAW_JSON
 ##
-dashboardsConfigMaps:
-  default: "all-dashboards"
+dashboardsConfigMaps: {}
 #  default: ""
 
 ## Grafana's primary configuration
