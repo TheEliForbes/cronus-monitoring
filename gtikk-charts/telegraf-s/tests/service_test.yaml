@@ -9,16 +9,13 @@ tests:
       image.tag: 1.8.1
     asserts:      
       - equal:
-          path: service.type
+          path: spec.type
           value: ClusterIP    
       - isKind:
           of: Service
       - matchRegex:
           path: metadata.name
-          pattern: -telegraf$
+          pattern: -telegraf-s$
       - equal:
-          path: image.tag
-          value: 1.8.1-alpine
-      - equal:
-          path: image.repo
-          value: telegraf
+          path: spec.selector
+          value: polling-telegraf-s
