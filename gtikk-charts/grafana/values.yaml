@@ -141,9 +141,6 @@ plugins: []
   # - digrich-bubblechart-panel
   # - grafana-clock-panel
 
-
-keepOriginalDashboards: true
-
 ## Configure grafana datasources
 ## ref: http://docs.grafana.org/administration/provisioning/#datasources
 ##
@@ -194,6 +191,8 @@ serverDashboardConfigMaps: []
   
 serverDashboardFiles: {}
 
+keepOriginalDashboards: true
+
 #dashboards: {}
   #default:
    # deployment-dashboard:
@@ -216,7 +215,7 @@ serverDashboardFiles: {}
 ##   example-dashboard.json: |
 ##     RAW_JSON
 ##
-dashboardsConfigMaps: {}
+#dashboardsConfigMaps: {}
 #  default: ""
 
 ## Grafana's primary configuration
