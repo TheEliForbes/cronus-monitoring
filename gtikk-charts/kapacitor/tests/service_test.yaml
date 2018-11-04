@@ -1,0 +1,28 @@
+suite: test service
+templates:
+  - service.yaml
+tests:
+  - it: should have correct values
+    release:
+      name: alerts
+    set:
+      image.tag: v1.4.0
+    asserts:
+      - contains:
+          path: spec.ports
+          content:
+            port: 9092
+            targetPort: 9092         
+            name: api
+      - equal:
+          path: spec.type
+          value: ClusterIP
+      - equal:
+          path: spec.selector
+          value:
+            app: kapacitor         
+      - isKind:
+          of: Service
+      - matchRegex:
+          path: metadata.name
+          pattern: -kapacitor$

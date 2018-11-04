@@ -1,0 +1,16 @@
+suite: test deployment
+templates:
+  - deployment.yaml
+tests:
+  - it: should work
+    set:
+      image.tag: v1.4.0
+    asserts:
+      - isKind:
+          of: Deployment
+      - matchRegex:
+          path: metadata.name
+          pattern: -kapacitor$
+      - equal:
+          path: spec.template.spec.containers[0].image
+          value: kapacitor:1.5.1-alpine
