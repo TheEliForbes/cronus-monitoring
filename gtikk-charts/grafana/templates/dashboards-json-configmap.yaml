@@ -1,16 +1,22 @@
+{{- if .Values.dashboards }}
+  {{- range $provider, $dashboards := .Values.dashboards }}
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ template "grafana.fullname" . }}-dashboards
+  name: {{ template "grafana.fullname" $ }}-dashboards-{{ $provider }}
   labels:
-    app: {{ template "grafana.name" . }}
-    chart: {{ template "grafana.chart" . }}
-    release: {{ .Release.Name }}
-    heritage: {{ .Release.Service }}
+    app: {{ template "grafana.name" $ }}
+    chart: {{ template "grafana.chart" $ }}
+    release: {{ $.Release.Name }}
+    heritage: {{ $.Release.Service }}
+    dashboard-provider: {{ $provider }}
 data:
-  {{- if .Values.serverDashboardFiles }}
-{{ toYaml .Values.serverDashboardFiles | indent 2 }}
-  {{ end }}
-  {{- if .Values.keepOriginalDashboards }}
-{{ (.Files.Glob "dashboards/*.json").AsConfig | indent 2 }}
+  {{- range $key, $value := $dashboards }}
+    {{- if hasKey $value "json" }}
+  {{ $key }}.json: |
+{{ $value.json | indent 4 }}
+    {{- end }}
   {{- end }}
+  {{- end }}
+{{- end }}
