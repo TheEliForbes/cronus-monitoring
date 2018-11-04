@@ -181,6 +181,7 @@ dashboardProviders:
       options:
         path: /var/lib/grafana/dashboards/default
 
+
 ## Configure grafana dashboard to import
 ## NOTE: To use dashboards you must also enable/configure dashboardProviders
 ## ref: https://grafana.com/dashboards
