@@ -9,7 +9,7 @@ tests:
       image.tag: 1.6.3-alpine
     asserts:
       - contains:
-          path: spec.ports[0]
+          path: spec.ports
           content:
             port: 8086
             targetPort: 8086
@@ -21,8 +21,7 @@ tests:
       - equal:
           path: spec.selector
           value:
-            app: influxdb
-            release: data
+            app: data-influxdb            
       - isKind:
           of: Service
       - matchRegex:
