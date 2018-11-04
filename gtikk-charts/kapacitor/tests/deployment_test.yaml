@@ -4,7 +4,7 @@ templates:
 tests:
   - it: should work
     set:
-      image.tag: 1.5.1-alpine
+      image.tag: "1.5.1-alpine"
     asserts:
       - isKind:
           of: Deployment
