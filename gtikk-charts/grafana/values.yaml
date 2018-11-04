@@ -187,7 +187,7 @@ dashboardProviders:
 ##
 ## dashboards per provider, use provider name as key.
 ##
-dashboards: 
+dashboards: {}
     #default: 
      # my-dashboards: {{ (.Files.Glob "dashboards/*.json").AsConfig | indent 2 }}
 #    some-dashboard:
