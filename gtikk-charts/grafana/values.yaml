@@ -187,12 +187,10 @@ dashboardProviders:
 ##
 ## dashboards per provider, use provider name as key.
 ##
-dashboards: 
- #  default:
- #    dash: { (.Files.Glob "dashboards/*.json") | indent 2 }
-   default:
-     deployment-dashboard:
-       url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/Restarts%20Dashboard-1540495620364.json
+dashboards:
+  default:
+    deployment-dashboard:
+      url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/Restarts%20Dashboard-1540495620364.json
 #    some-dashboard:
 #      json: |
 #        $RAW_JSON
@@ -212,7 +210,7 @@ dashboards:
 ##     RAW_JSON
 ##
 dashboardsConfigMaps: {}
-  #data: {{ (.Files.Glob "dashboards/*.json").AsConfig | indent 2 }}
+#  default: ""
 
 ## Grafana's primary configuration
 ## NOTE: values in map will be converted to ini format
