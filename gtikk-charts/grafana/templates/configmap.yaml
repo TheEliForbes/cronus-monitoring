@@ -36,12 +36,12 @@ data:
 {{- if .Values.dashboards  }}
   {{- range $key, $value := .Values.dashboards }}
       {{- if hasKey $value "json" }}
-    {{ $key }}.json: |
-  {{ $value.json | indent 4 }}
-      {{- end }}
+  {{ $key }}.json: |
+{{ $value.json | indent 4 }}
     {{- end }}
-    {{- end }}
-
+  {{- end }}
+  {{- end }}
+{{- end -}}
 #  download_dashboards.sh: |
 #    #!/usr/bin/env sh
 #    set -euf
