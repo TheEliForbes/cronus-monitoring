@@ -33,12 +33,12 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- end -}}
 
 {{/*
-Return the appropriate apiVersion value to use for the prometheus-operator managed k8s resources
+Create the name of the service account
 */}}
-{{- define "prometheus-operator.apiVersion" -}}
-{{- if .Capabilities.APIVersions.Has "monitoring.coreos.com/v1" }}
-{{- printf "%s" "monitoring.coreos.com/v1" -}}
+{{- define "grafana.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create -}}
+    {{ default (include "grafana.fullname" .) .Values.serviceAccount.name }}
 {{- else -}}
-{{- printf "%s" "monitoring.coreos.com/v1alpha1" -}}
+    {{ default "default" .Values.serviceAccount.name }}
 {{- end -}}
 {{- end -}}
