@@ -141,6 +141,9 @@ plugins: []
   # - digrich-bubblechart-panel
   # - grafana-clock-panel
 
+
+keepOriginalDashboards: true
+
 ## Configure grafana datasources
 ## ref: http://docs.grafana.org/administration/provisioning/#datasources
 ##
