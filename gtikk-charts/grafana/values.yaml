@@ -187,6 +187,9 @@ dashboardProviders:
 ##
 ## dashboards per provider, use provider name as key.
 ##
+
+keepOriginalDashboards: true
+
 dashboards:
   default:
     deployment-dashboard:
