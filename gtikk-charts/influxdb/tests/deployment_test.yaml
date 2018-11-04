@@ -11,6 +11,3 @@ tests:
       - matchRegex:
           path: metadata.name
           pattern: -influxdb$
-      - equal:
-          path: spec.template.spec.containers[0].image
-          value: influxdb:1.6.3-alpine
