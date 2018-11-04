@@ -11,10 +11,9 @@ tests:
       - contains:
           path: spec.ports
           content:
-            port: 8086
-            targetPort: 8086
-            protocol: TCP
             name: api
+            port: 8086
+            targetPort: 8086            
       - equal:
           path: spec.type
           value: ClusterIP
