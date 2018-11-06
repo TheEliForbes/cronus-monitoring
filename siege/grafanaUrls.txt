@@ -1,0 +1,3 @@
+HOSTG=10.96.209.112
+http://${HOSTG}/login?username=admin&password=strongpassword
+http://${HOSTG}/dashboards
