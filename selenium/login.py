@@ -6,6 +6,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 import time
+import sys
 
 browser = webdriver.Firefox()
 browser.get("http://%s/login" % sys.argv[1])  #**
