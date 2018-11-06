@@ -10,8 +10,10 @@ wait 1
 #5 users, 25reps
 siege 'http://${HOSTG}/login?username=admin&password=strongpassword' 'http://${HOSTG}/dashboards' -c 5 -r 25 
 
+read -p "Continue? (any key)" c
 siege 'http://${HOSTI}/query?q=show+databases' 'http://${HOSTI}/query?q=select+*+from+telegraf..cpu' 'http://${HOSTI}/query?q=select+*+from+telegraf..kube_pod_container_status_restarts_total' -c 5 -r 25
 
+read -p "Continue? (any key)" c
 siege 'http://${HOSTK}/metrics' -c 5 -r 25
 
 echo "Siege has been completed. . ."
