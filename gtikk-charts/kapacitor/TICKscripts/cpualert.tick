@@ -1,0 +1,25 @@
+dbrp "telegraf"."autogen"
+
+var node_addr string
+
+var totalcapacity = stream
+    |from()
+        .measurement('kube_node_status_capacity')
+        .where(lambda: "resource" == 'cpu_cores')
+        .where(lambda: "node" == node_addr)
+
+var allocatable = stream
+    |from()
+        .measurement('kube_node_status_allocatable')
+        .where(lambda: "resource" == 'cpu_cores')
+        .where(lambda: "node" == node_addr)
+
+var data = totalcapacity
+    |join(allocatable)
+        .as('capacity', 'free')
+
+data
+    |alert()
+        .crit(lambda: ("free.value" / "capacity.value" * 100) < 10)
+        .message('Pod {{ .node_addr }} has low CPU remaining')
+        .slack()

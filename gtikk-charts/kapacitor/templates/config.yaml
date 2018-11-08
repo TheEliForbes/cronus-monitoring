@@ -131,17 +131,15 @@ data:
       enabled = false
       addr = ""
       source = "Kapacitor"
-    [slack]
-      enabled = false
-      url = ""
-      channel = ""
+    [[slack]]
+      enabled = true
+      default = true
+      workspace = "skytap-cronus.slack.com"
+      url = "https://hooks.slack.com/services/TCNH23GCU/BDXJMNA/Ae40cl3u9QLZ4M4wA6BtJ9ZQ"
+      channel = "#kapacitorspam"
       username = "kapacitor"
-      icon-emoji = ""
       global = false
       state-changes-only = false
-      ssl-ca = ""
-      ssl-cert = ""
-      ssl-key = ""
       insecure-skip-verify = false
     [talk]
       enabled = false
