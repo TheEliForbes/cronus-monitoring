@@ -178,7 +178,7 @@ dashboardProviders:
       options:
         path: /var/lib/grafana/dashboards/default
     - name: 'ds1'
-      orgId: 1
+      orgId: 2
       folder: ''
       type: file
       disableDeletion: false
