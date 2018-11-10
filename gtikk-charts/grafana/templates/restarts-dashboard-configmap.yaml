@@ -8,4 +8,4 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 data:
-{{ (.Files.Glob "dashboards/restarts-dashboard.json").AsConfig | indent 2 }}
+{{ (.Files.Glob "dashboards/*.json").AsConfig | indent 2 }}
