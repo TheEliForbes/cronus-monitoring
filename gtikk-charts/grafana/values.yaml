@@ -189,7 +189,7 @@ dashboards:
   default:
     restarts-dashboard:
       json: |
-        {{ (.Files.Get dashboards/restarts-dashboard.json) | indent 2 }}
+        {{ (.Files.Get restarts-dashboard.json) | indent 2 }}
       url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/Restarts%20Dashboard-1540495620364.json
     pod-dashboard:
       url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/gtikk-charts/grafana/dashboards/pod-metrics_rev2.json
