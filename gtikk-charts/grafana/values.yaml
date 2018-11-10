@@ -195,9 +195,7 @@ dashboardProviders:
 ##
 dashboards:
   default:
-    restarts-dashboard:
-      json: |
-        {{ (.Files.Glob "dashboards/restarts-dashboard.json").AsConfig | indent 2 }}
+    restarts-dashboard: "restarts-dashboard"
     pod-dashboard:
       url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/gtikk-charts/grafana/dashboards/pod-metrics_rev2.json
     system-dashboard:
