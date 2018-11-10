@@ -212,7 +212,7 @@ dashboards: {}
 ##     RAW_JSON
 ##
 dashboardsConfigMaps: 
-  default: "restarts-dashboard"
+  default: "all-dashboards"
 #  default: ""
 
 ## Grafana's primary configuration
