@@ -177,14 +177,6 @@ dashboardProviders:
       editable: true
       options:
         path: /var/lib/grafana/dashboards/default
-    - name: 'ds1'
-      orgId: 2
-      folder: ''
-      type: file
-      disableDeletion: false
-      editable: true
-      options:
-        path: /var/lib/grafana/dashboards/ds1
 
 
 ## Configure grafana dashboard to import
