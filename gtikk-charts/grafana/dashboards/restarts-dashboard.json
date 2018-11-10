@@ -1,5 +1,5 @@
 {
-  "restarts-dashboard": {
+  "dashboard": {
       "__inputs": [
       {
         "name": "influx",
