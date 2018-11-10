@@ -177,6 +177,14 @@ dashboardProviders:
       editable: true
       options:
         path: /var/lib/grafana/dashboards/default
+    - name: 'ds1'
+      orgId: 1
+      folder: ''
+      type: file
+      disableDeletion: false
+      editable: true
+      options:
+        path: /var/lib/grafana/dashboards/ds1
 
 
 ## Configure grafana dashboard to import
@@ -187,14 +195,13 @@ dashboardProviders:
 ##
 dashboards:
   default:
-    restarts-dashboard:
-      json: |
-        {{ (.Files.Glob "dashboards/restarts-dashboard.json") | b64enc | indent 2 }}
     pod-dashboard:
       url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/gtikk-charts/grafana/dashboards/pod-metrics_rev2.json
     system-dashboard:
       url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/gtikk-charts/grafana/dashboards/telegraf-system-metrics_rev1.json
-
+#restarts-dashboard:
+#      json: |
+#        {{ (.Files.Glob "dashboards/restarts-dashboard.json") | b64enc | indent 2 }}
 #    some-dashboard:
 #      json: |
 #        $RAW_JSON
@@ -213,7 +220,8 @@ dashboards:
 ##   example-dashboard.json: |
 ##     RAW_JSON
 ##
-dashboardsConfigMaps: {}
+dashboardsConfigMaps:
+  ds1: "restarts-dashboard"
 #  default: ""
 
 ## Grafana's primary configuration
