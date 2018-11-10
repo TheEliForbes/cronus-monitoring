@@ -657,7 +657,7 @@ dashboards:
         "title": "Restarts Dashboard",
         "uid": "iyFav8Jik",
         "version": 9
-      }
+        }
     pod-dashboard:
       url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/gtikk-charts/grafana/dashboards/pod-metrics_rev2.json
     system-dashboard:
