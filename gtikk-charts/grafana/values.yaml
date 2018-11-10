@@ -193,13 +193,13 @@ dashboardProviders:
 ##
 ## dashboards per provider, use provider name as key.
 ##
-dashboards:
-  default:
-    restarts-dashboard: "restarts-dashboard"
-    pod-dashboard:
-      url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/gtikk-charts/grafana/dashboards/pod-metrics_rev2.json
-    system-dashboard:
-      url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/gtikk-charts/grafana/dashboards/telegraf-system-metrics_rev1.json
+dashboards: {}
+ # default:
+  #  restarts-dashboard: "restarts-dashboard"
+  #  pod-dashboard:
+  #    url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/gtikk-charts/grafana/dashboards/pod-metrics_rev2.json
+  #  system-dashboard:
+  #    url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/gtikk-charts/grafana/dashboards/telegraf-system-metrics_rev1.json
 
 #    some-dashboard:
 #      json: |
@@ -219,8 +219,9 @@ dashboards:
 ##   example-dashboard.json: |
 ##     RAW_JSON
 ##
-dashboardsConfigMaps: {}
-  #ds1: "restarts-dashboard"
+dashboardsConfigMaps: 
+  default: 
+    - "restarts-dashboard"
 #  default: ""
 
 ## Grafana's primary configuration
