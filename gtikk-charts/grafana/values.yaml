@@ -186,15 +186,15 @@ dashboardProviders:
 ## dashboards per provider, use provider name as key.
 ##
 dashboards:
-  default:    
-      url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/Restarts%20Dashboard-1540495620364.json
+  default:
+    restarts-dashboard:
+      json: |
+        {{ (.Files.Get "restarts-dashboard.json") | b64enc }}
     pod-dashboard:
       url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/gtikk-charts/grafana/dashboards/pod-metrics_rev2.json
     system-dashboard:
       url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/gtikk-charts/grafana/dashboards/telegraf-system-metrics_rev1.json
-  restarts-dashboard:
-      json: |
-        {{ (.Files.Get restarts-dashboard.json) | b64enc }}
+
 #    some-dashboard:
 #      json: |
 #        $RAW_JSON
