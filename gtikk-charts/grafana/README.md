@@ -26,6 +26,10 @@ $ helm delete dash
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
 
+## Dashboards
+
+If you have your own pre-made dashboards that you want to import, put them in the `dashboards/` folder of the chart.
+
 
 ## Configuration
 
