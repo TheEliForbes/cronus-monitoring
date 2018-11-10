@@ -213,7 +213,7 @@ dashboards: {}
 ##
 dashboardsConfigMaps: 
   default: 
-    - "restarts-dashboard"
+    restarts-dashboard: "restarts-dashboard"
 #  default: ""
 
 ## Grafana's primary configuration
