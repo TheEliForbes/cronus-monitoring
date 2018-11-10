@@ -28,7 +28,7 @@ The command removes all the Kubernetes components associated with the chart and 
 
 ## Dashboards
 
-If you have your own pre-made dashboards that you want to import, put them in the `dashboards/` folder of the chart.
+If you have your own pre-made dashboards that you want to import, simply put them in the `dashboards/` folder of the chart, and it will be automatically imported.
 
 
 ## Configuration
