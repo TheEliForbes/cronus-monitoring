@@ -65,6 +65,6 @@ influxURL: http://data-influxdb.kube-system:8086
 ## A Kubernetes Job can be used to install TICK scripts from a specified
 ## tick_dir directory, if enabled.
 ## 
-install_tick_scripts:
-  enabled: true
-  tick_dir: /TICKscripts
+##install_tick_scripts:
+##  enabled: true
+##  tick_dir: /TICKscripts

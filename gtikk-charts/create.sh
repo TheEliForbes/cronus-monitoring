@@ -6,12 +6,13 @@ case $yn in
 	[Yy]* ) helm install --name data --namespace kube-system ./influxdb/;
 			helm install --name polling --namespace kube-system ./telegraf-s/;
 			helm install --name hosts --namespace kube-system ./telegraf-ds/;
-			pwd
-			mkdir /TICKscripts
-			mkdir /TICKscripts/stream
-			cp -r kapacitor/TICKscripts/stream/* /TICKscripts
-			#add similar commands for batch
-			helm install --wait --name alerts --namespace kube-system ./kapacitor/;
+			
+			helm install --name alerts --namespace kube-system ./kapacitor/;
+			kubectl cp ./TICKscripts /TICKscripts -c $(sudo kubectl get pods --namespace kube-system -l app=alerts-kapacitor -o jsonpath='{ .items[0].metadata.name }')
+			./connectToKapacitorContainer.sh
+			chmod +x /TICKscripts/defineTasks.sh
+			.//TICKscripts/defineTasks.sh
+			
 			helm install --name dash --namespace kube-system ./grafana/;;
 [Nn]* ) exit;;
 	* ) echo "Please answer y/n.";;
