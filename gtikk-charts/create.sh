@@ -11,7 +11,7 @@ case $yn in
 			helm install --name dash --namespace kube-system ./grafana/;
 
 			sleep 10;
-			kubectl cp "./TICKscripts" "kube-system/$(sudo kubectl get pods --namespace kube-system -l app=alerts-kapacitor -o jsonpath='{ .items[0].metadata.name }'):/"; 
+			kubectl cp "./kapacitor/TICKscripts" "kube-system/$(sudo kubectl get pods --namespace kube-system -l app=alerts-kapacitor -o jsonpath='{ .items[0].metadata.name }'):/"; 
 			./connectToKapacitorContainer.sh;
 			chmod +x /TICKscripts/defineTasks.sh;
 			.//TICKscripts/defineTasks.sh;;
