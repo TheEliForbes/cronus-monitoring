@@ -63,10 +63,7 @@ spec:
           mountPath: /tick
         - name: init
           mountPath: /init
-      volumes:
-      - name: alerts
-        configMap:
-          name: {{ template "fullname" . }}-alerts
+      volumes:     
       - name: init
         configMap:
           name: {{ template "fullname" . }}-init
