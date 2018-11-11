@@ -14,7 +14,6 @@ case $yn in
 			echo $KPODNAME;
 			echo "$(pwd)/kapacitor/TICKscripts";
 			echo "kube-system/$KPODNAME:/tmp";
-			sleep 10;
 			kubectl cp "$(pwd)/kapacitor/TICKscripts" "kube-system/$KPODNAME:/tmp"; 
 			./connectToKapacitorContainer.sh;
 			chmod +x /tmp/TICKscripts/defineTasks.sh;
