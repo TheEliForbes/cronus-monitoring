@@ -67,4 +67,4 @@ influxURL: http://data-influxdb.kube-system:8086
 ## 
 install_tick_scripts:
   enabled: true
-  tick_dir: ./TICKscripts
+  tick_dir: /TICKscripts
