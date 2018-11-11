@@ -8,7 +8,7 @@ case $yn in
 			helm install --name hosts --namespace kube-system ./telegraf-ds/;
 			
 			helm install --name alerts --namespace kube-system ./kapacitor/;
-			kubectl cp ./TICKscripts /TICKscripts -c $(sudo kubectl get pods --namespace kube-system -l app=alerts-kapacitor -o jsonpath='{ .items[0].metadata.name }')
+			kubectl cp ./TICKscripts kube-system/$(sudo kubectl get pods --namespace kube-system -l app=alerts-kapacitor -o jsonpath='{ .items[0].metadata.name }')/TICKscripts 
 			./connectToKapacitorContainer.sh
 			chmod +x /TICKscripts/defineTasks.sh
 			.//TICKscripts/defineTasks.sh
