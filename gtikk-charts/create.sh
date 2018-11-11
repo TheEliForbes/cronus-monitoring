@@ -7,8 +7,10 @@ case $yn in
 			helm install --name polling --namespace kube-system ./telegraf-s/;
 			helm install --name hosts --namespace kube-system ./telegraf-ds/;
 			pwd
-			mkdir TICKscripts
-			cp -r kapacitor/TICKscripts/* /TICKscripts
+			mkdir /TICKscripts
+			mkdir /TICKscripts/stream
+			cp -r kapacitor/TICKscripts/stream/* /TICKscripts
+			#add similar commands for batch
 			helm install --wait --name alerts --namespace kube-system ./kapacitor/;
 			helm install --name dash --namespace kube-system ./grafana/;;
 [Nn]* ) exit;;
