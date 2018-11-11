@@ -54,7 +54,7 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        command: ["bash", "/init/init.sh"]
+        command: ["sh", "/init/init.sh"]
         env:
           - name: TICK_DIR
             value: "{{ .Values.install_tick_scripts.tick_dir }}"
