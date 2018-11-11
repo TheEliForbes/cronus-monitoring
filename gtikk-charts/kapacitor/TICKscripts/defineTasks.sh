@@ -3,7 +3,10 @@
 # This is necessary since the Kapacitor PR which attempts to better solve this, fails
 
 for alert in ./stream/; do
-    kapacitor define $alert \
+    name="$(basename $alert)"
+    kapacitor define $name \
         -type stream \
         -dbrp telegraf.autogen \
+        -tick $alert
+    kapacitor enable $name
 done
