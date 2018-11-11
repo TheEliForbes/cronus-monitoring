@@ -58,9 +58,7 @@ spec:
         env:
           - name: TICK_DIR
             value: "{{ .Values.install_tick_scripts.tick_dir }}"
-        volumeMounts:
-        - name: alerts
-          mountPath: /tick
+        volumeMounts:        
         - name: init
           mountPath: /init
       volumes:     
