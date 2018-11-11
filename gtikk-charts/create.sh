@@ -6,7 +6,7 @@ case $yn in
 	[Yy]* ) helm install --name data --namespace kube-system ./influxdb/;
 			helm install --name polling --namespace kube-system ./telegraf-s/;
 			helm install --name hosts --namespace kube-system ./telegraf-ds/;
-			helm install --name alerts --namespace kube-system ./kapacitor/;
+			helm install --wait --name alerts --namespace kube-system ./kapacitor/;
 			helm install --name dash --namespace kube-system ./grafana/;;
 [Nn]* ) exit;;
 	* ) echo "Please answer y/n.";;
