@@ -11,10 +11,10 @@ case $yn in
 			helm install --name dash --namespace kube-system ./grafana/;
 
 			sleep 10;
-			kubectl cp "./kapacitor/TICKscripts" "kube-system/$(sudo kubectl get pods --namespace kube-system -l app=alerts-kapacitor -o jsonpath='{ .items[0].metadata.name }'):/"; 
+			kubectl cp "$(pwd)/kapacitor/TICKscripts" "kube-system/$(sudo kubectl get pods --namespace kube-system -l app=alerts-kapacitor -o jsonpath='{ .items[0].metadata.name }'):/tmp"; 
 			./connectToKapacitorContainer.sh;
-			chmod +x /TICKscripts/defineTasks.sh;
-			.//TICKscripts/defineTasks.sh;;
+			chmod +x /tmp/TICKscripts/defineTasks.sh;
+			.//tmp/TICKscripts/defineTasks.sh;;
 [Nn]* ) exit;;
 	* ) echo "Please answer y/n.";;
 esac
