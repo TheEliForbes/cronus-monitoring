@@ -8,16 +8,15 @@ case $yn in
 			helm install --name hosts --namespace kube-system ./telegraf-ds/;
 			
 			helm install --name alerts --namespace kube-system ./kapacitor/;
-			helm install --name dash --namespace kube-system ./grafana/;
+			helm install --name dash --namespace kube-system ./grafana/;;
+	[Nn]* ) exit;;
+		* ) echo "Please answer y/n.";;
+esac
 
-			KPODNAME=$(sudo kubectl get pods --namespace kube-system -l app=alerts-kapacitor -o jsonpath='{ .items[0].metadata.name }');
-			echo $KPODNAME;
-			echo "$(pwd)/kapacitor/TICKscripts";
-			echo "kube-system/$KPODNAME:/tmp";
-			kubectl cp "$(pwd)/kapacitor/TICKscripts" "kube-system/$KPODNAME:/tmp"; 
-			./connectToKapacitorContainer.sh;
-			chmod +x /tmp/TICKscripts/defineTasks.sh;
-			.//tmp/TICKscripts/defineTasks.sh;;
-[Nn]* ) exit;;
-	* ) echo "Please answer y/n.";;
+read -p "Auto-define all alerts? (y/n)" yn
+case $yn in
+	[Yy]* ) chmod +x copyTickScripts.sh;
+			./copyTickScripts.sh;;
+	[Nn]* ) exit;;
+		* ) echo "Please answer y/n.";;
 esac
