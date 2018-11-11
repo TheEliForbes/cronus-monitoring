@@ -10,6 +10,7 @@ case $yn in
 			helm install --name alerts --namespace kube-system ./kapacitor/;
 			helm install --name dash --namespace kube-system ./grafana/;
 
+			echo $(sudo kubectl get pods --namespace kube-system -l app=alerts-kapacitor -o jsonpath='{ .items[0].metadata.name }');
 			sleep 10;
 			kubectl cp "$(pwd)/kapacitor/TICKscripts" "kube-system/$(sudo kubectl get pods --namespace kube-system -l app=alerts-kapacitor -o jsonpath='{ .items[0].metadata.name }'):/tmp"; 
 			./connectToKapacitorContainer.sh;
