@@ -11,7 +11,7 @@ metadata:
     heritage: "{{ .Release.Service }}"
 data:
   init.sh: |-
-    #!/usr/bin/env bash
+    #!/usr/bin/env sh
     export KAPACITOR_URL="{{ template "fullname" . }}.{{ .Release.Namespace }}:9092"
     ls -al $TICK_DIR
     kapacitor list tasks
