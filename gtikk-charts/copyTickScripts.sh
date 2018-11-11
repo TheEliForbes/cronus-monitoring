@@ -5,9 +5,3 @@ echo $KPODNAME
 echo "$(pwd)/kapacitor/TICKscripts"
 echo "kube-system/$KPODNAME:/tmp"
 kubectl cp "$(pwd)/kapacitor/TICKscripts" "kube-system/$KPODNAME:/tmp"
-
-sleep 5
-
-kubectl exec -i -t --namespace kube-system $KPODNAME /bin/sh
-chmod +x /tmp/TICKscripts/defineTasks.sh;
-.//tmp/TICKscripts/defineTasks.sh

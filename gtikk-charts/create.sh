@@ -16,7 +16,9 @@ esac
 read -p "Auto-define all alerts? (y/n)" yn
 case $yn in
 	[Yy]* ) chmod +x copyTickScripts.sh;
-			./copyTickScripts.sh;;
+			./copyTickScripts.sh;
+			chmod +x defineTickTasks.sh;
+			./defineTickTasks.sh;;
 	[Nn]* ) exit;;
 		* ) echo "Please answer y/n.";;
 esac
