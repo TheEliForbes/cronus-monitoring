@@ -4,4 +4,6 @@
 sudo rm -r TIKsm-setup
 git clone https://github.com/Eliforbes42/TIKsm-setup
 chmod +x ~/TIKsm-setup/gtikk-charts/*.sh
-cd ~/TIKsm-setup/gtikk-charts/
+chmod +x ~/TIKsm-setup/selenium/*.sh
+chmod +x ~/TIKsm-setup/siege/*.sh
+cd ~/TIKsm-setup/
