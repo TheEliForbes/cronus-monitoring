@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # This script is intended to auto-define the tasks included in TICKscripts/
 # This is necessary since the Kapacitor PR which attempts to better solve this, fails
 
