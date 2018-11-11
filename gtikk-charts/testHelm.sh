@@ -4,8 +4,7 @@
 helm test metrics
 helm test data
 helm test dash
-chmod +x cleanUpTest.sh
-./cleanUpTest.sh
+helm unittest */  #unit test all charts
 
 case $1 in
 	-n) true;;

@@ -47,7 +47,7 @@ fi
 
 read -p "Would you like to test the GKIT? (y/n)" yn
 case $yn in
-	[Yy]* ) chmod +x testHelm.sh; sudo ./testHelm.sh;;
+	[Yy]* ) helm plugin install https://github.com/lrills/helm-unittest; chmod +x testHelm.sh; sudo ./testHelm.sh;;
 	[Nn]* ) exit;;
 	* ) echo "Please answer y/n.";;
 esac
