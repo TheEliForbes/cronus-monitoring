@@ -130,12 +130,7 @@ config:
 ##        topic: "telegraf"
 ##        data_format: "influx"
   
-  http_response_addresses:
-    - "http://data-influxdb.kube-system:8086/query?q=show+databases"
-    - "http://alerts-kapacitor.kube-system:9092/"
-    - "http://data-influxdb.kube-system:8086/query?q=show+databases"
-    - "http://metrics-kube-state-metrics.kube-system:8085/metrics"
-  
+
 # CPU and System is required for chronograf
 # This may show errors in the logs, but this does not affect performance or functionality
   inputs:
@@ -154,19 +149,19 @@ config:
     - swap:
     - system:
     - http_response:
-        address: "{{ .Values.http_response_addresses[0] }}"
+        address: "http://data-influxdb.kube-system:8086/query?q=show+databases"
         response_timeout: "5s"
         method: "GET"
     - http_response:
-        address: "{{ .Values.http_response_addresses[1] }}"
+        address: "http://alerts-kapacitor.kube-system:9092/"
         response_timeout: "5s"
         method: "GET"
     - http_response:
-        address: "{{ .Values.http_response_addresses[2] }}"
+        address: "http://data-influxdb.kube-system:8086/query?q=show+databases"
         response_timeout: "5s"
         method: "GET"
     - http_response:
-        address: "{{ .Values.http_response_addresses[3] }}"
+        address: "http://metrics-kube-state-metrics.kube-system:8085/metrics"
         response_timeout: "5s"
         method: "GET"
 ##      aerospike:
