@@ -59,7 +59,7 @@ affinity: {}
 ## Set the URL of InfluxDB instance to create subscription on
 ## ref: https://docs.influxdata.com/kapacitor/v1.5/introduction/getting_started/
 ##
-influxURL: http://data-influxdb.{{ .Release.Namespace }}:8086
+influxURL: 'http://data-influxdb.{{ .Release.Namespace }}:8086'
 
 
 ## A Kubernetes Job can be used to install TICK scripts from a specified
