@@ -27,5 +27,5 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{/*
 Create the namespace of the deployment
 */}}
-{{ $global := . }}
+{{ $global := .Release.Namespace }}
 {{ tpl (trimAll "\"'" .Values.influxURL) $global }}
