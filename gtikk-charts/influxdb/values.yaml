@@ -13,7 +13,7 @@ service:
   type: ClusterIP
 
 ##Alias namespace
-space: kube-system
+space: {{ .Release.Namespace }}
 sport: 8086
 ## Persist data to a persitent volume
 ##

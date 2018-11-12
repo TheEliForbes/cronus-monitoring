@@ -14,5 +14,5 @@ spec:
     - name: curl
       image: radial/busyboxplus:curl
       command: ['curl']
-      args:  ['http://data-influxdb.kube-system:8086/query?q=select+*+from+telegraf..cpu']
+      args:  ['http://data-influxdb.{{ .Release.Namespace }}:8086/query?q=select+*+from+telegraf..cpu']
   restartPolicy: Never
