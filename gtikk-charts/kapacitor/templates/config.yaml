@@ -34,7 +34,7 @@ data:
       enabled = true
       name = "default"
       default = false
-      urls = ["{{ template "fullname" . }}.{{.Release.Namespace}}:8086"]
+      urls = ["http://{{ template "fullname" . }}.{{.Release.Namespace}}:8086"]
       username = ""
       password = ""
       ssl-ca = ""
