@@ -14,3 +14,12 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- $name := default .Chart.Name .Values.nameOverride -}}
 {{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
+
+{{/*
+Dynamically define the namespace from the release,
+ to be used within the many linking urls. (ex. http://data-influxdb{{ template "namespace" }}:8086/)
+{{- define "namespace -}}
+{{- printf "%s" .Release.Namespace -}}
+{{- end -}}
+ 
+ 
