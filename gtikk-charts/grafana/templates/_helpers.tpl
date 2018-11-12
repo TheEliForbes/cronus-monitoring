@@ -46,5 +46,5 @@ Create the name of the service account
 Create the namespace of the deployment
 */}}
 {{ $global := . }}
-{{ tpl (trimAll "\"'" .Values.datasources.datasources.yaml.datasources[0].url) $global }}
+{{ tpl (trimAll "\"'" .Values.datasources.datasources.yaml.datasources.influxdb.url) $global }}
 

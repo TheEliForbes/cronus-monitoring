@@ -178,4 +178,4 @@ We truncate at 24 chars because some Kubernetes name fields are limited to this 
 Create the namespace of the deployment
 */}}
 {{ $global := . }}
-{{ tpl (trimAll "\"'" .Values.config.outputs[0].url) $global }}
+{{ tpl (trimAll "\"'" .Values.config.outputs.influxdb.url) $global }}
