@@ -12,6 +12,8 @@ image:
 service:
   type: ClusterIP
 
+
+currentnamespace: '{{ .Release.Namespace }}'
 ##Alias namespace
 space: kube-system
 sport: 8086

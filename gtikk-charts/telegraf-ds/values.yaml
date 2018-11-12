@@ -36,7 +36,7 @@ config:
     flush_jitter: "0s"
   outputs:
     - influxdb:
-        url: "http://data-influxdb.{{ template "namespace" . }}:8086"
+        url: "http://data-influxdb.{{ .Release.Namespace }}:8086"
         database: "telegraf"
         retention_policy: ""
         timeout: "5s"

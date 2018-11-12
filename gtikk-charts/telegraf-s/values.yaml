@@ -64,7 +64,7 @@ config:
   outputs:
     - influxdb:
         urls:
-          - "http://data-influxdb.{{ template "namespace" . }}:8086"
+          - "http://data-influxdb.{{ .Release.Namespace }}:8086"
         database: "telegraf"
 ##        retention_policy: ""
 ##        write_consistency: "any"
@@ -149,15 +149,15 @@ config:
     - swap:
     - system:
     - http_response:
-        address: "http://data-influxdb.{{ template "namespace" . }}:8086/query?q=show+databases"
+        address: "http://data-influxdb.kube-system:8086/query?q=show+databases"
         response_timeout: "5s"
         method: "GET"
     - http_response:
-        address: "http://alerts-kapacitor.{{ template "namespace" . }}:9092/"
+        address: "http://alerts-kapacitor.kube-system:9092/"
         response_timeout: "5s"
         method: "GET"
     - http_response:
-        address: "http://metrics-kube-state-metrics.{{ template "namespace" . }}:8085/metrics"
+        address: "http://metrics-kube-state-metrics.kube-system:8085/metrics"
         response_timeout: "5s"
         method: "GET"
     - http_response:
@@ -259,15 +259,15 @@ config:
 ##          - "http://myhaproxy.com:1936/haproxy?stats"
     - influxdb:
         urls:
-          - "http://data-influxdb.{{ template "namespace" . }}:8086/debug/vars"
+          - "http://data-influxdb.kube-system:8086/debug/vars"
         timeout: "5s"
     - kapacitor:
         urls:
-          - "http://kap-kapacitor.{{ template "namespace" . }}:9092/debug/vars"
+          - "http://kap-kapacitor.kube-system:9092/debug/vars"
         timeout: "5s"
     - kapacitor:
         urls:
-          - "http://kap2-kapacitor.{{ template "namespace" . }}:9092/debug/vars"
+          - "http://kap2-kapacitor.kube-system:9092/debug/vars"
         timeout: "5s"
 ##      lustre2:
 ##        ost_procfiles:
@@ -364,7 +364,7 @@ config:
 ##          - "testing"
       prometheus:
         urls:
-          - "http://metrics-kube-state-metrics.{{ template "namespace" . }}.svc.cluster.local:8085/metrics"
+          - "http://metrics-kube-state-metrics.kube-system.svc.cluster.local:8085/metrics"
 ##          - "https://kubernetes.default:443/metrics"
 ##        name_prefix: "prom_"
 ##        bearer_token: "/var/run/secrets/kubernetes.io/serviceaccount/token"

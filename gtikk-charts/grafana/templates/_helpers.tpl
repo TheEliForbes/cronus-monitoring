@@ -41,3 +41,10 @@ Create the name of the service account
     {{ default "default" .Values.serviceAccount.name }}
 {{- end -}}
 {{- end -}}
+
+{{/*
+Create the namespace of the deployment
+*/}}
+{{ $global := . }}
+{{ tpl (trimAll "\"'" .Values.datasources.datasources.yaml.datasources[0].url) $global }}
+

@@ -173,3 +173,9 @@ We truncate at 24 chars because some Kubernetes name fields are limited to this 
     {{ end }}
 {{- end }}
 {{- end -}}
+
+{{/*
+Create the namespace of the deployment
+*/}}
+{{ $global := . }}
+{{ tpl (trimAll "\"'" .Values.config.outputs[0].url) $global }}

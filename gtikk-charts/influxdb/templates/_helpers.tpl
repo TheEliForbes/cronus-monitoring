@@ -22,4 +22,8 @@ Dynamically define the namespace from the release,
 {{- printf "%s" .Release.Namespace -}}
 {{- end -}}
  
- 
+{{/*
+Create the namespace of the deployment
+*/}}
+{{ $global := . }}
+{{ tpl (trimAll "\"'" .Values.currentnamespace) $global }}

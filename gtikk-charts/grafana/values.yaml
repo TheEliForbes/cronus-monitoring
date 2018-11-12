@@ -138,6 +138,8 @@ plugins: []
   # - digrich-bubblechart-panel
   # - grafana-clock-panel
 
+currentnamespace: '{{ .Release.Namespace }}'
+
 ## Configure grafana datasources
 ## ref: http://docs.grafana.org/administration/provisioning/#datasources
 ##
@@ -148,7 +150,7 @@ datasources:
     - name: influx
       type: influxdb              
       database: telegraf
-      url: "http://data-influxdb.{{ template "namespace" . }}:8086"
+      url: "http://data-influxdb.{{ .Release.Namespace }}:8086"
       access: proxy
       isDefault: true
       label: grafana_datasource
