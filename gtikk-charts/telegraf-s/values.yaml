@@ -149,21 +149,17 @@ config:
     - swap:
     - system:
     - http_response:
-        address: "http://data-influxdb.kube-system:8086/query?q=show+databases"
+        address: ["http://data-influxdb.kube-system:8086/query?q=show+databases","http://alerts-kapacitor.kube-system:9092/","http://metrics-kube-state-metrics.kube-system:8085/metrics"]
         response_timeout: "5s"
         method: "GET"
-    - http_response:
-        address: "http://alerts-kapacitor.kube-system:9092/"
-        response_timeout: "5s"
-        method: "GET"
-    - http_response:
-        address: "http://data-influxdb.kube-system:8086/query?q=show+databases"
-        response_timeout: "5s"
-        method: "GET"
-    - http_response:
-        address: "http://metrics-kube-state-metrics.kube-system:8085/metrics"
-        response_timeout: "5s"
-        method: "GET"
+#    - http_response:
+#        address: "http://alerts-kapacitor.kube-system:9092/"
+#        response_timeout: "5s"
+#        method: "GET"
+#    - http_response:
+#        address: "http://metrics-kube-state-metrics.kube-system:8085/metrics"
+#        response_timeout: "5s"
+#        method: "GET"
 ##      aerospike:
 ##        servers:
 ##          - "localhost:3000"
