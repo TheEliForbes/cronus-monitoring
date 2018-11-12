@@ -12,11 +12,6 @@ image:
 service:
   type: ClusterIP
 
-##Alias namespace
-space: "{{ .Release.Namespace }}"
-sport: 8086
-## Persist data to a persitent volume
-##
 persistence:
   enabled: false
   ## If defined, volume.beta.kubernetes.io/storage-class: <storageClass>
