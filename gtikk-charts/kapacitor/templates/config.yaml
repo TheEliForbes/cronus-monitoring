@@ -34,7 +34,7 @@ data:
       enabled = true
       name = "default"
       default = false
-      urls = [{{ .Values.influxURL | quote }}]
+      urls = ["{{ template "fullname" . }}.{{.Release.Namespace}}:8086"]
       username = ""
       password = ""
       ssl-ca = ""

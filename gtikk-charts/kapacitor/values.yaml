@@ -60,6 +60,8 @@ currentnamespace: kube-system
 ## Set the URL of InfluxDB instance to create subscription on
 ## ref: https://docs.influxdata.com/kapacitor/v1.5/introduction/getting_started/
 ##
+## This is technically a red herring, as a clever developer made it dynamically get the fullname and namespace
+##  influx is supposed to be at 8086 though, so that's hardcoded
 influxURL: 'http://data-influxdb.kube-system:8086'
 
 
