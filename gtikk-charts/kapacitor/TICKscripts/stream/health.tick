@@ -1,7 +1,7 @@
 dbrp "telegraf"."autogen"
 
-var string cpucolumn = 'container_cpu_usage_seconds_total'
-var string memorycolumn 'used'
+var string cpucolumn = "container_cpu_usage_seconds_total"
+var string memorycolumn "used"
 
 var cpu = stream 
     | from()

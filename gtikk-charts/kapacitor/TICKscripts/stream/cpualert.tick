@@ -1,6 +1,6 @@
 dbrp "telegraf"."autogen"
 
-var node_addr string
+var node_addr string = 'host-1'
 
 var totalcapacity = stream
     |from()
