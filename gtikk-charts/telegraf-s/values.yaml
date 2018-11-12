@@ -161,7 +161,7 @@ config:
         response_timeout: "5s"
         method: "GET"
     - http_response:
-        address: "http://localhost:31241"
+        address: "http://10.110.97.192:80"
         response_timeout: "5s"
         method: "GET"
 ## This one above is the words web api
