@@ -64,7 +64,7 @@ config:
   outputs:
     - influxdb:
         urls:
-          - "http://data-influxdb.{{ .Release.Namespace }}:8086"
+          - "http://data-influxdb.kube-system:8086"
         database: "telegraf"
 ##        retention_policy: ""
 ##        write_consistency: "any"
