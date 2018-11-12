@@ -153,12 +153,22 @@ config:
     - processes:
     - swap:
     - system:
-    {{- range $addr := .Values.http_response_addresses }}
-      - http_response:
-          address: $addr
-          response_timeout: "5s"
-          method: "GET"
-    {{- end }}
+    - http_response:
+        address: "{{ .Values.http_response_addresses[0] }}"
+        response_timeout: "5s"
+        method: "GET"
+    - http_response:
+        address: "{{ .Values.http_response_addresses[1] }}"
+        response_timeout: "5s"
+        method: "GET"
+    - http_response:
+        address: "{{ .Values.http_response_addresses[2] }}"
+        response_timeout: "5s"
+        method: "GET"
+    - http_response:
+        address: "{{ .Values.http_response_addresses[3] }}"
+        response_timeout: "5s"
+        method: "GET"
 ##      aerospike:
 ##        servers:
 ##          - "localhost:3000"
