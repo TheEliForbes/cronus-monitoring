@@ -34,7 +34,7 @@ data:
       enabled = true
       name = "default"
       default = false
-      urls = [{{ .Values.influxURL | quote }}]
+      urls = [{{ tpl .Values.influxURL | quote }}]
       username = ""
       password = ""
       ssl-ca = ""
