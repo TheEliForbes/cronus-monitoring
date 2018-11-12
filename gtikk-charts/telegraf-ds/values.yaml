@@ -66,6 +66,7 @@ config:
         bearer_token: "/var/run/secrets/kubernetes.io/serviceaccount/token"
         insecure_skip_verify: true   
     - mem:
+    - net:
     - processes:
     - swap:
     - system:
