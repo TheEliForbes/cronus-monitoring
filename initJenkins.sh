@@ -12,7 +12,7 @@ docker run \
   jenkinsci/blueocean > jenkinsPasswordFile.txt
 
   read -p "Install ssh server for jenkins? (y/n)" yn
-  case
+  case $yn in
     [Nn]* ) exit;;
   esac
   
