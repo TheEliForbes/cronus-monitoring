@@ -5,7 +5,7 @@
       "label": "influx",
       "description": "",
       "type": "datasource",
-      "pluginId": "influx",
+      "pluginId": "influxdb",
       "pluginName": "InfluxDB"
     }
   ],
@@ -24,7 +24,7 @@
     },
     {
       "type": "datasource",
-      "id": "influx",
+      "id": "influxdb",
       "name": "InfluxDB",
       "version": "5.0.0"
     },
