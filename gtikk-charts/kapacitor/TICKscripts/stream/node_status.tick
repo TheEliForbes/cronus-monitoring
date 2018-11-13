@@ -1,0 +1,16 @@
+dbrp "telegraf"."autogen"
+
+stream
+	|from()
+		.measurement('kube_node_status_condition')
+		.groupBy('host','condition')
+	|window()
+		.period(1m)
+		.every(1m)
+	|alert()
+		.warn(lambda: "condition" != 'Ready' AND "gauge" == int(1) AND "status" == 'true')
+	.message('warning: Node {{ index .Tags "host"}} is showing status: {{ index .Tags "condition"}}')
+	.slack()
+	.stateChangesOnly()
+
+	
