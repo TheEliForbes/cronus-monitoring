@@ -1,0 +1,11 @@
+dbrp "telegraf"."autogen"
+
+stream
+	|from()
+		.measurement('cpu')
+	|alert()
+		.warn(lambda: int("usage_idle") < 100)
+	.message('cpu test')
+	.slack()
+	.iconEmoji(':exclamation:')
+	

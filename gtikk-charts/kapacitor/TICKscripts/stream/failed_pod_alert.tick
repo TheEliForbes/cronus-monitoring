@@ -1,0 +1,16 @@
+dbrp "telegraf"."autogen"
+
+stream
+	|from()
+		.measurement('kube_pod_status_phase')
+		.groupBy('pod')
+	|window()
+		.period(1m)
+		.every(1m)
+	|alert()
+		.warn(lambda: "phase" == 'Failed' AND "gauge" == int(1))
+	.message('warning: Pod {{ index .Tags "pod"}} is not running')
+	.slack()
+	.stateChangesOnly()
+
+	

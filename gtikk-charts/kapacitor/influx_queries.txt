@@ -1,0 +1,22 @@
+select "time","gauge","pod" 
+from "kube_pod_status_phase" 
+where "phase" = 'Failed' and "gauge" = 1 and time > now() - 60s 
+tz('America/Los_Angeles')
+
+select "pid","container_name","container_status" 
+from "docker_container_status" where "container_status" <> 'running'
+
+select "pid","container_name","container_status" 
+from "docker_container_status" where "container_status" = 'running' 
+and gauge = 1 limit 20
+
+
+select *  from "kube_node_status_condition" limit 1
+
+select distinct('condition') 
+from (select "condition","gauge" from "kube_node_status_condition") limit 10
+
+show field keys
+show tag keys
+show measurements
+show retention policies

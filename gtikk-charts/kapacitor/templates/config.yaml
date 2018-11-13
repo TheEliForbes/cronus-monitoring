@@ -135,12 +135,11 @@ data:
       enabled = true
       default = true
       workspace = "skytap-cronus.slack.com"
-      url = "https://hooks.slack.com/services/TCNH23GCU/BDXJMNA/Ae40cl3u9QLZ4M4wA6BtJ9ZQ"
+      url = "https://hooks.slack.com/services/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"
       channel = "#kapacitorspam"
       username = "kapacitor"
       global = false
       state-changes-only = false
-      insecure-skip-verify = false
     [talk]
       enabled = false
       url = ""
