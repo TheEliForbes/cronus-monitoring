@@ -1,5 +1,4 @@
 #!/bin/bash
-
 helm upgrade --name metrics --namespace kube-system ../gtikk-charts/kube-state-metrics/
 helm upgrade --name data --namespace kube-system ../gtikk-charts/influxdb/
 helm upgrade --name polling --namespace kube-system ../gtikk-charts/telegraf-s/
