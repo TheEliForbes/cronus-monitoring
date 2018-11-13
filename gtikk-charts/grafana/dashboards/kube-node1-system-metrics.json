@@ -1,11 +1,11 @@
 {
   "__inputs": [
     {
-      "name": "DS_INFLUX",
+      "name": "influx",
       "label": "influx",
       "description": "",
       "type": "datasource",
-      "pluginId": "influxdb",
+      "pluginId": "influx",
       "pluginName": "InfluxDB"
     }
   ],
@@ -24,7 +24,7 @@
     },
     {
       "type": "datasource",
-      "id": "influxdb",
+      "id": "influx",
       "name": "InfluxDB",
       "version": "5.0.0"
     },
@@ -78,7 +78,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "influxdb",
+      "datasource": "influx",
       "format": "s",
       "gauge": {
         "maxValue": 100,
@@ -190,7 +190,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "influxdb",
+      "datasource": "influx",
       "decimals": null,
       "format": "none",
       "gauge": {
@@ -302,7 +302,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "influxdb",
+      "datasource": "influx",
       "format": "percent",
       "gauge": {
         "maxValue": 100,
@@ -413,7 +413,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "influxdb",
+      "datasource": "influx",
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -524,7 +524,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "influxdb",
+      "datasource": "influx",
       "decimals": null,
       "format": "percent",
       "gauge": {
@@ -636,7 +636,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "influxdb",
+      "datasource": "influx",
       "decimals": null,
       "format": "percent",
       "gauge": {
@@ -748,7 +748,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "influxdb",
+      "datasource": "influx",
       "decimals": 2,
       "format": "percent",
       "gauge": {
@@ -860,7 +860,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "influxdb",
+      "datasource": "influx",
       "decimals": 0,
       "format": "none",
       "gauge": {
@@ -972,7 +972,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "influxdb",
+      "datasource": "influx",
       "decimals": 0,
       "format": "none",
       "gauge": {
@@ -1084,7 +1084,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "influxdb",
+      "datasource": "influx",
       "decimals": null,
       "format": "none",
       "gauge": {
@@ -1192,7 +1192,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -1235,7 +1235,7 @@
       "targets": [
         {
           "alias": "$tag_host: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "mean",
           "groupBy": [
             {
@@ -1321,7 +1321,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 0,
@@ -1361,7 +1361,7 @@
       "targets": [
         {
           "alias": "$tag_host: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "mean",
           "groupBy": [
             {
@@ -1445,7 +1445,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -1493,7 +1493,7 @@
       "targets": [
         {
           "alias": "$tag_host: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "mean",
           "groupBy": [
             {
@@ -1578,7 +1578,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -1621,7 +1621,7 @@
       "targets": [
         {
           "alias": "$tag_host: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "mean",
           "groupBy": [
             {
@@ -1707,7 +1707,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -1750,7 +1750,7 @@
       "targets": [
         {
           "alias": "$tag_host: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "mean",
           "groupBy": [
             {
@@ -1836,7 +1836,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -1884,7 +1884,7 @@
       "targets": [
         {
           "alias": "$tag_host: $tag_path : $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "mean",
           "groupBy": [
             {
@@ -1976,7 +1976,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -2024,7 +2024,7 @@
       "targets": [
         {
           "alias": "$tag_path ($tag_fstype on $tag_device)",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "mean",
           "groupBy": [
             {
@@ -2116,7 +2116,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -2169,7 +2169,7 @@
       "targets": [
         {
           "alias": "$tag_host: $tag_path : $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "mean",
           "groupBy": [
             {
@@ -2261,7 +2261,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -2309,7 +2309,7 @@
       "targets": [
         {
           "alias": "$tag_path ($tag_fstype on $tag_device)",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "mean",
           "groupBy": [
             {
@@ -2401,7 +2401,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -2448,7 +2448,7 @@
       "targets": [
         {
           "alias": "$tag_host: $tag_name: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "mean",
           "groupBy": [
             {
@@ -2498,7 +2498,7 @@
         },
         {
           "alias": "$tag_host: $tag_name: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "mean",
           "groupBy": [
             {
@@ -2590,7 +2590,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -2637,7 +2637,7 @@
       "targets": [
         {
           "alias": "$tag_host: $tag_name: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "mean",
           "groupBy": [
             {
@@ -2687,7 +2687,7 @@
         },
         {
           "alias": "$tag_host: $tag_name: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "mean",
           "groupBy": [
             {
@@ -2779,7 +2779,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -2826,7 +2826,7 @@
       "targets": [
         {
           "alias": "$tag_host: $tag_name: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "mean",
           "groupBy": [
             {
@@ -2876,7 +2876,7 @@
         },
         {
           "alias": "$tag_host: $tag_name: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "mean",
           "groupBy": [
             {
@@ -2968,7 +2968,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -3012,7 +3012,7 @@
       "targets": [
         {
           "alias": "$tag_host: $tag_interface: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "derivative",
           "groupBy": [
             {
@@ -3062,7 +3062,7 @@
         },
         {
           "alias": "$tag_host: $tag_interface: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "derivative",
           "groupBy": [
             {
@@ -3156,7 +3156,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -3200,7 +3200,7 @@
       "targets": [
         {
           "alias": "$tag_host: $tag_interface: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "derivative",
           "groupBy": [
             {
@@ -3250,7 +3250,7 @@
         },
         {
           "alias": "$tag_host: $tag_interface: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "derivative",
           "groupBy": [
             {
@@ -3343,7 +3343,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -3384,7 +3384,7 @@
       "targets": [
         {
           "alias": "$tag_host: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "derivative",
           "groupBy": [
             {
@@ -3478,7 +3478,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -3519,7 +3519,7 @@
       "targets": [
         {
           "alias": "$tag_host: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "derivative",
           "groupBy": [
             {
@@ -3724,7 +3724,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -3763,7 +3763,7 @@
       "targets": [
         {
           "alias": "$tag_host: $tag_interface: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "derivative",
           "groupBy": [
             {
@@ -3813,7 +3813,7 @@
         },
         {
           "alias": "$tag_host: $tag_interface: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "derivative",
           "groupBy": [
             {
@@ -3907,7 +3907,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influxdb",
+      "datasource": "influx",
       "editable": true,
       "error": false,
       "fill": 1,
@@ -3946,7 +3946,7 @@
       "targets": [
         {
           "alias": "$tag_host: $tag_interface: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "derivative",
           "groupBy": [
             {
@@ -3996,7 +3996,7 @@
         },
         {
           "alias": "$tag_host: $tag_interface: $col",
-          "dsType": "influxdb",
+          "dsType": "influx",
           "function": "derivative",
           "groupBy": [
             {
@@ -4090,7 +4090,7 @@
   "schemaVersion": 16,
   "style": "dark",
   "tags": [
-    "influxdb",
+    "influx",
     "telegraf"
   ],
   "templating": {
@@ -4109,7 +4109,7 @@
         "multi": false,
         "name": "datasource",
         "options": [],
-        "query": "influxdb",
+        "query": "influx",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -4118,7 +4118,7 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "influxdb",
+        "datasource": "influx",
         "hide": 0,
         "includeAll": false,
         "label": "Server",
