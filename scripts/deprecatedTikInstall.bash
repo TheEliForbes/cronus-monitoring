@@ -1,4 +1,5 @@
 #!/bin/bash
+#This script is deprecated, only use this if you wanna do lots of work.
 
 wget https://dl.influxdata.com/influxdb/releases/influxdb_1.4.0_amd64.deb
 sudo dpkg -i influxdb_1.4.0_amd64.deb

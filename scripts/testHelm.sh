@@ -4,7 +4,7 @@
 helm test metrics
 helm test data
 helm test dash
-helm unittest */  #unit test all charts
+helm unittest ../gtikk-charts/*/  #unit test all charts
 
 case $1 in
 	-n) true;;
