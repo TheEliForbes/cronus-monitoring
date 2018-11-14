@@ -1,19 +1,12 @@
 {
   "__inputs": [
     {
-      "name": "influx",
+      "name": "DS_INFLUX",
       "label": "influx",
       "description": "",
       "type": "datasource",
       "pluginId": "influxdb",
       "pluginName": "InfluxDB"
-    },
-    {
-     "name": "VAR_PREFIX",
-     "type": "constant",
-     "label": "prefix",
-     "value": "collectd",
-     "description": ""
     }
   ],
   "__requires": [
@@ -60,7 +53,7 @@
   "gnetId": 5955,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1542054748056,
+  "iteration": 1542176249705,
   "links": [],
   "panels": [
     {
@@ -4105,7 +4098,6 @@
       {
         "allFormat": "glob",
         "current": {
-          "selected": true,
           "text": "influx",
           "value": "influx"
         },
@@ -4116,7 +4108,7 @@
         "multi": false,
         "name": "datasource",
         "options": [],
-        "query": "influx",
+        "query": "influxdb",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
