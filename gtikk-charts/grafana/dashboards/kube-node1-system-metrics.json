@@ -7,6 +7,13 @@
       "type": "datasource",
       "pluginId": "influxdb",
       "pluginName": "InfluxDB"
+    },
+    {
+     "name": "VAR_PREFIX",
+     "type": "constant",
+     "label": "prefix",
+     "value": "collectd",
+     "description": ""
     }
   ],
   "__requires": [
