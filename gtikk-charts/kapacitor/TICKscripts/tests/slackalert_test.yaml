@@ -1,7 +1,7 @@
 tests:
 
   - name: "Alert Slack:: Usage critical when idle < 100%, lol"
-    task_name: cpualert.tick
+    task_name: slack_alert.tick
     db: telegraf
     rp: autogen
     type: stream
