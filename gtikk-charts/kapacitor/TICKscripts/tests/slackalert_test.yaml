@@ -1,0 +1,20 @@
+tests:
+
+  - name: "Alert Slack:: Usage critical when idle < 100%, lol"
+    task_name: cpualert.tick
+    db: telegraf
+    rp: autogen
+    type: stream
+    data:
+    - cpu,usage_idle=10
+    expects:
+      ok: 0
+      warn: 1
+      crit: 0
+    
+    
+    
+#time cpu host usage_guest usage_guest_nice usage_idle usage_iowait usage_irq usage_nice usage_softirq usage_steal usage_system usage_user
+#----                ---       ----       ----------- ---------------- ----------         ------------      --------- ----------         -------------     ----------- ------------      ----------
+#1542166460000000000 cpu-total kube-node1 0 0 23.092369477906367 19.37751004016241 0         1.8072289156628776 1.807228915662806 0 8.935742971888196 44.97991967871784
+    
