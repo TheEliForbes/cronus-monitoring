@@ -20,3 +20,13 @@ show field keys
 show tag keys
 show measurements
 show retention policies
+
+select "blocked","host" from "processes" where "blocked" > 2
+
+select "condition","gauge","status" 
+from "kube_node_status_condition" 
+where "condition" <> 'Ready' and status = 'true' and "gauge" = 1 limit 10
+
+select "gauge","phase","pod" 
+from "kube_pod_status_phase" 
+where "gauge" = 1 and "phase" <> 'Running' limit 10
