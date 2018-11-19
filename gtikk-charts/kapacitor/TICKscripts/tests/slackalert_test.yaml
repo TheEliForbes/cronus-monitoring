@@ -3,7 +3,7 @@ tests:
   - name: "Alert Slack:: Usage critical when idle < 100%, lol"
     task_name: slack_alert.tick
     db: telegraf
-    rp: default
+    rp: autogen
     type: stream
     data:
     - cpu,usage_guest=0 usage_guest_nice=0 usage_idle=10 usage_iowait=10 usage_irq=10 usage_nice=10 usage_softirq=10 usage_steal=10 usage_system=10 usage_user=10
