@@ -1,0 +1,16 @@
+tests:
+
+  - name: "Alert Slack:: Usage critical when idle < 100%, lol"
+    task_name: failed_pod_alert.tick
+    db: telegraf
+    rp: autogen
+    type: stream
+    data:
+    - kube_pod_status_phase,time="2018-11-19T18:59:30Z" gauge=1 host="telegraf-polling-service" namespace="default" phase="Failed" pod="db-79b64dd4bb-tgjqt" url="http://metrics-kube-state-metrics.kube-system.svc.cluster.local:8085/metrics"
+    expects:
+      ok: 0
+      warn: 1
+      crit: 0
+    
+    
+#kube_pod_status_phase [["2018-11-19T18:59:30Z",0,"telegraf-polling-service","default","Failed","db-79b64dd4bb-tgjqt" "http://metrics-kube-state-metrics.kube-system.svc.cluster.local:8085/metrics"
