@@ -3,9 +3,10 @@ tests:
   - name: "Slack Alert:: on failed Pod test"
     task_name: failed_pod_alert.tick
     db: telegraf
-    rp: autogen
+    rp: default
     type: stream
     data:
+    - kube_pod_status_phase,gauge=0 host=telegraf-polling-service phase=Failed pod=db-79b64dd4bb-tgjqt
     - kube_pod_status_phase,gauge=1 host=telegraf-polling-service phase=Failed pod=db-79b64dd4bb-tgjqt
     expects:
       ok: 0
