@@ -4,9 +4,6 @@
 
 for alert in ./stream/*.tick; do
     name="$(basename $alert)"
-    kapacitor define $name \
-        -type stream \
-        -dbrp telegraf.autogen \
-        -tick $alert
+    kapacitor define $name -tick $alert
     kapacitor enable $name
 done
