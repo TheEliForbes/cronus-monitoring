@@ -9,7 +9,7 @@ tests:
     type: stream
     data:
       - docker_container_status,container_status=running container_name=somename
-      - docker_container_status,container_status=running container_name=somename
+      - docker_container_status,container_status=running container_name=somenametwo
     expects:
       ok: 0
       warn: 0
@@ -24,7 +24,7 @@ tests:
     type: stream
     data:
       - docker_container_status,container_status=error container_name=somename
-      - docker_container_status,container_status=error container_name=somename
+      - docker_container_status,container_status=error container_name=somenametwo
     expects:
       ok: 0
       warn: 1
