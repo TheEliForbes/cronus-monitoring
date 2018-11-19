@@ -1,6 +1,6 @@
 tests:
 
-  - name: "Alert Slack:: Usage critical when idle < 100%, lol"
+  - name: "Slack Alert:: on failed Pod test"
     task_name: failed_pod_alert.tick
     db: telegraf
     rp: autogen
