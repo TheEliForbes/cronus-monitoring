@@ -1,5 +1,20 @@
 tests:
 
+  # container_status.tick triggers no warning alert when the measurement 
+  # container_status in the dbrp telegraf:autogen is running
+  - name: "Alert Container Status:: No warning when running"  
+    task_name: container_status.tick
+    db: telegraf
+    rp: default
+    type: stream
+    data:
+      - docker_container_status,container_status=running container_name=somename
+      - docker_container_status,container_status=running container_name=somename
+    expects:
+      ok: 0
+      warn: 0
+      crit: 0
+
   # container_status.tick triggers a warning alert when the measurement 
   # container_status in the dbrp telegraf:autogen is not running
   - name: "Alert Container Status:: Warning when not running"  
@@ -8,10 +23,9 @@ tests:
     rp: default
     type: stream
     data:
-      - docker_container_status,container_status=running
-      - docker_container_status,container_status=other
+      - docker_container_status,container_status=error container_name=somename
+      - docker_container_status,container_status=error container_name=somename
     expects:
       ok: 0
       warn: 1
       crit: 0
-
