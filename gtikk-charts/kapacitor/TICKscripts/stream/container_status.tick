@@ -1,7 +1,7 @@
-dbrp "telegraf"."autogen"
-
 stream
 	|from()
+		.database('telegraf')
+		.retentionPolicy('default')
 		.measurement('docker_container_status')
 		.groupBy('container_name')
 	|window()
