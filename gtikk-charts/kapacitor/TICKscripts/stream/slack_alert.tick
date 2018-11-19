@@ -1,7 +1,7 @@
-dbrp "telegraf"."autogen"
-
 stream
 	|from()
+		.database('telegraf')
+		.retentionPolicy('autogen')
 		.measurement('cpu')
 	|alert()
 		.warn(lambda: int("usage_idle") < 100)
