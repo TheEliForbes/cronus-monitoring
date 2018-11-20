@@ -1,0 +1,31 @@
+dbrp "telegraf"."autogen"
+var totalcapacity = stream
+    |from()
+        .measurement('kube_node_status_capacity')
+        .where(lambda: "resource" == 'memory')
+	.groupBy('node')
+//    |log()
+
+var allocatable = stream
+    |from()
+        .measurement('kube_node_status_allocatable')
+        .where(lambda: "resource" == 'memory')
+	.groupBy('node')
+//    |log()
+
+totalcapacity
+    |join(allocatable)
+        .as('capacity', 'free')
+	//.on('node')
+	.streamName('data')
+	.tolerance(10s)
+    |eval(lambda: 1.0-("free.gauge" / "capacity.gauge"))
+	.as('mem_percent')
+    |log()
+//    |influxDBOut()
+//	.measurement('kap_mem_percent')
+    |alert()
+        .crit(lambda: "mem_percent" > 0.01)
+        .message('Node {{ index .Tags "node" }} has low memory remaining')
+        .slack()
+//      |log()
