@@ -5,7 +5,7 @@ tests:
   - name: "Alert Container Status:: No warning when running"  
     task_name: container_status.tick
     db: telegraf
-    rp: default
+    rp: autogen
     type: stream
     data:
       - docker_container_status,container_name=somename container_status=running
@@ -20,7 +20,7 @@ tests:
   - name: "Alert Container Status:: Warning when not running"  
     task_name: container_status.tick
     db: telegraf
-    rp: default
+    rp: autogen
     type: stream
     data:
       - docker_container_status,container_name=somename container_status='error' time=1542658620000000000
@@ -35,7 +35,7 @@ tests:
   - name: "Slack Alert:: on failed Pod test"
     task_name: failed_pod_alert.tick
     db: telegraf
-    rp: default
+    rp: autogen
     type: stream
     data: 
     - kube_pod_status_phase,pod=db-79b64dd4bb-tgjqt time=1542658620000000000 gauge=0 host=telegraf-polling-service namespace=default phase='Failed'
@@ -53,7 +53,7 @@ tests:
   - name: "Alert Slack:: Usage critical when idle < 100%, lol"
     task_name: slack_alert.tick
     db: telegraf
-    rp: default
+    rp: autogen
     type: stream
     data:
     - cpu,usage_idle=5
@@ -74,7 +74,7 @@ tests:
   - name: "Alert weather:: critical when temperature > 120"  
     task_name: alert_weather.tick
     db: weather
-    rp: default
+    rp: autogen
     type: stream
     data:
       - temperature,location=us-midwest temperature=70

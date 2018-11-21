@@ -1,7 +1,7 @@
 stream
 	|from()
 		.database('telegraf')
-		.retentionPolicy('default')
+		.retentionPolicy('autogen')
 		.measurement('kube_pod_status_phase')
 		.groupBy('pod')
 	|window()
