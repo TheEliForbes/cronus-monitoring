@@ -8,8 +8,8 @@ tests:
     rp: default
     type: stream
     data:
-      - docker_container_status,"container_status"='running' container_name=somename
-      - docker_container_status,"container_status"='running' container_name=somenametwo
+      - docker_container_status,container_name=somename container_status=running
+      - docker_container_status,container_name=somenametwo container_status=running
     expects:
       ok: 0
       warn: 0
@@ -23,8 +23,8 @@ tests:
     rp: default
     type: stream
     data:
-      - docker_container_status,container_status='error' container_name=somename time=1542658620000000000
-      - docker_container_status,container_status='error' container_name=somenametwo time=1542658630000000000
+      - docker_container_status,container_name=somename container_status='error' time=1542658620000000000
+      - docker_container_status,container_name=somenametwo container_status='error' time=1542658630000000000
     expects:
       ok: 0
       warn: 1
@@ -38,12 +38,12 @@ tests:
     rp: default
     type: stream
     data: 
-    - kube_pod_status_phase,time=1542658620000000000 gauge=0 host=telegraf-polling-service namespace=default phase='Failed' pod=db-79b64dd4bb-tgjqt url=http://metrics-kube-state-metrics.kube-system.svc.cluster.local:8085/metrics
-    - kube_pod_status_phase,time=1542658630000000000 gauge=1 host=telegraf-polling-service namespace=default phase='Failed' pod=db-79b64dd4bb-tgjqt
-    - kube_pod_status_phase,time=1542658620000000000 gauge=0 host=telegraf-polling namespace=default phase='Failed' pod=db-79b64dd4bb-tgjqt url=http://metrics-kube-state-metrics.kube-system.svc.cluster.local:8085/metrics
-    - kube_pod_status_phase,time=1542658630000000000 gauge=1 host=telegraf-polling namespace=default phase='Failed' pod=db-79b64dd4bb-tgjqt
-    - kube_pod_status_phase,time=1542658620000000000 gauge=0 host=telegraf namespace=default phase='Failed' pod=db-79b64dd4bb-tgjqt url=http://metrics-kube-state-metrics.kube-system.svc.cluster.local:8085/metrics
-    - kube_pod_status_phase,time=1542658630000000000 gauge=1 host=telegraf namespace=default phase='Failed' pod=db-79b64dd4bb-tgjqt
+    - kube_pod_status_phase,pod=db-79b64dd4bb-tgjqt time=1542658620000000000 gauge=0 host=telegraf-polling-service namespace=default phase='Failed'
+    - kube_pod_status_phase,pod=db-79b64dd4bb-tgjqt time=1542658630000000000 gauge=1 host=telegraf-polling-service namespace=default phase='Failed'
+    - kube_pod_status_phase,pod=db-79b64dd4bb-tgjqt time=1542658620000000000 gauge=0 host=telegraf-polling namespace=default phase='Failed'
+    - kube_pod_status_phase,pod=db-79b64dd4bb-tgjqt time=1542658630000000000 gauge=1 host=telegraf-polling namespace=default phase='Failed'
+    - kube_pod_status_phase,pod=db-79b64dd4bb-tgjqt time=1542658620000000000 gauge=0 host=telegraf namespace=default phase='Failed'
+    - kube_pod_status_phase,pod=db-79b64dd4bb-tgjqt time=1542658630000000000 gauge=1 host=telegraf namespace=default phase='Failed'
     expects:
       ok: 0
       warn: 1
@@ -56,7 +56,7 @@ tests:
     rp: default
     type: stream
     data:
-    - cpu,usage_idle=10
+    - cpu,usage_idle=5
     expects:
       ok: 0
       warn: 1

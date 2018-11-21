@@ -6,7 +6,6 @@ stream
 	|alert().id('Cpu')
 		.message('cpu test')
 		.warn(lambda: int("usage_idle") < 100)
-	
-	.slack()
-	.iconEmoji(':exclamation:')
+		.slack()
+		.iconEmoji(':exclamation:')
 	
