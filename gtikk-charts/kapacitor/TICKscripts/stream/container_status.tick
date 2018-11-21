@@ -1,4 +1,4 @@
-stream
+var data = stream
 	|from()
 		.database('telegraf')
 		.retentionPolicy('default')
@@ -7,10 +7,10 @@ stream
 	|window()
 		.period(1m)
 		.every(1m)
-	|alert()
+data
+	|alert().id('Container')
+		.message('Docker Container {{index .Tags "container_name" }} is not running')
 		.warn(lambda: "container_status" != 'running')
-	.message('Docker Container {{index .Tags "container_name" }} is not running')
-	.slack()
-	.stateChangesOnly()
-
-	
+		.slack()
+		.stateChangesOnly()
+	.log('tmp/container_status.tick.log')
