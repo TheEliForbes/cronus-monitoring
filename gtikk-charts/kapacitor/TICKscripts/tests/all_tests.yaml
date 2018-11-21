@@ -23,8 +23,8 @@ tests:
     rp: autogen
     type: stream
     data:
-      - "docker_container_status,container_name=somename container_status=error"
-      - "docker_container_status,container_name=somenametwo container_status=error"
+      - docker_container_status,container_name=somename
+      - docker_container_status,container_name=somenametwo
     expects:
       ok: 0
       warn: 1
@@ -86,7 +86,7 @@ tests:
   - name: "Alert weather:: warning when 80 < temperature < 120"  
     task_name: alert_weather.tick
     db: weather
-    rp: default
+    rp: autogen
     type: stream
     data:
       - temperature,location=us-midwest temperature=70
@@ -100,7 +100,7 @@ tests:
   - name: "Alert weather:: failure"  
     task_name: alert_weather.tick
     db: weather
-    rp: default
+    rp: autogen
     type: stream
     data:
       - temperature,location=us-midwest temperature=70
