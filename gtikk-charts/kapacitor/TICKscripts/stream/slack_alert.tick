@@ -3,9 +3,10 @@ stream
 		.database('telegraf')
 		.retentionPolicy('autogen')
 		.measurement('cpu')
-	|alert()
+	|alert().id('Cpu')
+		.message('cpu test')
 		.warn(lambda: int("usage_idle") < 100)
-	.message('cpu test')
+	
 	.slack()
 	.iconEmoji(':exclamation:')
 	
