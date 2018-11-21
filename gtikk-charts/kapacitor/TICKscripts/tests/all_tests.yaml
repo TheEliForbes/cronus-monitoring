@@ -23,8 +23,8 @@ tests:
     rp: default
     type: stream
     data:
-      - docker_container_status,"container_status"='error' container_name=somename time=1542658620000000000
-      - docker_container_status,"container_status"='error' container_name=somenametwo time=1542658630000000000
+      - docker_container_status,container_status='error' container_name=somename time=1542658620000000000
+      - docker_container_status,container_status='error' container_name=somenametwo time=1542658630000000000
     expects:
       ok: 0
       warn: 1
