@@ -8,8 +8,8 @@ tests:
     rp: default
     type: stream
     data:
-      - docker_container_status,container_status=running container_name=somename
-      - docker_container_status,container_status=running container_name=somenametwo
+      - docker_container_status,"container_status"='running' container_name=somename
+      - docker_container_status,"container_status"='running' container_name=somenametwo
     expects:
       ok: 0
       warn: 0
