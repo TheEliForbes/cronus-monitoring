@@ -109,7 +109,7 @@ tests:
       - temperature,location=us-midwest temperature=70
       - temperature,location=us-midwest temperature=82
     expects:
-      ok: 2
+      ok: 0
       warn: 1
-      crit: 1      
+      crit: 0      
           
