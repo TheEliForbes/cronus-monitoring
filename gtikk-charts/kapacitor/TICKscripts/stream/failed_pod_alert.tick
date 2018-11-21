@@ -9,8 +9,8 @@ stream
 		.every(1m)
 	|alert()
 		.warn(lambda: "phase" == 'Failed' AND "gauge" == int(1))
-	.message('warning: Pod {{ index .Tags "pod"}} is not running')
-	.slack()
-	.stateChangesOnly()
+		.message('warning: Pod {{ index .Tags "pod"}} is not running')
+		.slack()
+		.stateChangesOnly()
 
 	
