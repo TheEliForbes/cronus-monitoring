@@ -13,4 +13,4 @@ data
 		.warn(lambda: "container_status" != 'running')
 		.slack()
 		.stateChangesOnly()
-	.log('tmp/container_status.tick.log')
+	.log('/tmp/containerstatus.tick.log')
