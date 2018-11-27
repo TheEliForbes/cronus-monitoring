@@ -16,9 +16,9 @@
                    
          sudo ./init.sh
 
-    3.1.   Tiller may take a bit to set up, so Helm Chart installation may fail. Try again with the following script
+        3.1.   Tiller may take a bit to set up, so Helm Chart installation may fail. Try again with the following script
 
-             sudo ./create.sh
+           sudo ./create.sh
 
 4.   Verify Kube-State-Metrics' Prometheus endpoint is operational
 
