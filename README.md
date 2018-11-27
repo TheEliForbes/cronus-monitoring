@@ -16,31 +16,31 @@
                    
          sudo ./init.sh
 
-4.   Tiller may take a bit to set up, and therefore helm installation may fail, try again with the following script
+3.1.   Tiller may take a bit to set up, so Helm Chart installation may fail. Try again with the following script
 
          sudo ./create.sh
 
-5.   Verify Kube-State-Metrics' Prometheus endpoint is operational
+4.   Verify Kube-State-Metrics' Prometheus endpoint is operational
 
          ./curl.sh
 
-6.   Verify InfluxDB is operational, and receiving data from Telegraf
+5.   Verify InfluxDB is operational, and receiving data from Telegraf
 
          ./query.sh
 
-7.   Now that the stack is set up, define the TICKscripts
+6.   Now that the stack is set up, define the TICKscripts
 
-        7.1 `./copyTickScripts.sh`  
+        6.1 `./copyTickScripts.sh`  
 
-        7.2 `./defineTickTasks.sh`
+        6.2 `./defineTickTasks.sh`
 
-        7.2.1 If that doesn't work, follow the below.       
+        6.2.1 If that doesn't work, follow the below.       
 
-        7.2.2 `./connectToKapacitorContainer.sh`
+        6.2.2 `./connectToKapacitorContainer.sh`
 
-        7.2.3 `chmod +x TICKscripts/defineTasks.sh`
+        6.2.3 `chmod +x TICKscripts/defineTasks.sh`
 
-        7.2.4 `./TICKscripts/defineTasks.sh`
+        6.2.4 `./TICKscripts/defineTasks.sh`
 
 ## Usage
 
