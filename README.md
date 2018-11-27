@@ -22,21 +22,25 @@
 
 5.   Verify KSM is operational with super smart script
 
-         ./curl.sh
+         ./scripts/curl.sh
 
 6.   Verify InfluxDB is operational, and receiving data from Telegraf
 
-         ./query.sh
+         ./scripts/query.sh
 
 7.   Now that the stack is set up, define the TICKscripts
 
-        7.1 `./copyTickScripts.sh`         
+        7.1 `./copyTickScripts.sh`  
+
+        7.2 `./defineTickTasks.sh`
+
+                7.2.1 If that doesn't work, follow the below.       
        
-        7.2 `./connectToKapacitorContainer.sh`
+                7.2.2 `./connectToKapacitorContainer.sh`
 
-        7.3 `chmod +x TICKscripts/defineTasks.sh`
+                7.2.3 `chmod +x TICKscripts/defineTasks.sh`
 
-        7.4 `./TICKscripts/defineTasks.sh`
+                7.2.4 `./TICKscripts/defineTasks.sh`
 
 ## Usage
 
