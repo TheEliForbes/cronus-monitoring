@@ -12,5 +12,3 @@ stream
 	.message('warning: There is proccess blocking on Host: {{ index .Tags "host" }} ')
 	.slack()
 	.stateChangesOnly()
-
-	
