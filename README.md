@@ -1,4 +1,4 @@
-# Cronus Monitoring Stack
+# Cronus Monitoring
 
 ## Installation
 
