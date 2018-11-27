@@ -12,7 +12,7 @@
 
          chmod +x *.sh
 
-3.   Run the init.sh script
+3.   Run the initialization script
                    
          sudo ./init.sh
 
@@ -20,7 +20,7 @@
 
          sudo ./create.sh
 
-5.   Verify KSM is operational with super smart script
+5.   Verify Kube-State-Metrics' Prometheus endpoint is operational
 
          ./curl.sh
 
@@ -51,8 +51,14 @@
     > _Grafana is at http://your.grafana.cluster.ip_
 
 
+## Stack Manipulation
 
-
+- Set up Stack
+        - `./create.sh`
+- Remove Stack
+        - `./destroy.sh`
+- Upgrade Stack
+        - `./upgrade.sh`        
 
 ## Port Info
 * Kube-State-Metrics: `8085`
