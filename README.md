@@ -34,13 +34,13 @@
 
         7.2 `./defineTickTasks.sh`
 
-                7.2.1 If that doesn't work, follow the below.       
-       
-                7.2.2 `./connectToKapacitorContainer.sh`
+          7.2.1 If that doesn't work, follow the below.       
 
-                7.2.3 `chmod +x TICKscripts/defineTasks.sh`
+          7.2.2 `./connectToKapacitorContainer.sh`
 
-                7.2.4 `./TICKscripts/defineTasks.sh`
+          7.2.3 `chmod +x TICKscripts/defineTasks.sh`
+
+          7.2.4 `./TICKscripts/defineTasks.sh`
 
 ## Usage
 
