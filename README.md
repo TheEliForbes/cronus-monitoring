@@ -41,7 +41,9 @@
 ## Usage
 
 1.  `./scripts/echoGrafanaIP.sh -s`
+
         > _Grafana is at http://your.grafana.cluster.ip_
+        
 *.  The `-s` flag starts Grafana in Firefox
 
 
