@@ -40,11 +40,9 @@
 
 ## Usage
 
-1.    `./echoGrafanaIP.sh`
+1.  `./scripts/echoGrafanaIP.sh -s`
         > _Grafana is at http://your.grafana.cluster.ip_
-2.  Navigate there in your desktop VM's browser.
-	
-        2.1 Everything should already be set up!
+*.  The `-s` flag starts Grafana in Firefox
 
 
 
