@@ -1,4 +1,4 @@
-# GKIT/Helm
+# Cronus Monitoring Stack
 
 ## Installation
 
