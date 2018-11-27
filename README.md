@@ -55,13 +55,15 @@
 
 - Set up Stack
 
-        - `./create.sh`
+ - `./create.sh`
+
 - Remove Stack
 
-        - `./destroy.sh`
+ - `./destroy.sh`
+
 - Upgrade Stack
 
-        - `./upgrade.sh`        
+ - `./upgrade.sh`        
 
 ## Port Info
 * Kube-State-Metrics: `8085`
