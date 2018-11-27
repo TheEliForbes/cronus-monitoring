@@ -53,17 +53,11 @@
 
 ## Stack Manipulation
 
-- Set up Stack
+- Set up Stack:  `./create.sh`
 
- - `./create.sh`
+- Remove Stack:  `./destroy.sh`
 
-- Remove Stack
-
- - `./destroy.sh`
-
-- Upgrade Stack
-
- - `./upgrade.sh`        
+- Upgrade Stack: `./upgrade.sh`        
 
 ## Port Info
 * Kube-State-Metrics: `8085`
