@@ -26,7 +26,7 @@
 
 5.   Verify InfluxDB is operational, and receiving data from Telegraf
 
-         ./query.sh
+         ./query.sh -c
 
 6.   Now that the stack is set up, define the TICKscripts
 
