@@ -30,11 +30,13 @@
 
 7.   Now that the stack is set up, define the TICKscripts
 
-        7.1 ./copyTickScripts.sh         
+        7.1 `./copyTickScripts.sh`         
        
-        7.2 Then dive into the Kapacitor Container, ./connectToKapacitorContainer.sh
+        7.2 `./connectToKapacitorContainer.sh`
 
+        7.3 `chmod +x TICKscripts/defineTasks.sh`
 
+        7.4 `./TICKscripts/defineTasks.sh`
 
 ## Usage
 
