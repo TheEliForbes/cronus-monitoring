@@ -44,7 +44,7 @@
 
 ## Usage
 
-1.  `./scripts/echoGrafanaIP.sh -s`
+1.  `./echoGrafanaIP.sh -s`
 
     1.1.  The `-s` flag starts Grafana in Firefox
 
