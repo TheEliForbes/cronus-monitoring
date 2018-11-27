@@ -6,7 +6,7 @@
 
          git clone https://github.com/Eliforbes42/TIKsm-setup
 
-         cd TIKsm-setup/gtikk-charts
+         cd TIKsm-setup/scripts
 
 2.   Make everything extremely executable, if you're daring..
 
@@ -22,11 +22,11 @@
 
 5.   Verify KSM is operational with super smart script
 
-         ./scripts/curl.sh
+         ./curl.sh
 
 6.   Verify InfluxDB is operational, and receiving data from Telegraf
 
-         ./scripts/query.sh
+         ./query.sh
 
 7.   Now that the stack is set up, define the TICKscripts
 

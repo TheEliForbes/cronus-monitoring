@@ -5,7 +5,7 @@ if ! [ -x "$(command -v helm)" ]; then
 	read -p "Do you wish to install Helm? (y/n)" yn
 	case $yn in
 		[Yy]* ) chmod +x installHelm.sh; sudo ./installHelm.sh;;
-		[Nn]* ) exit;;
+		[Nn]* ) true;;
 		* ) echo "Please answer y/n.";;
 	esac
 fi
@@ -31,7 +31,7 @@ echo "------------------------------"
 read -p "Would you like to initialize the GKIT? (y/n)" yn
 case $yn in
 	[Yy]* ) chmod +x create.sh; sudo ./create.sh;;
-	[Nn]* ) exit;;
+	[Nn]* ) true;;
 	* ) echo "Please answer y/n.";;
 esac
 
@@ -40,7 +40,7 @@ if ! [ -x "$(command -v jq)" ]; then
 	read -p "Do you wish to install JQ? (y/n)" yn
 	case $yn in
 		[Yy]* ) sudo apt install jq;;
-		[Nn]* ) exit;;
+		[Nn]* ) true;;
 		* ) echo "Please answer y/n."
 	esac
 fi
@@ -48,7 +48,7 @@ fi
 read -p "Would you like to test the GKIT? (y/n)" yn
 case $yn in
 	[Yy]* ) helm plugin install https://github.com/lrills/helm-unittest; chmod +x testHelm.sh; sudo ./testHelm.sh;;
-	[Nn]* ) exit;;
+	[Nn]* ) true;;
 	* ) echo "Please answer y/n.";;
 esac
 
