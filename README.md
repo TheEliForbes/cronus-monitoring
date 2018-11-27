@@ -54,10 +54,13 @@
 ## Stack Manipulation
 
 - Set up Stack
+
         - `./create.sh`
 - Remove Stack
+
         - `./destroy.sh`
 - Upgrade Stack
+
         - `./upgrade.sh`        
 
 ## Port Info
