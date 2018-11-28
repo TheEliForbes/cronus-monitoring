@@ -1,6 +1,10 @@
 #!/bin/bash
 #This script installs jenkins, starts it, and configures it.
+#After this script runs, open up localhost:$PORT
+
 docker pull jenkinsci/blueocean
+
+PORT=8080
 
 read -p "Run Jenkins? (y/n)" yn
 case $yn in
@@ -8,7 +12,7 @@ case $yn in
   -u root \
   --rm \
   -d \
-  -p 8080:8080 \
+  -p 8080:$PORT \
   -p 50000:50000 \
   -v jenkins-data:/var/jenkins_home \
   -v /var/run/docker.sock:/var/run/docker.sock \
@@ -28,3 +32,6 @@ sudo systemctl restart ssh
 mkdir ~/.ssh
 chmod 700 ~/.ssh
 ssh-keygen -t rsa
+
+echo ""
+echo "Now run ./setupJenkinsContainerSsh.sh"
