@@ -4,7 +4,7 @@
 
 docker pull jenkinsci/blueocean
 
-PORT=8080
+PORT=8087
 
 read -p "Run Jenkins? (y/n)" yn
 case $yn in
@@ -33,5 +33,17 @@ mkdir ~/.ssh
 chmod 700 ~/.ssh
 ssh-keygen -t rsa
 
-echo ""
-echo "Now run ./setupJenkinsContainerSsh.sh"
+echo "--------------------------------------------------------"
+echo "Now open up localhost:$PORT"
+echo "It will likely ask you to find the password in /var/lib/jenkins/secrets/initialAdminPassword"
+echo "You will now be put into the jenkinscimaster container. . ."
+docker exec -it "jenkinscimaster" /bin/sh
+cat /var/lib/jenkins/secrets/initialAdminPassword
+exit
+echo "Once setup within the UI is finished, run ./setupJenkinsContainerSsh.sh"
+
+read -p "Install ssh server for jenkins? (y/n)" yn
+case $yn in
+  [Yy]* ) chmod +x setupJenkinsContainerSsh; ./setupJenkinsContainerSsh;;
+  [Nn]* ) true;;
+esac
