@@ -26,7 +26,9 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
     2.3. Change the `workspace`, `url`, `channel`, and `username` as necessary.
 
 #### Grafana Dashboards
-To automatically import Dashboards destined for Grafana, place all JSON files in the following folder: `/TIKsm-setup/gtikk-charts/grafana/dashboards/`
+To automatically import Dashboards destined for Grafana, place all JSON files in the following folder: 
+
+`/TIKsm-setup/gtikk-charts/grafana/dashboards/`
 
 ### Setup
 1.   Make everything extremely executable, if you're daring..
