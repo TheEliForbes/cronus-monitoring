@@ -14,10 +14,10 @@ if ! [ -x "$(command -v selenium)" ]; then
 	echo "Selenium is not installed."
 	read -p "Do you wish to install Selenium? (y/n)" yn
 	case $yn in
-		[Yy]* ) pip install selenium;
-		        wget https://github.com/mozilla/geckodriver/releases/download/v0.22.0/geckodriver-v0.22.0-linux64.tar.gz;
+		[Yy]* ) wget https://github.com/mozilla/geckodriver/releases/download/v0.22.0/geckodriver-v0.22.0-linux64.tar.gz;
 		        sudo tar -zxvf geckodriver-v0.22.0-linux64.tar.gz;
-				sudo cp geckodriver /usr/bin;;		        
+				sudo cp geckodriver /usr/bin;
+				pip install selenium;;		        
 		[Nn]* ) exit;;
 		* ) echo "Please answer y/n.";;
 	esac
