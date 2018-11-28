@@ -6,11 +6,11 @@
 
          git clone https://github.com/Eliforbes42/TIKsm-setup
 
-         cd TIKsm-setup/scripts
-
-2.   Any additional JSON Dashboards destined for Grafana can be placed in `gtikk-charts/grafana/dashboards/`, and they will be automatically imported on startup.
+2.   Any additional JSON Dashboards destined for Grafana can be placed in `/TIKsm-setup/gtikk-charts/grafana/dashboards/`, and they will be automatically imported on startup.
 
 3.   Make everything extremely executable, if you're daring..
+         
+         cd TIKsm-setup/scripts
 
          chmod +x *.sh
 
