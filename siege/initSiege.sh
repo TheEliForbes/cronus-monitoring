@@ -5,7 +5,7 @@ if ! [ -x "$(command -v siege)" ]; then
 	read -p "Do you wish to install Siege? (y/n)" yn
 	case $yn in
 		[Yy]* ) wget http://download.joedog.org/siege/siege-latest.tar.gz;
-		        sudo tar -zxvf siege-4.0.4;
+		        sudo tar -zxvf siege-latest.tar.gz;
 				cd siege-4.0.4;
                 ./configure;
                 make;
