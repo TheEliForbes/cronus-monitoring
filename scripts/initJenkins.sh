@@ -5,6 +5,12 @@
 docker pull jenkinsci/blueocean
 
 PORT=8087
+echo "Port: $PORT"
+read -p "Change Port number? (y/n)" yn
+case $yn in
+  [Yy]* ) read -p "Please input an integer: " newport; PORT=newport;;
+  [Nn]* ) true;;
+esac
 
 read -p "Run Jenkins? (y/n)" yn
 case $yn in
