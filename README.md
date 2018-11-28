@@ -59,7 +59,7 @@ To automatically import Dashboards destined for Grafana, place all JSON files in
 
         5.2 `./defineTickTasks.sh`
 
-        5.2.1 If 5.2 doesn't work, run the commands below.       
+        5.2.1 -- If 5.2 doesn't work, run the commands below.       
 
         5.2.2 `./connectToKapacitorContainer.sh`
 
