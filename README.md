@@ -12,10 +12,15 @@ Clone the repo and dive in!
 #### Slack Alert Bot
 
 1. Create an Incoming Webhook for Slack
+
     1.1. If you're unfamiliar with Slack Webhooks, follow [this guide](https://api.slack.com/incoming-webhooks).
+
 2. Modify the Kapacitor Configuration to post to your Slack Channel
+
     2.1. Open up `TIKsm-setup/gtikk-charts/kapacitor/templates/config.yaml`
+
     2.2. Modify the `[[slack]]` section, [lines 134-142](https://github.com/Eliforbes42/TIKsm-setup/blob/master/gtikk-charts/kapacitor/templates/config.yaml#L134)
+    
     2.3. Change the `workspace`, `url`, `channel`, and `username` as necessary.
 
 #### Grafana Dashboards
@@ -77,6 +82,9 @@ To automatically import Dashboards destined for Grafana, place all JSON files in
 
 ## Port Info
 * Kube-State-Metrics: [`8085`](https://github.com/Eliforbes42/TIKsm-setup/blob/master/gtikk-charts/kube-state-metrics/values.yaml#L8)
+
 * InfluxDB: [`8086`](https://github.com/Eliforbes42/TIKsm-setup/blob/master/gtikk-charts/influxdb/values.yaml#L103)
+
 * Kapacitor: [`9092`](https://github.com/Eliforbes42/TIKsm-setup/blob/master/gtikk-charts/kapacitor/templates/config.yaml#L17)
+
 * Grafana: [`80`](https://github.com/Eliforbes42/TIKsm-setup/blob/master/gtikk-charts/grafana/values.yaml#L58)
