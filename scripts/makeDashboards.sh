@@ -5,3 +5,5 @@ for WATCHEDNODE in $NODENAMES
 do
    sed "s/WATCHEDNODE/$WATCHEDNODE/g" systemDashboardTemplate.txt > "$WATCHEDNODE-system-metrics.json"
 done
+
+cp *.json ../gtikk-charts/grafana/dashboards/
