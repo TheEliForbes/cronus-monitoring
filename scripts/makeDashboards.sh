@@ -4346,7 +4346,7 @@ do
     ]
   },
   "timezone": "browser",
-  "title": "kube-node system metrics",
+  "title": "$WATCHEDNODE system metrics",
   "uid": "UCRfGnBmk",
   "version": 1
 }' > "$WATCHEDNODE-system-metrics.json"
