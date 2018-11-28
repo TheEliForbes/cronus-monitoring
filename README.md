@@ -1,5 +1,6 @@
 
 # Cronus Monitoring
+A modified version of the InfluxData 'TICK' Stack which uses Grafana as its UI and dynamically forms to the Kubernetes Cluster it is deployed on.
 
 ## Installation
 
@@ -10,6 +11,7 @@ Clone the repo and dive in!
 ### Pre-Configuration
 
 #### Slack Alert Bot
+To allow Kapacitor to post alerts to your Slack channel, follow the instructions below.
 
 1. Create an Incoming Webhook for Slack.
 
