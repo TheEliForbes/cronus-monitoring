@@ -50,9 +50,9 @@ if ! [ -x "$(command -v jq)" ]; then
 	esac
 fi
 
-read -p "Would you like to test the GKIT? (y/n)" yn
+read -p "Would you like to install Helm Test? (y/n)" yn
 case $yn in
-	[Yy]* ) helm plugin install https://github.com/lrills/helm-unittest; chmod +x testHelm.sh; sudo ./testHelm.sh;;
+	[Yy]* ) helm plugin install https://github.com/lrills/helm-unittest;;
 	[Nn]* ) true;;
 	* ) echo "Please answer y/n.";;
 esac
