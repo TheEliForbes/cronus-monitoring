@@ -1,6 +1,8 @@
 #!/bin/bash
 
 echo "Initializing Test Software. . ."
+chmod +x ../selenium/initSelenium.sh
+chmod +x ../siege/initSiege.sh
 ./../selenium/initSelenium.sh
 ./../siege/initSiege.sh
 echo "Test Software Initialized. . ."
