@@ -6,7 +6,7 @@ A modified version of the InfluxData 'TICK' Stack which uses Grafana as its UI a
 
 Clone the repo and dive in!
 
-`git clone https://github.com/Eliforbes42/TIKsm-setup`
+`git clone https://github.com/Eliforbes42/TIKsm-setup.git`
 
 ### Pre-Configuration
 
@@ -19,7 +19,7 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
 
 2. Modify the Kapacitor Configuration to post to your Slack Channel.
 
-    2.1. Open up `TIKsm-setup/gtikk-charts/kapacitor/templates/config.yaml`
+    2.1. Open up `/TIKsm-setup/gtikk-charts/kapacitor/templates/config.yaml`
 
     2.2. Modify the `[[slack]]` section, [lines 134-142](https://github.com/Eliforbes42/TIKsm-setup/blob/master/gtikk-charts/kapacitor/templates/config.yaml#L134).
     
