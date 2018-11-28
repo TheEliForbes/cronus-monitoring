@@ -11,15 +11,15 @@ Clone the repo and dive in!
 
 #### Slack Alert Bot
 
-1. Create an Incoming Webhook for Slack
+1. Create an Incoming Webhook for Slack.
 
     1.1. If you're unfamiliar with Slack Webhooks, follow [this guide](https://api.slack.com/incoming-webhooks).
 
-2. Modify the Kapacitor Configuration to post to your Slack Channel
+2. Modify the Kapacitor Configuration to post to your Slack Channel.
 
     2.1. Open up `TIKsm-setup/gtikk-charts/kapacitor/templates/config.yaml`
 
-    2.2. Modify the `[[slack]]` section, [lines 134-142](https://github.com/Eliforbes42/TIKsm-setup/blob/master/gtikk-charts/kapacitor/templates/config.yaml#L134)
+    2.2. Modify the `[[slack]]` section, [lines 134-142](https://github.com/Eliforbes42/TIKsm-setup/blob/master/gtikk-charts/kapacitor/templates/config.yaml#L134).
     
     2.3. Change the `workspace`, `url`, `channel`, and `username` as necessary.
 
@@ -33,29 +33,29 @@ To automatically import Dashboards destined for Grafana, place all JSON files in
 
          chmod +x *.sh
 
-2.   Run the initialization script
+2.   Run the initialization script.
                    
          sudo ./init.sh
 
-        2.1.   Tiller may take a bit to set up, so Helm Chart installation may fail. Try again with the following script
+        2.1.   Tiller may take a bit to set up, so Helm Chart installation may fail. Try again with the following script:
 
            sudo ./create.sh
 
-3.   Verify Kube-State-Metrics' Prometheus endpoint is operational
+3.   Verify Kube-State-Metrics' Prometheus endpoint is operational.
 
          ./curl.sh
 
-4.   Verify InfluxDB is operational, and receiving data from Telegraf
+4.   Verify InfluxDB is operational, and receiving data from Telegraf.
 
          ./query.sh -c
 
-5.   Now that the stack is set up, define the TICKscripts
+5.   Now that the stack is set up, define the TICKscripts.
 
         5.1 `./copyTickScripts.sh`  
 
         5.2 `./defineTickTasks.sh`
 
-        5.2.1 If that doesn't work, follow the below.       
+        5.2.1 If 5.2 doesn't work, run the commands below.       
 
         5.2.2 `./connectToKapacitorContainer.sh`
 
@@ -67,7 +67,7 @@ To automatically import Dashboards destined for Grafana, place all JSON files in
 
 -  `./echoGrafanaIP.sh -s`
 
-    -  The `-s` flag starts Grafana in Firefox
+    -  The `-s` flag starts Grafana in Firefox.
 
     > _Grafana is at http://your.grafana.cluster.ip_
 
