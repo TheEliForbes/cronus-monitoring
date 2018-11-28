@@ -10,8 +10,11 @@ if ! [ -x "$(command -v siege)" ]; then
                 ./configure;
                 make;
                 sudo make install;
-                siege --version;;            	        
-		[Nn]* ) exit;;
+                siege --version;
+				cd ..;;    	        
+		[Nn]* ) true;;
 		* ) echo "Please answer y/n.";;
 	esac
 fi
+
+echo "Siege Initialized. . ."

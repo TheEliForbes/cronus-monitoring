@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo "Initializing Test Software. . ."
+./../selenium/initSelenium.sh
+./../siege/initSiege.sh
+echo "Test Software Initialized. . ."
+
 if ! [ -x "$(command -v helm)" ]; then
 	echo "Helm is not installed."
 	read -p "Do you wish to install Helm? (y/n)" yn
