@@ -21,7 +21,7 @@ cur_data
 	|alert()
 		.warn(lambda: (("cur.max" - "prev.max") >=5 AND ("cur.max" - "prev.max") <= 10))
 		.crit(lambda: (("cur.max" - "prev.max") >10))
-		.message('warning: a node {{ index .Tags "container" }} has gone from {{ index .Fields "prev.max" }} restarts to {{ index .Fields "cur.max" }} restarts in the past hour')
+		.message('warning: Node {{ index .Tags "container" }} has gone from {{ index .Fields "prev.max" }} restarts to {{ index .Fields "cur.max" }} restarts in the past hour')
 		.slack()
 		
 
