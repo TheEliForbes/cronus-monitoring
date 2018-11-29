@@ -191,9 +191,9 @@ dashboards: {}
  # default:
   #  restarts-dashboard: "restarts-dashboard"
   #  pod-dashboard:
-  #    url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/gtikk-charts/grafana/dashboards/pod-metrics_rev2.json
+  #    url: https://raw.githubusercontent.com/Eliforbes42/cronus-monitoring/master/gtikk-charts/grafana/dashboards/pod-metrics_rev2.json
   #  system-dashboard:
-  #    url: https://raw.githubusercontent.com/Eliforbes42/TIKsm-setup/master/gtikk-charts/grafana/dashboards/telegraf-system-metrics_rev1.json
+  #    url: https://raw.githubusercontent.com/Eliforbes42/cronus-monitoring/master/gtikk-charts/grafana/dashboards/telegraf-system-metrics_rev1.json
   # ^This is a previous attempt, and is left as an example if one wants to go this route.
 
 ## Given example v
