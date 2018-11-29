@@ -1,0 +1,28 @@
+dbrp "telegraf"."autogen"
+
+var cur_data = batch
+	|query('select container,max(counter) from "telegraf"."autogen"."kube_pod_container_status_restarts_total"')
+	.groupBy('container')
+	.period(1m)
+	.every(1m)
+
+var prev_data = batch	
+	|query('select container,max(counter) from "telegraf"."autogen"."kube_pod_container_status_restarts_total"')
+	.groupBy('container')
+	.period(1m)
+	.every(1m)
+	.offset(1h)
+	|shift(1h)
+
+cur_data
+	|join(prev_data)
+		.as('cur','prev')
+		.tolerance(1m)
+	|alert()
+		.warn(lambda: (("cur.max" - "prev.max") >=5 AND ("cur.max" - "prev.max") <= 10))
+		.crit(lambda: (("cur.max" - "prev.max") >10))
+		.message('warning: Node {{ index .Tags "container" }} has gone from {{ index .Fields "prev.max" }} restarts to {{ index .Fields "cur.max" }} restarts in the past hour')
+		.slack()
+		
+
+
