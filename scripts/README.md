@@ -1,6 +1,6 @@
 # Scripts
 
-This is a collection of scripts that may come in handy when developing or using the stack.
+This is a collection of scripts that our developers have found useful when using the stack.
 
 
 
@@ -8,24 +8,30 @@ This is a collection of scripts that may come in handy when developing or using 
 
 ### init.sh
 
+`sudo ./init.sh`
+
 This is your 'Swiss-Army-Script', it will handle all installation and configuration that is programatically possible, you're welcome.
 
 
 ### create.sh
 
-This creates the stack from the given Helm Charts, and assumes that you have the needed 'setup' completed.
+`./create.sh`
+
+Create the stack from the given Helm Charts, this assumes that you have the needed 'setup' completed.
 
 
 ### destroy.sh
 
-This tears down the stack, if you ever need to do that due to extenuating circumstances.
+`./destroy.sh`
+
+Tear down the stack, if you ever need to do that due to extenuating circumstances.
 
 
 ### upgrade.sh
 
 `./upgrade.sh`
 
-This is used for upgrading an existing stack when repo updates happen.
+Upgrade an existing stack when repo updates happen.
 
 
 ### installHelm.sh
@@ -46,7 +52,7 @@ This was used for automatic installation of a good Docker/Kubernetes base, and i
 
 `./reClone.sh`
 
-This is essentially an elaborate git pull.
+Essentially an elaborate git pull.
 
 
 ### namespacedCreate.sh
@@ -68,20 +74,20 @@ This is essentially an elaborate git pull.
 
 `"select+some+query+string"` Shows data depending on the inputted IFQL query.
 
-This will query the Influx database for all given options, predefined or otherwise.
+Query the Influx database for all supplied options, predefined or otherwise.
 
 
 ### echoGrafanaIP.sh
 
 `./echoGrafanaIP.sh [-s|--start]`
 
-This will display the current IP of the Grafana service. Optional `-s|--start` flag to start Grafana using Firefox.
+Display the current IP of the Grafana service. Optional `-s|--start` flag to start Grafana using Firefox.
 
 ### generateDashboards.sh
 
 `./generateDashboards.sh`
 
-This dynamically generates and imports various dashboards for each node in your Kubernetes cluster.
+Dynamically generate and import various dashboards for each node in your Kubernetes cluster.
 
 
 
@@ -97,14 +103,14 @@ This will exec you into the Kapacitor pod, to allow for manual Kapacitor configu
 
 `./copyTickScripts.sh`
 
-This will copy the various TICKscripts from their folder in the Kapacitor chart, into the pod.
+Copy the various TICKscripts from their folder in the Kapacitor chart, into the pod.
 
 
 ### defineTickTasks.sh
 
 `./defineTickTasks.sh`
 
-This is 'used' in tandem with `copyTickScripts.sh`, but the script generally fails. Manually running the commands within works though(?).
+This is 'used' in tandem with `copyTickScripts.sh`, but the script may fail. Manually running the commands within works though(?).
 
 
 ### tailKapacitorLogs.sh
