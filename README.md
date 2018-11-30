@@ -26,12 +26,16 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
     2.3. Change the `workspace`, `url`, `channel`, and `username` as necessary.
 
 #### Grafana Dashboards
-To automatically import Dashboards destined for Grafana, place all JSON files in the following folder: 
+- To automatically import your own Dashboards destined for Grafana, place all JSON files in the following folder: 
 
-`/cronus-monitoring/gtikk-charts/grafana/dashboards/`
+      /cronus-monitoring/gtikk-charts/grafana/dashboards/
+
+- To dynamically generate and import various dashboards for each node in your Kubernetes cluster, run the script below:
+         
+      ./cronus-monitoring/scripts/generateDashboards.sh
 
 ### Setup
-1.   Make everything extremely executable, if you're daring..
+1.   Make everything extremely executable, if you desire.
          
          cd cronus-monitoring/scripts
 
@@ -43,7 +47,7 @@ To automatically import Dashboards destined for Grafana, place all JSON files in
 
         2.1.   Tiller may take a bit to set up, so Helm Chart installation may fail. Try again with the following script:
 
-           sudo ./create.sh
+         sudo ./create.sh
 
 3.   Verify Kube-State-Metrics' Prometheus endpoint is operational.
 
