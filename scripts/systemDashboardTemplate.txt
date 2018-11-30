@@ -4342,6 +4342,6 @@
   },
   "timezone": "browser",
   "title": "WATCHEDNODE system metrics",
-  "uid": "UCRfGnBmk",
+  "uid": "WATCHEDNODE",
   "version": 1
 }
