@@ -79,6 +79,33 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
 
     > _Grafana is at http://your.grafana.cluster.ip_
 
+## Testing
+
+- Chart Services & Deployments
+
+    -  Unit test chart files and deployments
+
+    -  `./scripts/helmTest.sh`
+
+- Grafana
+
+    - Simulated User Testing on Grafana dashboards
+
+    - `./selenium/doorTest.sh`
+
+- Stress Testing
+
+    - `./siege/laySiege.sh`
+
+- Test Framework Initialization
+
+    - Selenium: `selenium/initSelenium.sh`
+
+    - Siege: `siege/initSiege.sh`
+
+    - Helm Unit-Test: `helm plugin install https://github.com/lrills/helm-unittest`
+
+    - Kapacitor-Unit: `scripts/initKapacitorUnit.sh`
 
 ## Stack Manipulation
 

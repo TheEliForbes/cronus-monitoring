@@ -1,4 +1,0 @@
-HOSTI=10.100.103.16:8086
-http://${HOSTI}/query?q=show+databases
-http://${HOSTI}/query?q=select+*+from+telegraf..cpu
-http://${HOSTI}/query?q=select+*+from+telegraf..kube_pod_container_status_restarts_total

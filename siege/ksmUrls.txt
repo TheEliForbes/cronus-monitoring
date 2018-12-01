@@ -1,2 +1,0 @@
-HOSTK=10.111.0.84:8085
-http://${HOSTK}/metrics

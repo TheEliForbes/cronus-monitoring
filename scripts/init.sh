@@ -3,6 +3,7 @@
 echo "Initializing Test Software. . ."
 chmod +x ../selenium/initSelenium.sh
 chmod +x ../siege/initSiege.sh
+
 ./../selenium/initSelenium.sh
 ./../siege/initSiege.sh
 echo "Test Software Initialized. . ."
@@ -35,7 +36,7 @@ done
 echo ""
 echo "------------------------------"
 
-read -p "Would you like to initialize the GKIT? (y/n)" yn
+read -p "Would you like to initialize cronus-monitoring? (y/n)" yn
 case $yn in
 	[Yy]* ) chmod +x create.sh; sudo ./create.sh;;
 	[Nn]* ) true;;
@@ -52,7 +53,7 @@ if ! [ -x "$(command -v jq)" ]; then
 	esac
 fi
 
-read -p "Would you like to install Helm Test? (y/n)" yn
+read -p "Would you like to install Helm Unit-Test? (y/n)" yn
 case $yn in
 	[Yy]* ) helm plugin install https://github.com/lrills/helm-unittest;;
 	[Nn]* ) true;;
