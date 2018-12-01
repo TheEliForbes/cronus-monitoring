@@ -99,6 +99,8 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
 
     - `./scripts/testTickScripts.sh`
 
+    - *These tests are not truly functional yet*
+
 - Stress Testing
 
     - `./siege/laySiege.sh`
