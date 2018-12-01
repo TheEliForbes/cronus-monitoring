@@ -23,7 +23,9 @@ fi
 #kubectl create -f role-tiller.yaml
 #kubectl create -f rolebinding-tiller.yaml
 #helm init --service-account tiller --tiller-namespace tick
-kubectl create -f rbac-config.yaml
+if ! [ -x "$(command -v kubectl api-versions | grep rbac.authorization.k8s.io/v1)"]; then
+	kubectl create -f rbac-config.yaml
+fi
 helm init --service-account tiller 
 echo ""
 echo "Please wait 30 seconds for Tiller to set up"
