@@ -107,6 +107,8 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
 
     - Kapacitor-Unit: `scripts/initKapacitorUnit.sh`
 
+        - *This framework is the only one not automatically installed.*
+
 ## Stack Manipulation
 
 - Set up Stack:  `./create.sh`

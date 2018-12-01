@@ -9,8 +9,8 @@ if ! [ -x "$(command -v go)" ]; then
     export GOBIN=/usr/local/go/bin
     mkdir go
     export GOPATH=$HOME/go
-    go get github.com/gpestana/kapacitor-unit
-    go get -u gopkg.in/h2non/gock.v1
+    go get -v github.com/gpestana/kapacitor-unit
+    go get -u -v gopkg.in/h2non/gock.v1
     go install github.com/gpestana/kapacitor-unit
 	kapacitor-unit
 fi
