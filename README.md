@@ -93,6 +93,12 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
 
     - `./selenium/doorTest.sh`
 
+- Kapacitor
+
+    - Unit test TICKscripts
+
+    - `./scripts/testTickScripts.sh`
+
 - Stress Testing
 
     - `./siege/laySiege.sh`
