@@ -109,23 +109,23 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
 
 - Test Framework Initialization
 
-    - Selenium: `selenium/initSelenium.sh`
+    - Selenium: `./selenium/initSelenium.sh`
 
-    - Siege: `siege/initSiege.sh`
+    - Siege: `./siege/initSiege.sh`
 
     - Helm Unit-Test: `helm plugin install https://github.com/lrills/helm-unittest`
 
-    - Kapacitor-Unit: `scripts/initKapacitorUnit.sh`
+    - Kapacitor-Unit: `./scripts/initKapacitorUnit.sh`
 
         - *This framework is the only one not automatically installed.*
 
 ## Stack Manipulation
 
-- Set up Stack:  `./create.sh`
+- Set up Stack:  `./scripts/create.sh`
 
-- Remove Stack:  `./destroy.sh`
+- Remove Stack:  `./scripts/destroy.sh`
 
-- Upgrade Stack: `./upgrade.sh`        
+- Upgrade Stack: `./scripts/upgrade.sh`        
 
 ## Port Info
 * Kube-State-Metrics: [`8085`](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/kube-state-metrics/values.yaml#L8)
