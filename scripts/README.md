@@ -119,6 +119,14 @@ This is 'used' in tandem with `copyTickScripts.sh`, but the script may fail. Man
 
 This will watch the Kapacitor logs for updates.
 
+### slackAlertToEmail.sh
+
+`./slackAlertToEmail.sh`
+
+This is meant to quickly replace TICKscript slack alerts with simple email alerts. It is highly experimental and requires further configuration to support it.
+
+Namely, a [Topic Handler and SMTP configuration](https://docs.influxdata.com/kapacitor/v1.5/event_handlers/email/) for Kapacitor's [configuration file](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/kapacitor/templates/config.yaml#L114).
+
 
 ### deprecatedTikInstall.bash
 
