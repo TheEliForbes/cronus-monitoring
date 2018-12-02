@@ -19,16 +19,16 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
 
 2. Modify the Kapacitor Configuration to post to your Slack Channel.
 
-    2.1. Open up `/cronus-monitoring/gtikk-charts/kapacitor/templates/config.yaml`
+    2.1. Open up `/cronus-monitoring/charts/kapacitor/templates/config.yaml`
 
-    2.2. Modify the `[[slack]]` section, [lines 134-142](https://github.com/Eliforbes42/cronus-monitoring/blob/master/gtikk-charts/kapacitor/templates/config.yaml#L134).
+    2.2. Modify the `[[slack]]` section, [lines 134-142](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/kapacitor/templates/config.yaml#L134).
     
     2.3. Change the `workspace`, `url`, `channel`, and `username` as necessary.
 
 #### Grafana Dashboards
 - To automatically import your own Dashboards destined for Grafana, place all JSON files in the following folder: 
 
-      /cronus-monitoring/gtikk-charts/grafana/dashboards/
+      /cronus-monitoring/charts/grafana/dashboards/
 
 - To dynamically generate and import various dashboards for each node in your Kubernetes cluster, run the script below:
          
@@ -128,10 +128,10 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
 - Upgrade Stack: `./upgrade.sh`        
 
 ## Port Info
-* Kube-State-Metrics: [`8085`](https://github.com/Eliforbes42/cronus-monitoring/blob/master/gtikk-charts/kube-state-metrics/values.yaml#L8)
+* Kube-State-Metrics: [`8085`](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/kube-state-metrics/values.yaml#L8)
 
-* InfluxDB: [`8086`](https://github.com/Eliforbes42/cronus-monitoring/blob/master/gtikk-charts/influxdb/values.yaml#L103)
+* InfluxDB: [`8086`](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/influxdb/values.yaml#L103)
 
-* Kapacitor: [`9092`](https://github.com/Eliforbes42/cronus-monitoring/blob/master/gtikk-charts/kapacitor/templates/config.yaml#L17)
+* Kapacitor: [`9092`](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/kapacitor/templates/config.yaml#L17)
 
-* Grafana: [`80`](https://github.com/Eliforbes42/cronus-monitoring/blob/master/gtikk-charts/grafana/values.yaml#L58)
+* Grafana: [`80`](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/grafana/values.yaml#L58)

@@ -7,4 +7,4 @@ do
    sed "s/WATCHEDNODE/$SYSNODE/g" systemDashboardTemplate.txt > "$SYSNODE-metrics.json"
 done
 
-cp *.json ../gtikk-charts/grafana/dashboards/
+cp *.json ../charts/grafana/dashboards/
