@@ -34,7 +34,7 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
          
       ./cronus-monitoring/scripts/generateDashboards.sh
 
-    - *Want to make your own? Look at `systemDashboardTemplate.txt`. It's very similar to dashboard JSONs, but its Names, Host Variable Names, and UIDs are templated.*
+    - *Want to make your own? Look at [`systemDashboardTemplate.txt`](https://github.com/Eliforbes42/cronus-monitoring/blob/master/scripts/systemDashboardTemplate.txt). It's very similar to dashboard JSONs, but its Names, Host Variable Names, and UIDs are templated.*
 
 ### Setup
 1.   Make everything extremely executable, if you desire.
