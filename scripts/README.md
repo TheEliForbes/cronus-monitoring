@@ -154,9 +154,9 @@ This queries the Kube-State-Metrics Prometheus endpoint and displays it's data.
 
 Run native Helm Tests and Helm Unit Tests.
 
-### testTick.sh
+### testTickScripts.sh
 
-`./testTick.sh`
+`./testTickScripts.sh`
 
 Run Kapacitor-Unit Tests.
 
