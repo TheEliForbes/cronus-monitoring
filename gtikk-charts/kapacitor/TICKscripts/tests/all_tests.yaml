@@ -58,55 +58,49 @@ tests:
       ok: 0
       warn: 1
       crit: 0
-      
-      
-      
-      
-      
-      
-      
-#example test cases
-  # alert_weather.tick triggers a critical alert when the measurement 
-  # temperature in the dbrp weather:default is bigger than 80
-  - name: "Alert weather:: critical when temperature > 120"  
-    task_name: alert_weather.tick
-    db: weather
-    rp: autogen
-    type: stream
-    data:
-      - temperature,location=us-midwest temperature=70
-      - temperature,location=us-midwest temperature=120
-    expects:
-      ok: 0
-      warn: 0
-      crit: 1
 
-  # alert_weather.tick triggers a warning alert when the measurement temperature 
-  # in the dbrp weather:default is bigger than 80
-  - name: "Alert weather:: warning when 80 < temperature < 120"  
-    task_name: alert_weather.tick
-    db: weather
-    rp: autogen
-    type: stream
-    data:
-      - temperature,location=us-midwest temperature=70
-      - temperature,location=us-midwest temperature=82
-    expects:
-      ok: 0
-      warn: 1
-      crit: 0
-
-  # alert_weather.tick failed test
-  - name: "Alert weather:: failure"  
-    task_name: alert_weather.tick
-    db: weather
-    rp: autogen
-    type: stream
-    data:
-      - temperature,location=us-midwest temperature=70
-      - temperature,location=us-midwest temperature=82
-    expects:
-      ok: 0
-      warn: 1
-      crit: 0      
-          
+##example test cases
+#  # alert_weather.tick triggers a critical alert when the measurement 
+#  # temperature in the dbrp weather:default is bigger than 80
+#  - name: "Alert weather:: critical when temperature > 120"  
+#    task_name: alert_weather.tick
+#    db: weather
+#    rp: autogen
+#    type: stream
+#    data:
+#      - temperature,location=us-midwest temperature=70
+#      - temperature,location=us-midwest temperature=120
+#    expects:
+#      ok: 0
+#      warn: 0
+#      crit: 1
+#
+#  # alert_weather.tick triggers a warning alert when the measurement temperature 
+#  # in the dbrp weather:default is bigger than 80
+#  - name: "Alert weather:: warning when 80 < temperature < 120"  
+#    task_name: alert_weather.tick
+#    db: weather
+#    rp: autogen
+#    type: stream
+#    data:
+#      - temperature,location=us-midwest temperature=70
+#      - temperature,location=us-midwest temperature=82
+#    expects:
+#      ok: 0
+#      warn: 1
+#      crit: 0
+#
+#  # alert_weather.tick failed test
+#  - name: "Alert weather:: failure"  
+#    task_name: alert_weather.tick
+#    db: weather
+#    rp: autogen
+#    type: stream
+#    data:
+#      - temperature,location=us-midwest temperature=70
+#      - temperature,location=us-midwest temperature=82
+#    expects:
+#      ok: 0
+#      warn: 1
+#      crit: 0      
+#          
