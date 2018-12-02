@@ -33,7 +33,7 @@ The command deploys InfluxDB on the Kubernetes cluster in the default configurat
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `my-release` deployment:
+To uninstall/delete the `data` deployment:
 
 ```bash
 $ helm delete data --purge
