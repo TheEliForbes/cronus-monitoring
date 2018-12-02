@@ -12,11 +12,6 @@ image:
 service:
   type: ClusterIP
 
-
-
-##Alias namespace
-space: kube-system
-sport: 8086
 ## Persist data to a persitent volume
 ##
 persistence:
@@ -26,7 +21,7 @@ persistence:
   ##
   # storageClass:
   accessMode: ReadWriteOnce
-  size: 8Gi
+  size: 1Gi
 
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
