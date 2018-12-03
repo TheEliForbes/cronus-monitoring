@@ -4,9 +4,9 @@ NODENAMES=$(kubectl get nodes -o jsonpath='{ .items[*].metadata.name }')
 for NODE in $NODENAMES
 do
    SYSNODE="$NODE-system"
-   sed -i "s/WATCHEDNODE/$SYSNODE/g" systemDashboardTemplate.txt > "$SYSNODE-metrics.json"
+   sed "s/WATCHEDNODE/$SYSNODE/g" systemDashboardTemplate.txt > "$SYSNODE-metrics.json"
    NODEuuid=$(uuidgen)
-   sed "s/\"uid\": \"UCRfGnBmk\"/\"uid\": \"$NODEuuid\" /g"
+   sed -i "s/\"uid\": \"UCRfGnBmk\"/\"uid\": \"$NODEuuid\" /g" "$SYSNODE-metrics.json"
 done
 
 cp *.json ../charts/grafana/dashboards/
