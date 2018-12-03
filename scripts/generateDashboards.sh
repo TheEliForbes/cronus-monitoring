@@ -10,7 +10,6 @@ do
       sed "s/WATCHEDNODE/$SYSNODE/g" systemDashboardTemplate.txt > "$SYSNODE-metrics.json"
       NODEuuid=$(uuidgen)
       sed "s/\"uid\": \"UCRfGnBmk\"/\"uid\": \"$NODEuuid\" /g"
-   fi
 done
 
 cp *.json ../charts/grafana/dashboards/
