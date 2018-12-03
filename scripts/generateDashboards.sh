@@ -5,7 +5,7 @@ for NODE in $NODENAMES
 do
    SYSNODE="$NODE-system"
    sed "s/WATCHEDNODE/$SYSNODE/g" systemDashboardTemplate.txt > "$SYSNODE-metrics.json"
-   $NODEuuid=uuidgen
+   $NODEuuid = uuidgen
    sed "s/\"uid\": \"UCRfGnBmk\"/\"uid\": \"$NODEuuid\" /g"
 done
 
