@@ -3,6 +3,7 @@ declare -i counter=0
 NODENAMES=$(kubectl get nodes -o jsonpath='{ .items[*].metadata.name }')
 
 echo "Generating Dashboards. . ."
+echo ""
 
 for NODE in $NODENAMES
 do
@@ -17,9 +18,11 @@ do
    fi    
 done
 
-echo "System Dashboards generated. . ."
-echo "Copying dashboards to cronus-monitoring/charts/grafana/dashhboards. . ."
+echo ""
+echo "System Dashboards generated"
+echo "Copying dashboards to cronus-monitoring/charts/grafana/dashhboards/"
+echo ". . ."
 
 cp *.json ../charts/grafana/dashboards/
 
-echo "Dashboards copied. . ."
+echo "Dashboards copied to cronus-monitoring/charts/grafana/dashhboards/"
