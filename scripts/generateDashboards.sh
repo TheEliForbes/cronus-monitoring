@@ -6,9 +6,6 @@ do
    case $1 in
    --verbose |-v)    echo $NODE
    esac
-   if [["$NODE" == "kube-master"]; then
-      echo "Unschedulable node"
-   else
       SYSNODE="$NODE-system"
       sed "s/WATCHEDNODE/$SYSNODE/g" systemDashboardTemplate.txt > "$SYSNODE-metrics.json"
       NODEuuid=$(uuidgen)
