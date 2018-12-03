@@ -2,7 +2,7 @@
 declare -i counter=0
 NODENAMES=$(kubectl get nodes -o jsonpath='{ .items[*].metadata.name }')
 
-echo "Generating System Dashboards for: $NODENAMES. . ."
+echo "Generating Dashboards. . ."
 
 for NODE in $NODENAMES
 do
