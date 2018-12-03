@@ -3,6 +3,8 @@
 NODENAMES=$(kubectl get nodes -o jsonpath='{ .items[*].metadata.name }')
 for NODE in $NODENAMES
 do
+   case $1 in
+   --verbose |-v)    echo $NODE
    SYSNODE="$NODE-system"
    sed "s/WATCHEDNODE/$SYSNODE/g" systemDashboardTemplate.txt > "$SYSNODE-metrics.json"
    NODEuuid=$(uuidgen)
