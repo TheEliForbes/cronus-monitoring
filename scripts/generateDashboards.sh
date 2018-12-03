@@ -6,7 +6,7 @@ do
    case $1 in
    --verbose |-v)    echo $NODE
    esac
-   if ["$NODE" = "kube-master"]; then
+   if [["$NODE" == "kube-master"]; then
       echo "Unschedulable node"
    else
       SYSNODE="$NODE-system"
