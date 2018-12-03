@@ -5,6 +5,7 @@ for NODE in $NODENAMES
 do
    case $1 in
    --verbose |-v)    echo $NODE
+   esac
    SYSNODE="$NODE-system"
    sed "s/WATCHEDNODE/$SYSNODE/g" systemDashboardTemplate.txt > "$SYSNODE-metrics.json"
    NODEuuid=$(uuidgen)
