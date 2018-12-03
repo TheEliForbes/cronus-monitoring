@@ -3,7 +3,7 @@
 NODENAMES=$(kubectl get nodes -o jsonpath='{ .items[*].metadata.name }')
 for NODE in $NODENAMES
 do
-   if [["$NODE" - "kube-master"]] then
+   if [["$NODE" -ne "kube-master"]] then
       SYSNODE="$NODE-system"
       sed "s/WATCHEDNODE/$NODE/g" systemDashboardTemplate.txt > "$SYSNODE-metrics.json"
       NODEuuid=$(uuidgen)
