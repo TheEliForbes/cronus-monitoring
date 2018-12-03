@@ -6,10 +6,13 @@ do
    case $1 in
    --verbose |-v)    echo $NODE
    esac
-   SYSNODE="$NODE-system"
-   sed "s/WATCHEDNODE/$SYSNODE/g" systemDashboardTemplate.txt > "$SYSNODE-metrics.json"
-   NODEuuid=$(uuidgen)
-   sed "s/\"uid\": \"UCRfGnBmk\"/\"uid\": \"$NODEuuid\" /g"
+   if ["$NODE" -eq "kube-master"]
+   else
+      SYSNODE="$NODE-system"
+      sed "s/WATCHEDNODE/$SYSNODE/g" systemDashboardTemplate.txt > "$SYSNODE-metrics.json"
+      NODEuuid=$(uuidgen)
+      sed "s/\"uid\": \"UCRfGnBmk\"/\"uid\": \"$NODEuuid\" /g"
+   fi
 done
 
 cp *.json ../charts/grafana/dashboards/
