@@ -37,7 +37,7 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
     - *Want to make your own? Look at [`systemDashboardTemplate.txt`](https://github.com/Eliforbes42/cronus-monitoring/blob/master/scripts/systemDashboardTemplate.txt). It's very similar to dashboard JSONs, but its Names, Host Variable Names, and UIDs are templated.*
 
 ### Setup
-1.   Make everything extremely executable, if you desire.
+1.   Make all scripts executable, if you desire.
          
          cd cronus-monitoring/scripts
 
@@ -47,31 +47,35 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
                    
          sudo ./init.sh
 
-        2.1.   Tiller may take a bit to set up, so Helm Chart installation may fail. Try again with the following script:
+        2.1.   Tiller may take longer than the allowed set-up time, so Helm Chart installation may fail. Try again with the following script:
 
          sudo ./create.sh
 
-3.   Verify Kube-State-Metrics' Prometheus endpoint is operational.
+3.   Verify that Kube-State-Metrics' Prometheus endpoint is operational.
 
          ./curl.sh
 
-4.   Verify InfluxDB is operational, and receiving data from Telegraf.
+4.   Verify that InfluxDB is operational, and receiving CPU data from Telegraf.
 
          ./query.sh -c
+        
+5.   Verify that Telegraf scrapes Kube-State-Metrics' Prometheus endpoint, and sends data to InfluxDB 
 
-5.   Now that the stack is set up, define the TICKscripts.
+         ./query.sh -k
 
-        5.1 `./copyTickScripts.sh`  
+6.   Now that the stack is set up, define the TICKscripts.
 
-        5.2 `./defineTickTasks.sh`
+        6.1 `./copyTickScripts.sh`  
 
-        5.2.1 -- If 5.2 doesn't work, run the commands below.       
+        6.2 `./defineTickTasks.sh`
 
-        5.2.2 `./connectToKapacitorContainer.sh`
+        6.2.1 -- If 6.2 doesn't work, run the commands below.       
 
-        5.2.3 `chmod +x TICKscripts/defineTasks.sh`
+        6.2.2 `./connectToKapacitorContainer.sh`
 
-        5.2.4 `./TICKscripts/defineTasks.sh`
+        6.2.3 `chmod +x TICKscripts/defineTasks.sh`
+
+        6.2.4 `./TICKscripts/defineTasks.sh`
 
 ## Usage
 
