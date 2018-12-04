@@ -51,31 +51,23 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
 
          sudo ./create.sh
 
-3.   Verify that Kube-State-Metrics' Prometheus endpoint is operational.
+3.   Verify that the stack setup is operational
 
-         ./curl.sh
+         ./verifySetup.sh
 
-4.   Verify that InfluxDB is operational, and receiving CPU data from Telegraf.
+4.   Now that the stack is set up, define the TICKscripts.
 
-         ./query.sh -c
-        
-5.   Verify that Telegraf scrapes Kube-State-Metrics' Prometheus endpoint, and sends data to InfluxDB 
+        4.1 `./copyTickScripts.sh`  
 
-         ./query.sh -k
+        4.2 `./defineTickTasks.sh`
 
-6.   Now that the stack is set up, define the TICKscripts.
+        4.2.1 -- If 6.2 doesn't work, run the commands below.       
 
-        6.1 `./copyTickScripts.sh`  
+        4.2.2 `./connectToKapacitorContainer.sh`
 
-        6.2 `./defineTickTasks.sh`
+        4.2.3 `chmod +x TICKscripts/defineTasks.sh`
 
-        6.2.1 -- If 6.2 doesn't work, run the commands below.       
-
-        6.2.2 `./connectToKapacitorContainer.sh`
-
-        6.2.3 `chmod +x TICKscripts/defineTasks.sh`
-
-        6.2.4 `./TICKscripts/defineTasks.sh`
+        4.2.4 `./TICKscripts/defineTasks.sh`
 
 ## Usage
 
