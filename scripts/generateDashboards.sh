@@ -1,8 +1,12 @@
 #!/bin/bash
 
-echo "Removing previously generated dashboards. . ."
-rm ./generatedDashboards/*.json
-echo "Old Dashboards Removed."
+if ! mkdir generatedDashboards ; then
+  echo "Directory exists. . ."
+else
+  echo "Removing previously generated dashboards. . ."
+  rm generatedDashboards/*.json
+  echo "Old Dashboards Removed."
+fi
 
 declare -i counter=0
 NODENAMES=$(kubectl get nodes -o jsonpath='{ .items[*].metadata.name }')
