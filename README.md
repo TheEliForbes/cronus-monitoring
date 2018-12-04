@@ -13,9 +13,7 @@ Clone the repo and dive in!
 #### Slack Alert Bot
 To allow Kapacitor to post alerts to your Slack channel, follow the instructions below.
 
-1. Create an Incoming Webhook for Slack.
-
-    1.1. If you're unfamiliar with Slack Webhooks, follow [this guide](https://api.slack.com/incoming-webhooks).
+1. [Create an Incoming Webhook for Slack.](https://api.slack.com/incoming-webhooks)
 
 2. Modify the Kapacitor Configuration to post to your Slack Channel.
 
