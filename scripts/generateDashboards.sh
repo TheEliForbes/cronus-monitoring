@@ -1,7 +1,8 @@
 #!/bin/bash
 
-if ! mkdir generatedDashboards ; then
-  echo "Directory exists. . ."
+if ! ls generatedDashboards ; then
+  echo "Directory non-existent. . ."
+  mkdir generatedDashboards
 else
   echo "Removing previously generated dashboards. . ."
   rm generatedDashboards/*.json
