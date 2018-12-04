@@ -25,6 +25,8 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
     
     2.3. Change the `workspace`, `url`, `channel`, and `username` as necessary.
 
+> Experimental: [Change Slack Alerts to Email Alerts](https://github.com/Eliforbes42/cronus-monitoring/blob/master/scripts/README.md#slackalerttoemailsh)
+
 #### Grafana Dashboards
 - To automatically import your own Dashboards destined for Grafana, place all JSON files in the following folder: 
 
