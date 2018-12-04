@@ -49,7 +49,7 @@ if ! [ -x "$(command -v jq)" ]; then
 	echo "JQ is not installed."
 	read -p "Do you wish to install JQ? (y/n)" yn
 	case $yn in
-		[Yy]* ) sudo apt install jq;;
+		[Yy]* ) sudo apt install -y jq;;
 		[Nn]* ) true;;
 		* ) echo "Please answer y/n."
 	esac
