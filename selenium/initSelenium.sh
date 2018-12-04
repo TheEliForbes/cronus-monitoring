@@ -16,7 +16,8 @@ if ! [ -x "$(command -v selenium)" ]; then
 	case $yn in
 		[Yy]* ) wget https://github.com/mozilla/geckodriver/releases/download/v0.22.0/geckodriver-v0.22.0-linux64.tar.gz;
 		        sudo tar -zxvf geckodriver-v0.22.0-linux64.tar.gz;
-				sudo cp geckodriver /usr/bin;
+				sudo rm geckodriver-v0.22.0-linux64.tar.gz;
+				sudo mv geckodriver /usr/bin;
 				pip install selenium;;		        
 		[Nn]* ) exit;;
 		* ) echo "Please answer y/n.";;

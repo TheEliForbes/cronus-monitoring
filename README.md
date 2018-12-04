@@ -61,7 +61,7 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
 
         4.2 `./defineTickTasks.sh`
 
-        4.2.1 -- If 6.2 doesn't work, run the commands below.       
+        4.2.1 -- If 4.2 doesn't work, run the commands below.       
 
         4.2.2 `./connectToKapacitorContainer.sh`
 
