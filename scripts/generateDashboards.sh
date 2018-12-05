@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ! ls generatedDashboards ; then
+if ! [ -e generatedDashboards ] ; then
   echo "Directory non-existent. . ."
   mkdir generatedDashboards
 else
