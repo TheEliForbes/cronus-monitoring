@@ -10,7 +10,7 @@ This is a collection of scripts that our developers have found useful when using
 
 `sudo ./init.sh`
 
-This is your 'Swiss-Army-Script', it will handle all installation and configuration that is programatically possible, you're welcome.
+This is your initialization script, it will handle all installation and configuration that is programatically possible.
 
 
 ### create.sh
