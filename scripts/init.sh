@@ -1,8 +1,5 @@
 #!/bin/bash
 
-chmod +x generateDashboards.sh
-./generateDashboards.sh
-
 echo "Initializing Test Software. . ."
 chmod +x ../selenium/initSelenium.sh
 chmod +x ../siege/initSiege.sh
