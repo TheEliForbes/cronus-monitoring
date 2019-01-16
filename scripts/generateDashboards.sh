@@ -13,7 +13,7 @@ declare -i counter=0
 declare -i namecounter=0
 NODENAMES=$(kubectl get nodes -o jsonpath='{ .items[*].metadata.name }')
 	
-if [ $1 == "-s" ]; then
+if [ "$1" == "-s" ]; then
 	for NODE in $NODENAMES
 	do
 		if [ "$namecounter" != '0' ]; then
@@ -27,7 +27,7 @@ fi
 
 echo $'Generating Dashboards. . .\n'
 
-if [ $1 == "-s" ]; then
+if [ "$1" == "-s" ]; then
 	for NODE in $NODENAMES
 	do
 	   if [ "$counter" != '0' ]; then 
