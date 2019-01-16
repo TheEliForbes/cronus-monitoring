@@ -62,8 +62,8 @@ else
 fi
 
 echo "System Dashboards generated -- see ./generatedDashboards"
-echo $'Copying dashboards to cronus-monitoring/charts/grafana/dashhboards/\n. . .'
+echo $'Copying dashboards to cronus-monitoring/charts/grafana/generatedDashboards/\n. . .'
 
 cp ./generatedDashboards/*.json ../charts/grafana/dashboards/
 
-echo "Dashboards copied to cronus-monitoring/charts/grafana/dashhboards/"
+echo "Dashboards copied to cronus-monitoring/charts/grafana/generatedDashboards/"
