@@ -46,6 +46,7 @@ if [ "$1" == "-s" ]; then
 		       echo "$SYSNODE-metrics.json created"
 	  	 	fi
 	  	    let "counter=counter+1"	
+	  	    break
 	  	 done
 	   else 
 	      let "counter=counter+1"
