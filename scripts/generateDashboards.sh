@@ -23,10 +23,10 @@ if [ "$1" == "-s" ]; then
 	done
 	
 	read -p "Input the numbers of desired nodes in ascending order (1 2 ..)" nums
-	for num in $nums
-	do
-		echo "num=$num"
-	done
+	#for num in $nums
+	#do
+	#	echo "num=$num"
+	#done
 fi
 
 echo $'Generating Dashboards. . .\n'
@@ -37,7 +37,6 @@ if [ "$1" == "-s" ]; then
 	   if [ "$counter" != '0' ]; then 
 	   	  for num in $nums
 	   	  do
-	   	  	echo "$num"
 	   	  	if [ "$num" == "$counter" ]; then
 		       SYSNODE="$NODE-system"
 	      	   sed "s/WATCHEDNODE/$NODE/g" systemDashboardTemplate.txt > "generatedDashboards/$SYSNODE-metrics.json"
@@ -47,8 +46,7 @@ if [ "$1" == "-s" ]; then
 		       
 		       let "counter=counter+1"
 		       break
-	  	 	fi
-	  	      	    
+	  	 	fi	  	     	  
 	  	 done
 	   else 
 	      let "counter=counter+1"
