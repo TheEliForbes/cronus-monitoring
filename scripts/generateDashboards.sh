@@ -44,9 +44,9 @@ if [ "$1" == "-s" ]; then
 	      	   NODEuuid=$(uuidgen)
 	    	   sed -i "s/\"uid\": \"UCRfGnBmk\"/\"uid\": \"$NODEuuid\" /g" "generatedDashboards/$SYSNODE-metrics.json"
 		       echo "$SYSNODE-metrics.json created"
+		       break
 	  	 	fi
-	  	    let "counter=counter+1"	
-	  	    break
+	  	    let "counter=counter+1"	  	    
 	  	 done
 	   else 
 	      let "counter=counter+1"
