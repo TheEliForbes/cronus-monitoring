@@ -23,6 +23,10 @@ if [ "$1" == "-s" ]; then
 	done
 	
 	read -p "Input the numbers of desired nodes in ascending order (1 2 ..)" nums
+	for num in $nums
+	do
+		echo "num=$num"
+	done
 fi
 
 echo $'Generating Dashboards. . .\n'
