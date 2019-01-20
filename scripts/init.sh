@@ -1,5 +1,8 @@
 #!/bin/bash
 
+chmod +x installHelm.sh
+chmod +x create.sh
+
 echo "Initializing Test Software. . ."
 chmod +x ../selenium/initSelenium.sh
 chmod +x ../siege/initSiege.sh
@@ -12,7 +15,7 @@ if ! [ -x "$(command -v helm)" ]; then
   echo "Helm is not installed."
   read -p "Do you wish to install Helm? (y/n)" yn
   case $yn in
- 	[Yy]* ) chmod +x installHelm.sh; sudo ./installHelm.sh;;
+ 	[Yy]* ) sudo ./installHelm.sh;;
  	[Nn]* ) true;;
 		* ) echo "Please answer y/n.";;
   esac
@@ -38,9 +41,7 @@ done
 echo ""
 echo "------------------------------"
 
-if ! [ -x create.sh ]; then
-  chmod +x create.sh
-fi
+echo "Initializing cronus-monitoring"
 sudo ./create.sh
 
 if ! [ -x "$(command -v jq)" ]; then

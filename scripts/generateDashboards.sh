@@ -10,6 +10,15 @@ dashGen() {
   echo "$SYSNODE-metrics.json created"	
 }
 
+printNodes() {
+for NODE in $NODENAMES do
+		if [ "$namecounter" != '0' ]; then
+			echo "$namecounter. $NODE"
+		fi
+		let "namecounter=namecounter+1"			
+done
+}
+
 
 if ! [ -e generatedDashboards ] ; then
   echo "Directory non-existent. . ."
@@ -29,22 +38,11 @@ fi
 declare -i counter=0
 declare -i namecounter=0
 NODENAMES=$(kubectl get nodes -o jsonpath='{ .items[*].metadata.name }')
-	
-if [ "$1" == "-s" ]; then
-	for NODE in $NODENAMES
-	do
-		if [ "$namecounter" != '0' ]; then
-			echo "$namecounter. $NODE"
-		fi
-		let "namecounter=namecounter+1"			
-	done
-	
-	read -p "Input the numbers of desired nodes in ascending order (1 2 ..)" selectedNumbers
-fi
-
 echo $'Generating Dashboards. . .\n'
 
 if [ "$1" == "-s" ]; then
+	printNodes
+	read -p "Input the numbers of desired nodes in ascending order (1 2 ..)" selectedNumbers
 	for NODE in $NODENAMES do
 	   if [ "$counter" != '0' ]; then 
 	   	  for num in $selectedNumbers do
@@ -71,7 +69,5 @@ fi
 
 echo "System Dashboards generated -- see scripts/generatedDashboards"
 echo "Copying dashboards to $fullDestinationPath"
-
 cp ./generatedDashboards/*.json ../charts/grafana/dashboards/
-
 echo "Dashboards copied to $fullDestinationPath"
