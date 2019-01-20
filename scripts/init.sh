@@ -50,7 +50,7 @@ if ! [ -x "$(command -v jq)" ]; then
   sudo apt install -y jq 	
 fi
 
-"Installing Helm Unit-Test. . ."
+echo "Installing Helm Unit-Test. . ."
 helm plugin install https://github.com/lrills/helm-unittest
 
 echo "Done. . ."
