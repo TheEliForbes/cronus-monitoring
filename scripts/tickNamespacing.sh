@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#this is bugged don't try it
+#this is bugged, don't try it
 kubectl create namespace tick
 kubectl create serviceaccount tiller --namespace tick
 kubectl create -f role-tiller.yaml

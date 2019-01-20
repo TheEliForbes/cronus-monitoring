@@ -1,12 +1,29 @@
 #!/bin/bash
 
+fullDestinationPath="cronus-monitoring/charts/grafana/generatedDashboards/"
+dashGen() {
+  NODE=$1
+  SYSNODE="$NODE-system"
+  sed "s/WATCHEDNODE/$NODE/g" systemDashboardTemplate.txt > "generatedDashboards/$SYSNODE-metrics.json"
+  NODEuuid=$(uuidgen)
+  sed -i "s/\"uid\": \"UCRfGnBmk\"/\"uid\": \"$NODEuuid\" /g" "generatedDashboards/$SYSNODE-metrics.json"
+  echo "$SYSNODE-metrics.json created"	
+}
+
+
 if ! [ -e generatedDashboards ] ; then
   echo "Directory non-existent. . ."
   mkdir generatedDashboards
 else
-  echo "Removing previously generated dashboards. . ."
-  rm generatedDashboards/*.json
-  echo "Old Dashboards Removed."
+  read -p "Remove previous dashboards? (y/n)" yn
+  case $yn in
+  	[Yy]* ) echo "Removing previously generated dashboards. . .";
+            rm generatedDashboards/*.json;
+            echo "Old Dashboards Removed.";;
+  	[Nn]* ) true;;
+  	* ) true;;
+  esac
+  
 fi
 
 declare -i counter=0
@@ -22,54 +39,39 @@ if [ "$1" == "-s" ]; then
 		let "namecounter=namecounter+1"			
 	done
 	
-	read -p "Input the numbers of desired nodes in ascending order (1 2 ..)" nums
-	#for num in $nums
-	#do
-	#	echo "num=$num"
-	#done
+	read -p "Input the numbers of desired nodes in ascending order (1 2 ..)" selectedNumbers
 fi
 
 echo $'Generating Dashboards. . .\n'
 
 if [ "$1" == "-s" ]; then
-	for NODE in $NODENAMES
-	do
+	for NODE in $NODENAMES do
 	   if [ "$counter" != '0' ]; then 
-	   	  for num in $nums
-	   	  do
+	   	  for num in $selectedNumbers do
 	   	  	if [ "$num" == "$counter" ]; then
-		       SYSNODE="$NODE-system"
-	      	   sed "s/WATCHEDNODE/$NODE/g" systemDashboardTemplate.txt > "generatedDashboards/$SYSNODE-metrics.json"
-	      	   NODEuuid=$(uuidgen)
-	    	   sed -i "s/\"uid\": \"UCRfGnBmk\"/\"uid\": \"$NODEuuid\" /g" "generatedDashboards/$SYSNODE-metrics.json"
-		       echo "$SYSNODE-metrics.json created"
+		       dashGen $NODE
 		       
 		       let "counter=counter+1"
 		       break
-	  	 	fi	  	     	  
-	  	 done
+	  	    fi	  	     	  
+	  	  done
 	   else 
 	      let "counter=counter+1"
 	   fi    
 	done
 else
-	for NODE in $NODENAMES
-	do
+	for NODE in $NODENAMES do
 	   if [ "$counter" != '0' ]; then 
-	      SYSNODE="$NODE-system"
-	      sed "s/WATCHEDNODE/$NODE/g" systemDashboardTemplate.txt > "generatedDashboards/$SYSNODE-metrics.json"
-	      NODEuuid=$(uuidgen)
-	      sed -i "s/\"uid\": \"UCRfGnBmk\"/\"uid\": \"$NODEuuid\" /g" "generatedDashboards/$SYSNODE-metrics.json"
-	      echo "$SYSNODE-metrics.json created"
+	      dashGen $NODE
 	   else 
 	      let "counter=counter+1"
 	   fi    
 	done
 fi
 
-echo "System Dashboards generated -- see ./generatedDashboards"
-echo $'Copying dashboards to cronus-monitoring/charts/grafana/generatedDashboards/\n. . .'
+echo "System Dashboards generated -- see scripts/generatedDashboards"
+echo "Copying dashboards to $fullDestinationPath"
 
 cp ./generatedDashboards/*.json ../charts/grafana/dashboards/
 
-echo "Dashboards copied to cronus-monitoring/charts/grafana/generatedDashboards/"
+echo "Dashboards copied to $fullDestinationPath"

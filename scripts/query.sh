@@ -1,7 +1,8 @@
 #!/bin/bash
 # This has some standard queries for dev use.
 IP=$(sudo kubectl get svc --namespace kube-system data-influxdb -o json | jq -r .spec.clusterIP)
-URL="http://"$IP":8086"
+PORT=8086
+URL="http://"$IP":$PORT"
 
 for opt in "$@"
 do

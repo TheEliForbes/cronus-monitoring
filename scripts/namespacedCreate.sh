@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "This seems to create a problematic deployment"
+
 helm install --name metrics --tiller-namespace $1 --namespace $1 ../charts/kube-state-metrics/
 helm install --name data --tiller-namespace $1 --namespace $1 ../charts/influxdb/
 helm install --name polling --tiller-namespace $1 --namespace $1 --set-string config.outputs.influxdb.url="http://data-influxdb.$1:8086" ../charts/telegraf-s/
