@@ -11,7 +11,8 @@ dashGen() {
 }
 
 printNodes() {
-for NODE in $NODENAMES do
+declare -i namecounter=0
+for NODE in $1 do
 		if [ "$namecounter" != '0' ]; then
 			echo "$namecounter. $NODE"
 		fi
@@ -36,12 +37,11 @@ else
 fi
 
 declare -i counter=0
-declare -i namecounter=0
 NODENAMES=$(kubectl get nodes -o jsonpath='{ .items[*].metadata.name }')
 echo $'Generating Dashboards. . .\n'
 
 if [ "$1" == "-s" ]; then
-	printNodes
+	printNodes $NODENAMES
 	read -p "Input the numbers of desired nodes in ascending order (1 2 ..)" selectedNumbers
 	for NODE in $NODENAMES do
 	   if [ "$counter" != '0' ]; then 

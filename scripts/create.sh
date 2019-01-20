@@ -12,6 +12,6 @@ namespace="kube-system"
 declare -i i=0
 for component in $components
 do
-	helm install --name $releases[$i] --namespace $namespace ../charts/$components/
+	helm install --name $releases --namespace $namespace ../charts/$components/
 	let "i=i+1"
 done

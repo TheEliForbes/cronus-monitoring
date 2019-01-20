@@ -51,6 +51,6 @@ if ! [ -x "$(command -v jq)" ]; then
 fi
 
 "Installing Helm Unit-Test. . ."
-helm plugin install https://github.com/lrills/helm-unittest;;
+helm plugin install https://github.com/lrills/helm-unittest
 
 echo "Done. . ."
