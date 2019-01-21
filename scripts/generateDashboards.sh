@@ -12,11 +12,12 @@ dashGen() {
 
 printNodes() {
 declare -i namecounter=0
-for NODE in $1 do
-		if [ "$namecounter" != '0' ]; then
-			echo "$namecounter. $NODE"
-		fi
-		let "namecounter=namecounter+1"			
+for NODE in $1
+do
+	if [ "$namecounter" != '0' ]; then
+		echo "$namecounter. $NODE"
+	fi
+	let "namecounter=namecounter+1"			
 done
 }
 
