@@ -1,11 +1,12 @@
 #!/bin/bash
 # This has some standard queries for dev use.
 IP=$(sudo kubectl get svc --namespace kube-system data-influxdb -o json | jq -r .spec.clusterIP)
-URL="http://"$IP":8086"
+PORT=8086
+URL="http://"$IP":$PORT"
 
-for opt in "$@"
+for arg in "$@"
 do
-	case $opt in
+	case $arg in
 		--databases | -d) echo "Showing Database List"; 
 						  curl $URL"/query?q=show+databases";
 						  shift 1;;
@@ -15,6 +16,6 @@ do
 		--ksm | -k) echo "Showing KSM Data";
 				    curl $URL"/query?q=select+*+from+telegraf..kube_pod_container_status_restarts_total";
 						  shift 1;;
-	    * ) curl $URL"/query?q="$opt;;
+	    * ) curl $URL"/query?q="$arg;;
 	esac
 done

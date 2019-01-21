@@ -1,7 +1,7 @@
 #!/bin/bash
 #This is meant to quickly replace TICKscript slack alerts with simple email alerts.
 
-#This is highly experimental and requires further configuration to support it.
+#This is highly experimental and requires further configuration to be supported.
 # Namely, a Topic Handler and SMTP configuration
 
 #USER-TODO: Change this to your preferred email

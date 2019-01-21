@@ -14,3 +14,5 @@ if ! [ -x "$(command -v go)" ]; then
     go install github.com/gpestana/kapacitor-unit
 	kapacitor-unit
 fi
+
+echo "You may need to run 'export PATH=$PATH:/usr/local/go/bin' again due to scoping issues. . ."
