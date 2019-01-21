@@ -1,7 +1,7 @@
 #!/bin/bash
 #Test all of the Helm Deployments
 
-helmTests=('metrics' 'data' 'dash)
+helmTests=("metrics" "data" "dash")
 
 for testName in $helmTests do
   helm test $testName
