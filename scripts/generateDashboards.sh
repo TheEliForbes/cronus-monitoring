@@ -10,18 +10,6 @@ dashGen() {
   echo "$SYSNODE-metrics.json created"	
 }
 
-printNodes() {
-declare -i namecounter=0
-for NODE in $1
-do
-	if [ "$namecounter" != '0' ]; then
-		echo "$namecounter. $NODE"
-	fi
-	let "namecounter=namecounter+1"			
-done
-}
-
-
 if ! [ -e generatedDashboards ] ; then
   echo "Directory non-existent. . ."
   mkdir generatedDashboards
@@ -42,11 +30,20 @@ NODENAMES=$(kubectl get nodes -o jsonpath='{ .items[*].metadata.name }')
 echo $'Generating Dashboards. . .\n'
 
 if [ "$1" == "-s" ]; then
-	printNodes $NODENAMES
+	declare -i namecounter=0
+    for NODE in $NODENAMES
+    do
+      if [ "$namecounter" != '0' ]; then
+ 		echo "$namecounter. $NODE"
+	  fi
+	  let "namecounter=namecounter+1"			
+    done
 	read -p "Input the numbers of desired nodes in ascending order (1 2 ..)" selectedNumbers
-	for NODE in $NODENAMES do
+	for NODE in $NODENAMES
+	do
 	   if [ "$counter" != '0' ]; then 
-	   	  for num in $selectedNumbers do
+	   	  for num in $selectedNumbers
+	   	  do
 	   	  	if [ "$num" == "$counter" ]; then
 		       dashGen $NODE
 		       
@@ -59,7 +56,8 @@ if [ "$1" == "-s" ]; then
 	   fi    
 	done
 else
-	for NODE in $NODENAMES do
+	for NODE in $NODENAMES 
+	do
 	   if [ "$counter" != '0' ]; then 
 	      dashGen $NODE
 	   else 
