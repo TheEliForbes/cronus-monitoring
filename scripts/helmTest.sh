@@ -3,7 +3,8 @@
 
 helmTests=("metrics" "data" "dash")
 
-for testName in $helmTests do
+for testName in $helmTests
+do
   helm test $testName
 done
 
