@@ -3,13 +3,13 @@ tests:
   # container_status.tick triggers no warning alert when the measurement 
   # container_status in the dbrp telegraf:autogen is running
   - name: "Alert Container Status:: No warning when running"  
-    task_name: container_status.tick
+    task_name: container_status_tester.tick
     db: telegraf
     rp: autogen
     type: stream
     data:
-      - docker_container_status,container_name=somename time=1542658000000000000 container_status=running
-      - docker_container_status,container_name=somename time=1542658730000000000 container_status=running
+      - docker_container_status container_name=somename time=1542658000000000000 container_status=running
+      - docker_container_status container_name=somename time=1542658730000000000 container_status=running
     expects:
       ok: 0
       warn: 0
@@ -18,13 +18,13 @@ tests:
   # container_status.tick triggers a warning alert when the measurement 
   # container_status in the dbrp telegraf:autogen is not running
   - name: "Alert Container Status:: Warning when not running"  
-    task_name: container_status.tick
+    task_name: container_status_tester.tick
     db: telegraf
     rp: autogen
     type: stream
     data:
-      - docker_container_status,container_name=somename time=1542658000000000000 container_status=running
-      - docker_container_status,container_name=somename time=1542658730000000000 container_status=error  
+      - docker_container_status container_status="running"
+      - docker_container_status container_status="error"
     expects:
       ok: 0
       warn: 1
@@ -32,75 +32,76 @@ tests:
 
       
 #pod tests      
-  - name: "Slack Alert:: on failed Pod test"
-    task_name: failed_pod_alert.tick
-    db: telegraf
-    rp: autogen
-    type: stream
-    data: 
-    - kube_pod_status_phase,pod=db time=1542658000000000000 gauge=0 phase='Failed'
-    - kube_pod_status_phase,pod=db time=1542658730000000000 gauge=1 phase='Failed'
-    
-    expects:
-      ok: 0
-      warn: 1
-      crit: 0
-
-#slack test
-  - name: "Alert Slack:: Usage critical when idle < 100%, lol"
-    task_name: slack_alert.tick
+  - name: "Alert Slack:: pod alert test"  
+    task_name: failed_pod_alert_tester.tick
     db: telegraf
     rp: autogen
     type: stream
     data:
-    - cpu,usage_idle=5
+      - kube_pod_status_phase,phase=Failed gauge=1 
+      - kube_pod_status_phase,phase=Failed gauge=1 
     expects:
       ok: 0
       warn: 1
       crit: 0
 
-##example test cases
-#  # alert_weather.tick triggers a critical alert when the measurement 
-#  # temperature in the dbrp weather:default is bigger than 80
-#  - name: "Alert weather:: critical when temperature > 120"  
-#    task_name: alert_weather.tick
-#    db: weather
-#    rp: autogen
-#    type: stream
-#    data:
-#      - temperature,location=us-midwest temperature=70
-#      - temperature,location=us-midwest temperature=120
-#    expects:
-#      ok: 0
-#      warn: 0
-#      crit: 1
-#
-#  # alert_weather.tick triggers a warning alert when the measurement temperature 
-#  # in the dbrp weather:default is bigger than 80
-#  - name: "Alert weather:: warning when 80 < temperature < 120"  
-#    task_name: alert_weather.tick
-#    db: weather
-#    rp: autogen
-#    type: stream
-#    data:
-#      - temperature,location=us-midwest temperature=70
-#      - temperature,location=us-midwest temperature=82
-#    expects:
-#      ok: 0
-#      warn: 1
-#      crit: 0
-#
-#  # alert_weather.tick failed test
-#  - name: "Alert weather:: failure"  
-#    task_name: alert_weather.tick
-#    db: weather
-#    rp: autogen
-#    type: stream
-#    data:
-#      - temperature,location=us-midwest temperature=70
-#      - temperature,location=us-midwest temperature=82
-#    expects:
-#      ok: 0
-#      warn: 1
-#      crit: 0      
-#          
+
+#slack test
+  - name: "Alert Slack:: Usage critical when idle < 100%, lol"
+    task_name: slack_test_tester.tick
+    db: telegraf
+    rp: autogen
+    type: stream
+    data:
+    - cpu usage_idle=10
+    - cpu usage_idle=10
+    - cpu usage_idle=10
+    expects:
+      ok: 0
+      warn: 3
+      crit: 0
+
+#example test cases
+  # alert_weather.tick triggers a critical alert when the measurement 
+  # temperature in the dbrp weather:default is bigger than 80
+  - name: "Alert weather:: critical when temperature > 120"  
+    task_name: alert_weather.tick
+    db: weather
+    rp: autogen
+    type: stream
+    data:
+      - temperature,location=us-midwest temperature=70
+      - temperature,location=us-midwest temperature=120
+    expects:
+      ok: 0
+      warn: 0
+      crit: 1
+
+  # alert_weather.tick triggers a warning alert when the measurement temperature 
+  # in the dbrp weather:default is bigger than 80
+  - name: "Alert weather:: warning when 80 < temperature < 120"  
+    task_name: alert_weather.tick
+    db: weather
+    rp: autogen
+    type: stream
+    data:
+      - temperature,location=us-midwest temperature=70
+      - temperature,location=us-midwest temperature=82
+    expects:
+      ok: 0
+      warn: 1
+      crit: 0
+
+  # alert_weather.tick failed test
+  - name: "Alert weather:: failure"  
+    task_name: alert_weather.tick
+    db: weather
+    rp: autogen
+    type: stream
+    data:
+      - temperature,location=us-midwest temperature=70
+      - temperature,location=us-midwest temperature=82
+    expects:
+      ok: 0
+      warn: 1
+      crit: 0
