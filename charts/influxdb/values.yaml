@@ -2,7 +2,7 @@
 ## ref: https://hub.docker.com/r/library/influxdb/tags/
 image:
   repo: "influxdb"
-  tag: "1.6.3-alpine"
+  tag: "1.7.3-alpine"
   pullPolicy: IfNotPresent
 
 ## Specify a service type
@@ -109,6 +109,7 @@ config:
     realm: InfluxDB
     unix_socket_enabled: false
     bind_socket: /var/run/influxdb.sock
+    flux_enabled: true
   graphite:
     enabled: false
     bind_address: 2003
