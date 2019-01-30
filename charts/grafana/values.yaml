@@ -134,7 +134,8 @@ extraSecretMounts: []
 
 ## Pass the plugins you want installed as a list.
 ##
-plugins: []
+plugins: 
+	- grafana-influxdb-flux-datasource
   # - digrich-bubblechart-panel
   # - grafana-clock-panel
 
