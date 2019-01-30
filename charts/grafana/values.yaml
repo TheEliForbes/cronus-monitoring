@@ -154,6 +154,12 @@ datasources:
       access: proxy
       isDefault: true
       label: grafana_datasource
+    - name: influx-flux
+       type: influxdb-flux
+       database: telegraf
+       url: "http://data-influxdb.kube-system:8086"
+       access: proxy
+       isDefault: false
 #    apiVersion: 1
 #    datasources:
 #    - name: Prometheus
