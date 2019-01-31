@@ -12,13 +12,8 @@ chmod +x ../siege/initSiege.sh
 echo "Test Software Initialized. . ."
 
 if ! [ -x "$(command -v helm)" ]; then
-  echo "Helm is not installed."
-  read -p "Do you wish to install Helm? (y/n)" yn
-  case $yn in
- 	[Yy]* ) sudo ./installHelm.sh;;
- 	[Nn]* ) true;;
-		* ) echo "Please answer y/n.";;
-  esac
+  echo "Installing Helm"
+  sudo ./installHelm.sh	
 fi
 
 #kubectl create namespace tick

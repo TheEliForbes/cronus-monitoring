@@ -29,41 +29,40 @@ declare -i counter=0
 NODENAMES=$(kubectl get nodes -o jsonpath='{ .items[*].metadata.name }')
 echo $'Generating Dashboards. . .\n'
 
-if [ "$1" == "-s" ]; then
-	declare -i namecounter=0
-    for NODE in $NODENAMES
-    do
-      if [ "$namecounter" != '0' ]; then
- 		echo "$namecounter. $NODE"
-	  fi
-	  let "namecounter=namecounter+1"			
+if [ "$1" == "-s" ] || [ "$1" == "--select" ]; then
+	declare -i namecounter=0             ######################
+    for NODE in $NODENAMES                 #                  #
+    do                                     #                  #
+      if [ "$namecounter" != '0' ]; then   # Print Node names #
+ 		echo "$namecounter. $NODE"         #                  #
+	  fi                                   #                  #
+	  let "namecounter=namecounter+1"	 ######################
     done
 	read -p "Input the numbers of desired nodes in ascending order (1 2 ..)" selectedNumbers
-	for NODE in $NODENAMES
-	do
-	   if [ "$counter" != '0' ]; then 
-	   	  for num in $selectedNumbers
-	   	  do
-	   	  	if [ "$num" == "$counter" ]; then
-		       dashGen $NODE
-		       
-		       let "counter=counter+1"
-		       break
-	  	    fi	  	     	  
-	  	  done
-	   else 
-	      let "counter=counter+1"
-	   fi    
-	done
+	for NODE in $NODENAMES                   ###################
+	do                                         # for each node
+	   if [ "$counter" != '0' ]; then          # if not master
+	   	  for num in $selectedNumbers          # for each selectedNumber  
+	   	  do                                   #  
+	   	  	if [ "$num" == "$counter" ]; then  # if nodeNumber is selected
+		       dashGen $NODE                   # generate dashboard
+		       let "counter=counter+1"         #
+		       break                           #
+	  	    fi	  	     	                   #
+	  	  done                                 #
+	   else                                    #
+	      let "counter=counter+1"              #
+       fi                                      # TODO - These loops should be swapped..
+	done                                     #################
 else
-	for NODE in $NODENAMES 
-	do
-	   if [ "$counter" != '0' ]; then 
-	      dashGen $NODE
-	   else 
-	      let "counter=counter+1"
-	   fi    
-	done
+	for NODE in $NODENAMES           ###################
+	do                                 #otherwise,
+	   if [ "$counter" != '0' ]; then  #generate dashboards for all nodes
+	      dashGen $NODE                #
+	   else                            #
+	      let "counter=counter+1"      #
+	   fi                              #
+	done                             ###################
 fi
 
 echo "System Dashboards generated -- see scripts/generatedDashboards"
