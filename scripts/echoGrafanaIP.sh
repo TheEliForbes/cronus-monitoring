@@ -1,6 +1,6 @@
 #!/bin/bash
 
-grafanaIP="http://$(sudo kubectl get svc --namespace kube-system dash-grafana -o json | jq -r .spec.clusterIP)"
+grafanaIP="http://$(sudo kubectl get svc --namespace kube-system dash-grafana -o json | jq -r .spec.clusterIP)/login"
 	
 case $1 in
     --start | -s) firefox $grafanaIP;;
