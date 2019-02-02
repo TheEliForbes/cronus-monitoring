@@ -20,8 +20,7 @@ data:
 {{- end }}
 
 {{- if .Values.datasources }}
-  datasources:
-    - url: "http://data-influxdb.{{ .Release.Namespace }}:8086"
+  datasources[0].url: "http://data-influxdb.{{ .Release.Namespace }}:8086"
 {{- end }}
 
 {{- if .Values.datasources }}
