@@ -1,8 +1,13 @@
 #!/bin/bash
 
-HOSTG=$(sudo kubectl get svc --namespace kube-system dash-grafana -o json | jq -r .spec.clusterIP)
-HOSTI=$(sudo kubectl get svc --namespace kube-system data-influxdb -o json | jq -r .spec.clusterIP)
-HOSTK=$(sudo kubectl get svc --namespace kube-system metrics-kube-state-metrics -o json | jq -r .spec.clusterIP)
+namespace="kube-system"
+if [ -n "$1" ]; then
+	$namespace = "$1"
+fi
+
+HOSTG=$(sudo kubectl get svc --namespace $namespace dash-grafana -o json | jq -r .spec.clusterIP)
+HOSTI=$(sudo kubectl get svc --namespace $namespace data-influxdb -o json | jq -r .spec.clusterIP)
+HOSTK=$(sudo kubectl get svc --namespace $namespace metrics-kube-state-metrics -o json | jq -r .spec.clusterIP)
 
 echo "We have them surrounded. . ."
 sleep 1
