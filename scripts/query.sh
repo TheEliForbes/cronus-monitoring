@@ -7,7 +7,7 @@ echo './query.sh [-d | --databases] [-c | --cpu] [-k | --ksm] ["select+*+from+te
 echo ""
 echo "'-d' | '--databases'       - Show the databases that exist in Influx."
 echo "'-c' | '--cpu'             - Show all data from the 'cpu' table using 'select+*+from+telegraf..cpu'."
-echo "'-k' | '--ksm'             - Show all data from the 'kube_pod_container_status_restarts_total' table using a query similar to that used for 'cpu'."
+echo "'-k' | '--ksm'             - Show all data from the 'kube_pod_container_status_restarts_total' table."
 echo "'select+some+query+string' - Show data depending on the inputted IFQL query."
 echo ""
 echo 'This queries the Influx database for all supplied options, predefined or otherwise.'	
