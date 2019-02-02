@@ -19,8 +19,16 @@ data:
     {{- end }}
 {{- end }}
 
-{{- if .Values.datasources }}
-  datasources[0].url: "http://data-influxdb.{{ .Release.Namespace }}:8086"
+{{- $file := .Files }}
+{{- $var := .Release.Namespace }}
+{{- range $path, $byte := .Files.Glob "values.yaml" }}
+  {{- $list := $path | splitList "/"}}
+  {{- $length := len $list }}
+  {{- $last := add $length -1 }}
+  {{ index $list $last }}: |-
+    {{- range $line := $file.Lines $path }}
+    {{ $line | replace "kube-system" $var }}
+    {{- end }}
 {{- end }}
 
 {{- if .Values.datasources }}
