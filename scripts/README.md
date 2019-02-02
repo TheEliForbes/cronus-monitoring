@@ -17,35 +17,41 @@ This is your initialization script, it will handle all installation and configur
 
 `./create.sh`
 
-Create the stack from the given Helm Charts, this assumes that you have the needed 'setup' completed.
+Create the stack from the given Helm Charts, this assumes that you have the needed 'setup' completed. If you do not have the required software, see the main 'readme'.
+
+> This uses the `helm install` command to set up each chart.
 
 
 ### destroy.sh
 
 `./destroy.sh`
 
-Tear down the stack, if you ever need to do that due to extenuating circumstances.
+Tear down the stack, if you ever need to do that for testing purposes or due to extenuating circumstances.
+
+> This uses the `helm del` command, using the option to purge pod data.
 
 
 ### upgrade.sh
 
 `./upgrade.sh`
 
-Upgrade an existing stack when repo updates happen.
+Upgrade an existing stack when updates happen.
+
+> This uses the `helm upgrade` command, and is naturally similar to the `create.sh` script.
 
 
 ### installHelm.sh
 
 `./installHelm.sh`
 
-As the name implies, this installs Helm.
+This installs Helm 2.11 a version that works well enough for Cronus developers.
 
 
 ### dockerKube.bash
 
 `./dockerKube.bash`
 
-This was used for automatic installation of a good Docker/Kubernetes base, and is left here since it makes the stack work for *our* developers.
+This was used for automatic installation of a good Docker/Kubernetes base, and is left here since it makes the stack work for Cronus developers.
 
 
 ### reClone.sh
@@ -59,6 +65,7 @@ Essentially an elaborate git pull.
 
 *This is currently broken, please don't use it.*
 
+> The idea here is to allow deployment over any namespace.
 
 
 ## InfluxDB / Grafana
@@ -79,15 +86,23 @@ Query the Influx database for all supplied options, predefined or otherwise.
 
 ### echoGrafanaIP.sh
 
-`./echoGrafanaIP.sh [-s|--start]`
+`./echoGrafanaIP.sh`
 
-Display the current IP of the Grafana service. Optional `-s|--start` flag to start Grafana using Firefox.
+Display the current IP of the Grafana service.
+
+### startGrafana.sh
+
+`./startGrafana.sh ["browserName"]`
+
+Start Grafana using Firefox, or an alternate browser.
 
 ### generateDashboards.sh
 
-`./generateDashboards.sh`
+`./generateDashboards.sh [-s | --select]`
 
-Dynamically generate and import various dashboards for each node in your Kubernetes cluster.
+Dynamically generate and import various dashboards for each node in your Kubernetes cluster. 
+
+Optionally, pass `-s` or `--select`, to select which nodes to generate dashboards for.
 
 
 
@@ -96,21 +111,24 @@ Dynamically generate and import various dashboards for each node in your Kuberne
 ### connectToKapacitorContainer.sh
 `./connectToKapacitorContainer.sh`
 
-This will exec you into the Kapacitor pod, to allow for manual Kapacitor configuration.
+This will exec you into the Kapacitor pod, to allow for manual Kapacitor configuration and testing.
 
 
 ### copyTickScripts.sh
 
 `./copyTickScripts.sh`
 
-Copy the various TICKscripts from their folder in the Kapacitor chart, into the pod.
+Copy TICKscripts from their folder in the Kapacitor chart, into the Kapacitor pod.
 
+> This uses the `kubectl cp` command, and is complemented by `defineTickTasks.sh` below.
 
 ### defineTickTasks.sh
 
 `./defineTickTasks.sh`
 
-This is 'used' in tandem with `copyTickScripts.sh`, but the script may fail. Manually running the commands within works though(?).
+This is used in tandem with `copyTickScripts.sh`. It might occasionally fail, but manually running the commands within still works.
+
+> This uses `kubectl exec` to jump into the pod, where it can define tasks with a script.
 
 
 ### tailKapacitorLogs.sh
@@ -118,6 +136,8 @@ This is 'used' in tandem with `copyTickScripts.sh`, but the script may fail. Man
 `./tailKapacitorLogs.sh`
 
 This will watch the Kapacitor logs for updates.
+
+> This can be useful for alert testing/debugging.
 
 ### slackAlertToEmail.sh
 
@@ -140,9 +160,9 @@ This is the old way of doing it, and is left as a potential exercise for the *da
 
 ### curl.sh
 
-`./curl.sh`
+`./curl.sh ["port"]`
 
-This queries the Kube-State-Metrics Prometheus endpoint and displays it's data.
+This queries the Kube-State-Metrics Prometheus endpoint and displays it's data, with an optional parameter to use an alternate port.
 
 
 
@@ -150,9 +170,11 @@ This queries the Kube-State-Metrics Prometheus endpoint and displays it's data.
 
 ### helmTest.sh
 
-`./helmTest.sh`
+`./helmTest.sh [-n]`
 
-Run native Helm Tests and Helm Unit Tests.
+Run native Helm Tests and Helm Unit Tests, and clean up the created test-pods.
+
+> If for whatever reason you don't want to clean up the test-pods, use the `-n` flag.
 
 ### testTickScripts.sh
 
@@ -172,7 +194,10 @@ Clean up Helm Test pods.
 
 `./initJenkins.sh`
 
+Initial Jenkins Setup Script
 
 ### setupJenkinsContainerSsh.sh
 
 `./setupJenkinsContainerSsh.sh`
+
+This script should be run after the in-UI setup process for Jenkins.
