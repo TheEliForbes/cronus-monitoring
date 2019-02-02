@@ -20,6 +20,11 @@ data:
 {{- end }}
 
 {{- if .Values.datasources }}
+  datasources:
+    - url: "http://data-influxdb.{{ .Release.Namespace }}:8086"
+{{- end }}
+
+{{- if .Values.datasources }}
   {{- range $key, $value := .Values.datasources }}
   {{ $key }}: |
 {{ toYaml $value | indent 4 }}
