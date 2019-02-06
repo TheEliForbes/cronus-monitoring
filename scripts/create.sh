@@ -1,9 +1,14 @@
 #!/bin/bash
 
-helm install --name metrics --namespace kube-system ../gtikk-charts/kube-state-metrics/
-helm install --name data --namespace kube-system ../gtikk-charts/influxdb/
-helm install --name polling --namespace kube-system ../gtikk-charts/telegraf-s/
-helm install --name hosts --namespace kube-system ../gtikk-charts/telegraf-ds/
-helm install --name alerts --namespace kube-system ../gtikk-charts/kapacitor/
-helm install --name dash --namespace kube-system ../gtikk-charts/grafana/
+if ! [ -x generateDashboards.sh ]; then
+	chmod +x generateDashboards.sh
+fi
+./generateDashboards.sh
 
+components=("kube-state-metrics" "influxdb" "telegraf-s" "telegraf-ds" "kapacitor" "grafana")
+releases=("metrics" "data" "polling" "hosts" "alerts" "dash")
+namespace="kube-system"
+
+for ((i=0;i<${#components[@]};++i)); do
+  helm install --name "${releases[i]}" --namespace $namespace ../charts/"${components[i]}"/
+done

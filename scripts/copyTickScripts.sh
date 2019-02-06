@@ -4,4 +4,4 @@ KPODNAME=$(sudo kubectl get pods --namespace kube-system -l app=alerts-kapacitor
 echo $KPODNAME
 echo "$(pwd)/kapacitor/TICKscripts"
 echo "kube-system/$KPODNAME:/"
-kubectl cp "$(pwd)/../gtikk-charts/kapacitor/TICKscripts" "kube-system/$KPODNAME:/"
+kubectl cp "$(pwd)/../charts/kapacitor/TICKscripts" "kube-system/$KPODNAME:/"
