@@ -1,0 +1,18 @@
+//dbrp "telegraf"."autogen"
+
+stream
+	|from()
+		.database('telegraf')
+		.retentionPolicy('autogen')
+		.measurement('docker_container_status')
+		.groupBy('container_name')
+	//|window()
+		//.period(1m)
+		//.every(1m)
+	|alert()
+		.warn(lambda: "container_status" != 'running')
+		.message('Docker Container {{index .Tags "container_name" }} is not running')
+		//.slack()
+		.stateChangesOnly()
+
+	
