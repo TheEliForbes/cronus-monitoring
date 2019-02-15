@@ -1,7 +1,5 @@
 # Dynamic Dashboards
 
----
-
 ## Template Creation & Preparation
 
 Start by creating and exporting your basic dashboard from Grafana. 
@@ -30,13 +28,21 @@ If you have a differing datasource, follow the below.
 
    4. Use the value of that `label` and replace any occurrence of `${DS_INPUT}`
 
+If you take a look at `systemDashboardTemplate.txt`, you should notice that there are numerous references to `WATCHEDNODE` in host-name comparisons. 
+
+> Ex. `SELECT x FROM y WHERE (\"host\" =~ /WATCHEDNODE/) . . .`
+
+If you made a variable for your host names, replace all occurrences of the variable to `WATCHEDNODE`. Otherwise, replace all host-name references with `WATCHEDNODE`.
+
+> You may also utilize a different identifier, but we recommend what is used in `generateDashboards.sh` for consistency.
+
 #### Chart Prep
 
 If your Datasource is one other than other than InfluxDB or Flux, the preset datasources, follow the steps below, or take a look at [Grafana's Documentation](http://docs.grafana.org/administration/provisioning/#datasources).
 
 > A list of all supported Grafana Datasource plugins are available, along with their setup configurations, [on Grafana's Datasource page](http://docs.grafana.org/features/datasources/).
 
-The [`datasources` section](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/grafana/values.yaml#L146) of the `grafana/values.yaml` file will be your starting point, and serves as an example for what's necessary in InfluxDB sources.
+The [`datasources`](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/grafana/values.yaml#L146) section of the `grafana/values.yaml` file will be your starting point, and serves as an example for what's necessary in InfluxDB sources.
 
 *Some explanation of the default configuration is given below, your configuration may vary.*
 
@@ -47,27 +53,19 @@ The [`datasources` section](https://github.com/Eliforbes42/cronus-monitoring/blo
     access: proxy
     isDefault: true
 
-- Name: The given name of the datasource, this is how it will be referred to in queries.
+- `name`: The given name of the datasource, this is how it will be referred to in queries.
 
-- Type: The type of Datasource. [Comprehensive List](http://docs.grafana.org/features/datasources/).
+- `type`: The type of Datasource, see [Grafana's comprehensive list](http://docs.grafana.org/features/datasources/).
 
-- Url: The protocol, IP, and port of the given datasource's API.
+- `database`: The InfluxDB database used by Grafana.
 
-- Access: The method of access, browser or server. Proxy is equivalent to server.
+- `url`: The protocol, IP, and port of the given datasource's API.
 
-- isDefault: Determines if this datasource is set as default for queries.
+- `access`: The method of access, browser or server. Proxy is equivalent to server.
+
+- `isDefault`: Determines if this datasource is set as default for queries.
 
 Again, we recommend that you read up on your particular datasource over on [Grafana's Datasource page](http://docs.grafana.org/features/datasources/).
-
-### Host Prep
-
-If you take a look at `systemDashboardTemplate.txt`, you should notice that there are numerous references to `WATCHEDNODE` in host-name comparisons. 
-
-> Ex. `SELECT x FROM y WHERE (\"host\" =~ /WATCHEDNODE/) . . .`
-
-If you made a variable for your host names, and have a somewhat sophisticated IDE, you should be able to easily replace all occurrences of the name to `WATCHEDNODE`.
-
-> You may also utilize a different identifier, but we recommend what is used in `generateDashboards.sh` for consistency.
 
 ### Generation Script Prep
 
