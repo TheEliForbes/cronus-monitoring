@@ -31,7 +31,7 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
       /cronus-monitoring/charts/grafana/dashboards/
 
 - The initialization and creation scripts will dynamically generate and import various dashboards for each node in your Kubernetes cluster using `scripts/generateDashboards.sh`.
-  > [Want to make your own dynamic dashboards?](https://github.com/Eliforbes42/cronus-monitoring/blob/master/DASHBOARDS.md).
+  > [Want to make your own dynamic dashboards?](https://github.com/Eliforbes42/cronus-monitoring/blob/master/GRAFANA.md).
 
 ### Setup
 1.   Make all scripts executable, if you desire.
