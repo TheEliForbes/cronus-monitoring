@@ -114,3 +114,18 @@ tests:
       ok: 0
       warn: 0
       crit: 0
+
+#spid blocking alert tests
+  - name: "Spid Blocking Alert:: warning when blocking is recorded"  
+    task_name: spid_blocking_alert_tester.tick
+    db: telegraf
+    rp: autogen
+    type: stream
+    data:
+      - processes blocked=0
+      - processes blocked=6
+      
+    expects:
+      ok: 0
+      warn: 1
+      crit: 0
