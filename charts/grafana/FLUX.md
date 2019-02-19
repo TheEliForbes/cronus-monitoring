@@ -17,7 +17,7 @@
     - (Grafana's autocomplete is very aggressive)
 
 ## Testing
-- Flux has built in testing, but currently only `assertEquals()` to test queries inline, implementation can be found [here](https://docs.influxdata.com/flux/v0.12/functions/tests/assertequals/)
+- Flux has built in testing, but currently only [`assertEquals()`](https://docs.influxdata.com/flux/v0.12/functions/tests/assertequals/) to test queries inline
 
 ## Tips and Tricks
 - Use the [`limit()`](https://docs.influxdata.com/flux/v0.12/functions/transformations/limit/) function to reduce the number of datapoints so that the master node of the kubernetes cluster doesn't get dropped
