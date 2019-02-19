@@ -88,6 +88,7 @@ tests:
       warn: 0
       crit: 0
 
+#number of containers stopped tests
   - name: "Num Containers Stopped:: showing 3 stopped containers"  
     task_name: num_containers_stopped_tester.tick
     db: telegraf
@@ -99,4 +100,17 @@ tests:
     expects:
       ok: 0
       warn: 1
+      crit: 0
+
+  - name: "Num Containers Stopped:: no alert on zero stopped containers"  
+    task_name: num_containers_stopped_tester.tick
+    db: telegraf
+    rp: autogen
+    type: stream
+    data:
+      - docker n_containers_stopped=0
+      - docker n_containers_stopped=0
+    expects:
+      ok: 0
+      warn: 0
       crit: 0
