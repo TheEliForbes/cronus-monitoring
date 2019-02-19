@@ -1,0 +1,14 @@
+dbrp "telegraf"."autogen"
+
+stream
+	|from()
+		.measurement('processes')
+		.groupBy('host','blocked')
+	|window()
+		.period(1m)
+		.every(1m)
+	|alert()
+		.warn(lambda: "blocked" > 5)
+	.message('warning: There is proccess blocking on Host: {{ index .Tags "host" }} ')
+	.slack()
+	.stateChangesOnly()
