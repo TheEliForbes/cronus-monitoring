@@ -129,3 +129,17 @@ tests:
       ok: 0
       warn: 1
       crit: 0
+
+  - name: "Spid Blocking Alert:: no warning when there is no blocking"  
+    task_name: spid_blocking_alert_tester.tick
+    db: telegraf
+    rp: autogen
+    type: stream
+    data:
+      - processes blocked=0
+      - processes blocked=0
+      
+    expects:
+      ok: 0
+      warn: 0
+      crit: 0
