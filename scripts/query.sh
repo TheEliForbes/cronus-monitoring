@@ -1,6 +1,11 @@
 #!/bin/bash
 # This has some standard queries for dev use.
 
+namespace="kube-system"
+if [ -n "$1" ]; then
+	$namespace = "$1"
+fi
+
 usage() {
 echo ""
 echo './query.sh [-d | --databases] [-c | --cpu] [-k | --ksm] ["select+*+from+telegraf.."]'
@@ -13,7 +18,7 @@ echo ""
 echo 'This queries the Influx database for all supplied options, predefined or otherwise.'	
 }
 
-IP=$(sudo kubectl get svc --namespace kube-system data-influxdb -o json | jq -r .spec.clusterIP)
+IP=$(sudo kubectl get svc --namespace $namespace data-influxdb -o json | jq -r .spec.clusterIP)
 PORT=8086
 URL="http://"$IP":$PORT"
 

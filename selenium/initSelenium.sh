@@ -14,12 +14,4 @@ if ! [ -x "$(command -v selenium)" ]; then
 	pip install selenium
 fi
 
-#//This block is commented out since this is included in the initialization script.
-#read -p "Would you like to auto-test Grafana? (y/n)" yn
-#case $yn in
-#	[Yy]* ) python login.py $(sudo kubectl get svc --namespace kube-system dash-grafana -o json | jq -r .spec.clusterIP);;
-#	[Nn]* ) exit;;
-#	* ) echo "Please answer y/n.";;
-#esac
-
 echo "Selenium Installed. . ."

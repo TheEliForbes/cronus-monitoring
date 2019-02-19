@@ -1,5 +1,10 @@
 #!/bin/bash
 
-sudo kubectl exec -i -t --namespace kube-system \
-$(sudo kubectl get pods --namespace kube-system -l app=data-influxdb -o jsonpath='{ .items[0].metadata.name }') \
+namespace="kube-system"
+if [ -n "$1" ]; then
+	$namespace = "$1"
+fi
+
+sudo kubectl exec -i -t --namespace $namespace \
+$(sudo kubectl get pods --namespace $namespace -l app=data-influxdb -o jsonpath='{ .items[0].metadata.name }') \
 /bin/sh

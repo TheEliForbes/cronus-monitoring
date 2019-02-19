@@ -1,13 +1,25 @@
 #!/bin/bash
 
 fullDestinationPath="cronus-monitoring/charts/grafana/generatedDashboards/"
-dashGen() {
+#yourDashGenFn() {
+# -Store Node Variable from argument $1
+# -Create your unique dashboard name
+# -Replace host names with Node variable, write to generatedDashboards/$uniqueName-metrics.json
+# -Create unique dashboard id
+# -Replace UID in created file (Your original dashboard UID may vary)
+# -Notify user of dashboard creation
+#}
+sysDashGen() {
   NODE=$1
   SYSNODE="$NODE-system"
   sed "s/WATCHEDNODE/$NODE/g" systemDashboardTemplate.txt > "generatedDashboards/$SYSNODE-metrics.json"
   NODEuuid=$(uuidgen)
   sed -i "s/\"uid\": \"UCRfGnBmk\"/\"uid\": \"$NODEuuid\" /g" "generatedDashboards/$SYSNODE-metrics.json"
-  echo "$SYSNODE-metrics.json created"	
+  echo "$SYSNODE-metrics.json created"
+}
+dashGen() {
+  sysDashGen $1
+	#yourDashGenFn $1
 }
 
 if ! [ -e generatedDashboards ] ; then
