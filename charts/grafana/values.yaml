@@ -155,7 +155,7 @@ datasources:
       isDefault: true
       label: grafana_datasource
     - name: influx-flux
-      type: influxdb-flux
+      type: grafana-influxdb-flux-datasource
       database: telegraf
       url: "http://data-influxdb.kube-system:8086"
       access: proxy
