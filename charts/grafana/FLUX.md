@@ -6,7 +6,7 @@
 
 
 ## Helpful information
-* Read more about Flux [here](https://github.com/influxdata/platform/tree/master/query)
+* Read more about [Flux](https://github.com/influxdata/platform/tree/master/query)
 
 ## How to begin writing queries in grafana
 1. Open the panel you wish to work with
