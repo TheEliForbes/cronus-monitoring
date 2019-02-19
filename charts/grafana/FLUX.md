@@ -1,12 +1,21 @@
 # Flux language setup
 ### Manual Setup
 * Flux is still in beta, so this information may be out of date
-* Follow instructions laid out by [Flux Datasource for Grafana]
-(https://grafana.com/plugins/grafana-influxdb-flux-datasource)
+* Follow instructions laid out by [Flux Datasource for Grafana](https://grafana.com/plugins/grafana-influxdb-flux-datasource)
 
 
 ### Helpful information
 * Read more about Flux [here](https://github.com/influxdata/platform/tree/master/query)
-* Use the limit function to reduce the number of datapoints so that the master node of the kubernetes cluster doesn't get dropped
 
+### How to begin writing queries in grafana
+1. Open the panel you wish to work with
+2. Open the drop down for Data Sources and click the influx-flux data source
+3. The query editor will switch to a flux IDE
+    - (Be wary, any enter key press will cause your query to run, use shift+enter to produce a return character)
+        - (easy fix is to leave the `from(bucket: "undefined")` until you are done writing your query)
 
+    - (Grafana's autocomplete is very aggressive)
+
+### Tips and Tricks
+- Use the limit function to reduce the number of datapoints so that the master node of the kubernetes cluster doesn't get dropped
+- Join is not a pipe function do not use the pipe forward operator in front of it
