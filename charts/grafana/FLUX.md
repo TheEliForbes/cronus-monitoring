@@ -1,7 +1,8 @@
 # Flux language setup
 ### Manual Setup
-* Flux is still in beta, so this information may be out of date
-* Follow instructions laid out by [Flux Datasource for Grafana](https://grafana.com/plugins/grafana-influxdb-flux-datasource)
+- Flux is still in beta, so this information may be out of date
+- Enable Flux by setting the flux-enabled option to true under the http section of your influxdb.conf
+- Follow instructions laid out by [Flux Datasource for Grafana](https://grafana.com/plugins/grafana-influxdb-flux-datasource)
 
 
 ### Helpful information
@@ -13,8 +14,10 @@
 3. The query editor will switch to a flux IDE
     - (Be wary, any enter key press will cause your query to run, use shift+enter to produce a return character)
         - (easy fix is to leave the `from(bucket: "undefined")` until you are done writing your query)
-
     - (Grafana's autocomplete is very aggressive)
+
+### Testing
+- Flux has built in testing, but currently only `assertEquals()` to test queries inline, implementation can be found [here](https://docs.influxdata.com/flux/v0.12/functions/tests/assertequals/)
 
 ### Tips and Tricks
 - Use the limit function to reduce the number of datapoints so that the master node of the kubernetes cluster doesn't get dropped
