@@ -21,4 +21,4 @@
 
 ## Tips and Tricks
 - Use the [`limit()`](https://docs.influxdata.com/flux/v0.12/functions/transformations/limit/) function to reduce the number of datapoints so that the master node of the kubernetes cluster doesn't get dropped
-- [`Join`](https://docs.influxdata.com/flux/v0.12/functions/transformations/join) is not a pipe function do not use the pipe forward operator in front of it
+- [`Join()`](https://docs.influxdata.com/flux/v0.12/functions/transformations/join) is not a pipe function do not use the pipe forward operator in front of it
