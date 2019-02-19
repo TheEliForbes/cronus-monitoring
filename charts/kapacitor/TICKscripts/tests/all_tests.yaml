@@ -74,3 +74,16 @@ tests:
       ok: 0
       warn: 1
       crit: 0
+
+  - name: "Alert Container Termination:: No warning on ok data"  
+    task_name: container_termination_reason_tester.tick
+    db: telegraf
+    rp: autogen
+    type: stream
+    data:
+      - kube_pod_container_status_terminated_reason reason="Completed"
+      - kube_pod_container_status_terminated_reason reason="Completed"
+    expects:
+      ok: 0
+      warn: 0
+      crit: 0
