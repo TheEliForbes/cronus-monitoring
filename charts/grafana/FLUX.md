@@ -1,7 +1,7 @@
 # Flux language setup
 ## Manual Setup
 - [Flux](https://docs.influxdata.com/flux/v0.12/) is still in beta, so this information may be out of date
-- [Enable](https://docs.influxdata.com/flux/v0.12/introduction/installation) Flux by setting the `flux-enabled` option to `true` under the `http` section of your influxdb.conf
+- [Enable](https://docs.influxdata.com/flux/v0.12/introduction/installation) Flux by setting the `flux-enabled` option to `true` under the `http` section of the influxdb.conf
 - Follow instructions laid out by [Flux Datasource for Grafana](https://grafana.com/plugins/grafana-influxdb-flux-datasource)
 
 ## Cronus-Monitoring Setup
@@ -14,10 +14,10 @@
 - Read more about [Flux](https://github.com/influxdata/platform/tree/master/query)
 
 ## How to begin writing queries in grafana
-1. Open the dashboard you wish to work with and create the panel and open the panel editor
+1. Open the dashboard wished to be worked with and create the panel and open the panel editor
 2. Click the drop down menu for `Data Sources`, and click the `influx-flux` data source to select it as the datasource for this panel
 3. The query editor will switch to a flux IDE
-    > Be wary, any enter key press will cause your query to run, use shift+enter to produce a return character. Also the Grafana IDE autocompletion is very aggressive with a press of the tab key autocompleting several lines of query at a time
+    > Be wary, any enter key press will cause the query to run, use shift+enter to produce a return character. Also the Grafana IDE autocompletion is very aggressive with a press of the tab key autocompleting several lines of query at a time
 
 ## Testing
 - Flux has built in testing, but currently only [`assertEquals()`](https://docs.influxdata.com/flux/v0.12/functions/tests/assertequals/) to test queries inline, this can only be done at runtime of the flux query, this may be able to be automated via url queries to influxdb, but further investigation will need to be done
@@ -25,5 +25,5 @@
 ## Tips and Tricks
 - Use the [`limit()`](https://docs.influxdata.com/flux/v0.12/functions/transformations/limit/) function to reduce the number of rows queried from InfluxDB, this should be done because the current iteration of the Grafana plugin for flux does not handle large quantities of rows
 - [`join()`](https://docs.influxdata.com/flux/v0.12/functions/transformations/join) is not a pipe function and does not use the pipe forward operator, `join()` instead is a start point for that line of the query
-- Avoid pressing the tab key while in the editor as it will autocomplete code you may not want to insert
-- Leave the `from(bucket: "undefined")` pre-made query until you are done writing your query, this makes the query run on an undefined database in InfluxDB, so development can continue without overloading the grafana IDE
+- Avoid pressing the tab key while in the editor as it will autocomplete code that may not want to be inserted
+- Leave the `from(bucket: "undefined")` pre-made query until the query is written, this makes the query run on an undefined database in InfluxDB, so development can continue without overloading the grafana IDE
