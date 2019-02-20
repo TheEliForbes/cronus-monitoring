@@ -15,9 +15,9 @@
 
 ## How to begin writing queries in grafana
 1. Open the dashboard intended, then create a panel and open that panel's editor
-2. Click the drop down menu for `Data Sources`, and click the `influx-flux` data source to select it as the datasource for this panel
+2. Click the drop down menu for `Data Sources`, then click the `influx-flux` data source for the current panel
 3. The query editor will switch to a flux IDE
-    > Be wary, any enter key press will cause the query to run, use shift+enter to produce a return character. Also the Grafana IDE autocompletion is very aggressive with a press of the tab key autocompleting several lines of query at a time
+    > Note: an enter key press will cause the current query to run. Use shift+enter to produce a return character. Additionally the Grafana IDE autocompletion is very aggressive with a press of the tab key autocompleting several lines of a query at a time
 
 ## Testing
 - Flux has built in testing, but currently only [`assertEquals()`](https://docs.influxdata.com/flux/v0.12/functions/tests/assertequals/) to test queries inline, this can only be done at runtime of the flux query, this may be able to be automated via url queries to influxdb, but further investigation will need to be done
@@ -25,5 +25,5 @@
 ## Tips and Tricks
 - Use the [`limit()`](https://docs.influxdata.com/flux/v0.12/functions/transformations/limit/) function to reduce the number of rows queried from InfluxDB, this should be done because the current iteration of the Grafana plugin for flux does not handle large quantities of rows
 - [`join()`](https://docs.influxdata.com/flux/v0.12/functions/transformations/join) is not a pipe function and does not use the pipe forward operator, `join()` instead is a start point for that line of the query
-- Avoid pressing the tab key while in the editor as it will autocomplete code that may not want to be inserted
+- Avoid pressing the tab key while in the editor as it will autocomplete code that may not be intended
 - Leave the `from(bucket: "undefined")` pre-made query until the query is written, this makes the query run on an undefined database in InfluxDB, so development can continue without overloading the grafana IDE
