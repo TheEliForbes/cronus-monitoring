@@ -1,0 +1,16 @@
+//dbrp "telegraf"."autogen"
+
+stream
+	|from()
+		.measurement('docker')
+		.groupBy('host','n_containers_stopped')
+	//|window()
+		//.period(1m)
+		//.every(1m)
+	|alert()
+		.warn(lambda: "n_containers_stopped" > int(0))
+	.message('warning: Node {{ index .Tags "host"}} has {{ index .Fields "n_containers_stopped"}} docker containers that are stopped')
+	//.slack()
+	.stateChangesOnly()
+
+	

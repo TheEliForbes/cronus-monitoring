@@ -74,3 +74,72 @@ tests:
       ok: 0
       warn: 1
       crit: 0
+
+  - name: "Alert Container Termination:: No warning on ok data"  
+    task_name: container_termination_reason_tester.tick
+    db: telegraf
+    rp: autogen
+    type: stream
+    data:
+      - kube_pod_container_status_terminated_reason reason="Completed"
+      - kube_pod_container_status_terminated_reason reason="Completed"
+    expects:
+      ok: 0
+      warn: 0
+      crit: 0
+
+#number of containers stopped tests
+  - name: "Num Containers Stopped:: showing 3 stopped containers"  
+    task_name: num_containers_stopped_tester.tick
+    db: telegraf
+    rp: autogen
+    type: stream
+    data:
+      - docker n_containers_stopped=2
+      - docker n_containers_stopped=3
+    expects:
+      ok: 0
+      warn: 1
+      crit: 0
+
+  - name: "Num Containers Stopped:: no alert on zero stopped containers"  
+    task_name: num_containers_stopped_tester.tick
+    db: telegraf
+    rp: autogen
+    type: stream
+    data:
+      - docker n_containers_stopped=0
+      - docker n_containers_stopped=0
+    expects:
+      ok: 0
+      warn: 0
+      crit: 0
+
+#spid blocking alert tests
+  - name: "Spid Blocking Alert:: warning when blocking is recorded"  
+    task_name: spid_blocking_alert_tester.tick
+    db: telegraf
+    rp: autogen
+    type: stream
+    data:
+      - processes blocked=0
+      - processes blocked=6
+      
+    expects:
+      ok: 0
+      warn: 1
+      crit: 0
+
+  - name: "Spid Blocking Alert:: no warning when there is no blocking"  
+    task_name: spid_blocking_alert_tester.tick
+    db: telegraf
+    rp: autogen
+    type: stream
+    data:
+      - processes blocked=0
+      - processes blocked=0
+      
+    expects:
+      ok: 0
+      warn: 0
+      crit: 0
