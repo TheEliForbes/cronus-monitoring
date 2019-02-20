@@ -14,7 +14,7 @@
 - Read more about [Flux](https://github.com/influxdata/platform/tree/master/query)
 
 ## How to begin writing queries in grafana
-1. Open the dashboard intended, then create the panel and open the panel editor
+1. Open the dashboard intended, then create a panel and open that panel's editor
 2. Click the drop down menu for `Data Sources`, and click the `influx-flux` data source to select it as the datasource for this panel
 3. The query editor will switch to a flux IDE
     > Be wary, any enter key press will cause the query to run, use shift+enter to produce a return character. Also the Grafana IDE autocompletion is very aggressive with a press of the tab key autocompleting several lines of query at a time
