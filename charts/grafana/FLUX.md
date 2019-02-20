@@ -6,7 +6,7 @@
 
 ## Cronus-Monitoring Setup
 - Run the init.sh script in the scripts directory and the included helm chart will enable flux automatically
-    - Flux is enabled in Grafana via the [values.yaml](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/grafana/values.yaml) `datasources` with `grafana-influxdb-flux-datasource` as the type
+    - Flux is enabled in Grafana via the [values.yaml](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/grafana/values.yaml) `datasources` with `grafana-influxdb-flux-datasource` as the `type` 
     
     - Flux is enabled in InfluxDB via the [values.yaml](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/influxdb/values.yaml) `[http]` with `flux_enabled` set to `true` [influxdb/templates/config.yaml](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/influxdb/templates/config.yaml) takes that value and deploys the flux enabled InfluxDB
 
@@ -14,7 +14,7 @@
 - Read more about [Flux](https://github.com/influxdata/platform/tree/master/query)
 
 ## How to begin writing queries in grafana
-1. Open the dashboard wished to be worked with and create the panel and open the panel editor
+1. Open the dashboard intended and create the panel and open the panel editor
 2. Click the drop down menu for `Data Sources`, and click the `influx-flux` data source to select it as the datasource for this panel
 3. The query editor will switch to a flux IDE
     > Be wary, any enter key press will cause the query to run, use shift+enter to produce a return character. Also the Grafana IDE autocompletion is very aggressive with a press of the tab key autocompleting several lines of query at a time
