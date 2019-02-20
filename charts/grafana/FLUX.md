@@ -8,7 +8,7 @@
 - Run the init.sh script in the scripts directory and the included helm chart will enable flux automatically
     - Flux is enabled in Grafana via the [values.yaml](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/grafana/values.yaml) `datasources` with `grafana-influxdb-flux-datasource` as the type
     
-    - Flux is enabled in InfluxDB via the [values.yaml](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/influxdb/values.yaml) `[http]` with `flux_enabled` being set to true and [influxdb/templates/config.yaml](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/influxdb/templates/config.yaml) taking that value and deploying the flux enabled InfluxDB
+    - Flux is enabled in InfluxDB via the [values.yaml](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/influxdb/values.yaml) `[http]` with `flux_enabled` set to `true` [influxdb/templates/config.yaml](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/influxdb/templates/config.yaml) takes that value and deploys the flux enabled InfluxDB
 
 ## Helpful information
 - Read more about [Flux](https://github.com/influxdata/platform/tree/master/query)
