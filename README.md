@@ -2,6 +2,14 @@
 # Cronus Monitoring
 A modified version of the InfluxData 'TICK' Stack which uses Grafana as its UI and dynamically forms to the Kubernetes Cluster it is deployed on.
 
+## Requirements
+
+- A functional Kubernetes cluster (v.1.11+)
+
+- 2GB RAM 
+
+> Recommended: Kubernetes v1.11 cluster running on three Ubuntu 18.04 Server VMs
+
 ## Installation
 
 Clone the repo and dive in!

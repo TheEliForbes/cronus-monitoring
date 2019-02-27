@@ -16,14 +16,14 @@ if ! [ -x "$(command -v helm)" ]; then
   sudo ./installHelm.sh	
 fi
 
-#kubectl create namespace tick
-#kubectl create serviceaccount tiller --namespace tick
-#kubectl create -f role-tiller.yaml
-#kubectl create -f rolebinding-tiller.yaml
-#helm init --service-account tiller --tiller-namespace tick
-if ! [ -x "$(command -v kubectl api-versions | grep rbac.authorization.k8s.io/v1)"]; then
+kubectl create namespace kube-system
+kubectl create serviceaccount tiller --namespace kube-system
+kubectl create -f role-tiller.yaml
+kubectl create -f rolebinding-tiller.yaml
+helm init --service-account tiller --tiller-namespace kube-system
+#if ! [ -x "$(command -v kubectl api-versions | grep rbac.authorization.k8s.io/v1)"]; then
   kubectl create -f rbac-config.yaml
-fi
+#fi
 helm init --service-account tiller 
 echo ""
 echo "Please wait 30 seconds for Tiller to set up"
