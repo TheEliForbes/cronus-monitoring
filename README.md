@@ -4,11 +4,13 @@ A modified version of the InfluxData 'TICK' Stack which uses Grafana as its UI a
 
 ## Requirements
 
-- A functional Kubernetes cluster (v.1.11+)
+- Docker (v18.06+)
+
+- A functional Kubernetes cluster (v.1.13+)
 
 - 2GB RAM 
 
-> Recommended: Kubernetes v1.11 cluster running on three Ubuntu 18.04 Server VMs
+> Recommended: Kubernetes v1.13 cluster running on three Ubuntu 18.04 Server VMs
 
 ## Installation
 
@@ -33,13 +35,19 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
 
 > Experimental: [Change Slack Alerts to Email Alerts](https://github.com/Eliforbes42/cronus-monitoring/blob/master/scripts/README.md#slackalerttoemailsh)
 
-#### Grafana Dashboards
+#### Grafana 
+
+##### Dashboards
 - To automatically import your own Dashboards destined for Grafana, place all JSON files in the following folder: 
 
       /cronus-monitoring/charts/grafana/dashboards/
 
 - The initialization and creation scripts will dynamically generate and import various dashboards for each node in your Kubernetes cluster using `scripts/generateDashboards.sh`.
   > [Want to make your own dynamic dashboards?](https://github.com/Eliforbes42/cronus-monitoring/blob/master/GRAFANA.md).
+
+##### Login Details
+
+You may modify the [login details](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/grafana/values.yaml#L112) if you desire.
 
 ### Setup
 1.   Make all scripts executable, if you desire.
@@ -76,11 +84,15 @@ To allow Kapacitor to post alerts to your Slack channel, follow the instructions
 
 ## Usage
 
--  `./echoGrafanaIP.sh -s`
+-  `./startGrafana.sh`
 
-    -  The `-s` flag starts Grafana in Firefox.
+- Username: admin
 
-    > _Grafana is at http://your.grafana.cluster.ip_
+- Password: strongpassword
+
+Then you can start using Grafana!
+
+> You may also modify the [login details](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/grafana/values.yaml#L112) if you haven't already.
 
 ## Testing
 
