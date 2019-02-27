@@ -16,7 +16,8 @@ if ! [ -x "$(command -v helm)" ]; then
   sudo ./installHelm.sh	
 fi
 
-kubectl create namespace kube-system
+#TODO - Readme on how to re-namespace
+#kubectl create namespace kube-system
 kubectl create serviceaccount tiller --namespace kube-system
 kubectl create -f role-tiller.yaml
 kubectl create -f rolebinding-tiller.yaml
