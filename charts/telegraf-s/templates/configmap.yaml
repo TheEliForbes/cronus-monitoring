@@ -9,17 +9,12 @@ metadata:
     heritage: "{{ .Release.Service }}"
 data:
 
-{{- $file := .Files }}
+{{- $file := .Files.Glob "values.yaml" }}
 {{- $var := .Release.Namespace }}
-{{- range $path, $byte := .Files.Glob "values.yaml" }}
-  {{- $list := $path | splitList "/"}}
-  {{- $length := len $list }}
-  {{- $last := add $length -1 }}
-  {{ index $list $last }}: |-
-    {{- range $line := $file.Lines $path }}
-    {{ $line | replace "kube-system" $var }}
-    {{- end }}
+{{- range $line := $file.Lines $path }}
+{{ $line | replace "kube-system" $var }}
 {{- end }}
+
 
   telegraf.conf: |+
     {{ template "global_tags" .Values.config.global_tags }}
