@@ -17,7 +17,7 @@ currentnamespace: "{{ .Release.Namespace }}"
   {{- $last := add $length -1 }}
   {{ index $list $last }}: |-
     {{- range $line := $file.Lines $path }}
-    {{ $line | replace "kube-system" .Values.currentnamespace }}
+    {{ $line | replace "kube-system" metadata.namespace }}
     {{- end }}
 {{- end }}
 
