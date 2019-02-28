@@ -8,7 +8,8 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
 data:
-{{ .Files.Get "values.yaml" | replace "kube-system" $var }}
+{{- $namespacevar := .Release.Namespace }}
+{{ .Files.Get "values.yaml" | replace "kube-system" $namespacevar }}
 
   telegraf.conf: |+
     {{ template "global_tags" .Values.config.global_tags }}
