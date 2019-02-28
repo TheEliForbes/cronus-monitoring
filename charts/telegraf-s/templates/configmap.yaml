@@ -9,10 +9,7 @@ metadata:
     heritage: "{{ .Release.Service }}"
 data:
 currentnamespace: "{{ .Release.Namespace }}"
-# {{- $namespacevar := .Release.Namespace }}
-# {{- range $line := .Values }}
-# {{ $line | replace "kube-system" $namespacevar }}
-# {{- end }}
+
 {{- $file := .Files }}
 {{- range $path, $byte := .Files.Glob "**.yaml" }}
   {{- $list := $path | splitList "/"}}
