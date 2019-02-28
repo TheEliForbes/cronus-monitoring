@@ -1,6 +1,13 @@
 #!/bin/bash
 
 if [ -n "$1" ]; then
+    if [ -z "$(kubectl get namespaces | grep kube-system)" ]; then
+       echo "Creating Namespace $1"
+       kubectl create namespace $1
+    else 
+       echo "Namespace $1 exists."
+    fi
+
     kubectl create serviceaccount tiller --namespace $1
     echo "Replacing namespace values in Role Configuration Files"
     sed "s/NAMESPACE/$1/g" role-tiller-template.yaml > role-tiller.yaml
