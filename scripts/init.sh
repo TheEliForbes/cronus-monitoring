@@ -19,7 +19,7 @@ fi
 #TODO - Readme on how to re-namespace
 # See Helm RBAC Manual for now: https://github.com/helm/helm/blob/master/docs/rbac.md
 #kubectl create namespace kube-system
-#kubectl create serviceaccount tiller --namespace kube-system
+kubectl create serviceaccount tiller --namespace kube-system
 #kubectl create -f role-tiller.yaml
 #kubectl create -f rolebinding-tiller.yaml
 #helm init --service-account tiller --tiller-namespace kube-system
