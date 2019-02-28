@@ -40,8 +40,10 @@ done
 echo ""
 echo "------------------------------"
 
-echo "Initializing cronus-monitoring"
-sudo ./create.sh
+#echo "Initializing cronus-monitoring"
+#sudo ./create.sh
+#TODO - Remove this block after the install script is done
+# Install Script - Choose between creating in the default namespace (kube-system) or custom namespace
 
 if ! [ -x "$(command -v jq)" ]; then
   echo "JQ is not installed."

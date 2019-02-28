@@ -66,27 +66,27 @@ You may modify the [login details](https://github.com/Eliforbes42/cronus-monitor
                    
          sudo ./init.sh
 
-        2.1.   Tiller may take longer than the allowed set-up time, so Helm Chart installation may fail. Try again with the following script:
+3. Run the install script
 
-         sudo ./create.sh
+         ./create.sh
 
-3.   Verify that the stack setup is operational
+4.   Verify that the stack setup is operational
 
          ./verifySetup.sh
 
-4.   Now that the stack is set up, define the TICKscripts.
+5.   Now that the stack is set up, define the TICKscripts.
 
-        4.1 `./copyTickScripts.sh`  
+        5.1 `./copyTickScripts.sh`  
 
-        4.2 `./defineTickTasks.sh`
+        5.2 `./defineTickTasks.sh`
 
-        4.2.1 -- If 4.2 doesn't work, run the commands below.       
+        5.2.1 -- If 5.2 doesn't work, run the commands below.       
 
-        4.2.2 `./connectToKapacitorContainer.sh`
+        5.2.2 `./connectToKapacitorContainer.sh`
 
-        4.2.3 `chmod +x TICKscripts/defineTasks.sh`
+        5.2.3 `chmod +x TICKscripts/defineTasks.sh`
 
-        4.2.4 `./TICKscripts/defineTasks.sh`
+        5.2.4 `./TICKscripts/defineTasks.sh`
 
 ## Usage
 
