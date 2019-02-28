@@ -8,7 +8,7 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
 data:
-
+currentnamespace: "{{ .Release.Namespace }}"
 # {{- $namespacevar := .Release.Namespace }}
 # {{- range $line := .Values }}
 # {{ $line | replace "kube-system" $namespacevar }}
@@ -21,7 +21,7 @@ data:
   {{- $last := add $length -1 }}
   {{ index $list $last }}: |-
     {{- range $line := $file.Lines $path }}
-    {{ $line | replace "kube-system" "{{ .Release.Namespace }}" }}
+    {{ $line | replace "kube-system" .Values.currentnamespace }}
     {{- end }}
 {{- end }}
 
