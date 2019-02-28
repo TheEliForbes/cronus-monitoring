@@ -9,11 +9,12 @@ metadata:
     heritage: "{{ .Release.Service }}"
 data:
 
-{{- $namespacevar := .Release.Namespace }}
-{{- range $line := .Values }}
-{{ $line | replace "kube-system" $namespacevar }}
-{{- end }}
+# {{- $namespacevar := .Release.Namespace }}
+# {{- range $line := .Values }}
+# {{ $line | replace "kube-system" $namespacevar }}
+# {{- end }}
 
+{{ .Values.outputs[0].urls[0] | replace "kube-system" $namespacevar }}
 
   telegraf.conf: |+
     {{ template "global_tags" .Values.config.global_tags }}
