@@ -26,7 +26,7 @@ fi
 if [ -z "$(kubectl api-versions | grep rbac.authorization.k8s.io/v1)" ]; then
   kubectl create -f rbac-config.yaml
 else
-  echo "authorization already exists"
+  echo "Default RBAC Configuration already exists."
 fi
 helm init --service-account tiller 
 echo ""
