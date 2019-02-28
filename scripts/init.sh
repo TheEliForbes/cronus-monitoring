@@ -18,13 +18,15 @@ fi
 
 #TODO - Readme on how to re-namespace
 #kubectl create namespace kube-system
-kubectl create serviceaccount tiller --namespace kube-system
+#kubectl create serviceaccount tiller --namespace kube-system
 #kubectl create -f role-tiller.yaml
 #kubectl create -f rolebinding-tiller.yaml
 #helm init --service-account tiller --tiller-namespace kube-system
-#if ! [ -x "$(command -v kubectl api-versions | grep rbac.authorization.k8s.io/v1)"]; then
-#  kubectl create -f rbac-config.yaml
-#fi
+if [ -z "$(kubectl api-versions | grep rbac.authorization.k8s.io/v1)" ]; then
+  kubectl create -f rbac-config.yaml
+else
+  echo "authorization already exists"
+fi
 helm init --service-account tiller 
 echo ""
 echo "Please wait 30 seconds for Tiller to set up"
