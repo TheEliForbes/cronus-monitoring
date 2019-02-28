@@ -13,6 +13,11 @@ if [ -n "$1" ]; then
     #kubectl create -f role-tiller.yaml
     #kubectl create -f rolebinding-tiller.yaml
     #helm init --service-account tiller --tiller-namespace $1
+
+    read -p "Set up stack using the given namespace?" yn
+    case $yn in
+     [Yy]* ) ./create.sh $1;;
+    esac
 else
     #echo "Setting up Tiller in default namespace (kube-system)"
     #kubectl create serviceaccount tiller --namespace kube-system
