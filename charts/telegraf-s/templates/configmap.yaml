@@ -10,7 +10,7 @@ metadata:
 data:
 
 {{- $namespacevar := .Release.Namespace }}
-{{- range $line := .Files.Lines "values.yaml" }}
+{{- range $line := .Values }}
 {{ $line | replace "kube-system" $namespacevar }}
 {{- end }}
 
