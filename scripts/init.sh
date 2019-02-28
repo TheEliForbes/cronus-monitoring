@@ -26,7 +26,7 @@ kubectl create serviceaccount tiller --namespace kube-system
 
 #TODO - Determine correct condition to create Tiller RBAC Config
 #if [ -z "$(kubectl api-versions | grep rbac.authorization.k8s.io/v1)" ]; then
-#  kubectl create -f rbac-config.yaml
+kubectl create -f rbac-config.yaml
 #else
 #  echo "Default RBAC Configuration already exists."
 #fi
