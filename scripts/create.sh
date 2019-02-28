@@ -10,7 +10,7 @@ releases=("metrics" "data" "polling" "hosts" "alerts" "dash")
 namespace="kube-system"
 
 if [ -n "$1" ]; then
-	$namespace = "$1"
+	namespace="$1"
 	for ((i=0;i<${#components[@]};++i)); do
   	helm install --name "${releases[i]}" --tiller-namespace $namespace --namespace $namespace ../charts/"${components[i]}"/
 	done
