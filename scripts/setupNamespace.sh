@@ -18,7 +18,7 @@ if [ -n "$1" ]; then
     kubectl create -f rolebinding-tiller.yaml
     helm init --service-account tiller --tiller-namespace $1
 
-    read -p "Set up stack using the given namespace?" yn
+    read -p "Set up stack using the given namespace? (y/n)" yn
     case $yn in
      [Yy]* ) ./create.sh $1;;
     esac
@@ -28,7 +28,7 @@ else
     kubectl create -f rbac-config.yaml
     helm init --service-account tiller
 
-    read -p "Set up stack?" yn
+    read -p "Set up stack? (y/n)" yn
     case $yn in
      [Yy]* ) ./create.sh;;
     esac
