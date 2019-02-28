@@ -14,7 +14,7 @@ data:
 # {{ $line | replace "kube-system" $namespacevar }}
 # {{- end }}
 {{- $file := .Files }}
-{{- $var := .Release.Namespace }}
+{{- $var := {{ .Release.Namespace }} }}
 {{- range $path, $byte := .Files.Glob "**.yaml" }}
   {{- $list := $path | splitList "/"}}
   {{- $length := len $list }}
