@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -n "$1" ]; then
-    if [ -z "$(kubectl get namespaces | grep kube-system)" ]; then
+    if [ -z "$(kubectl get namespaces | grep $1)" ]; then
        echo "Creating Namespace $1"
        kubectl create namespace $1
     else 
