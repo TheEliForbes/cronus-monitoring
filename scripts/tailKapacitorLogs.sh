@@ -3,7 +3,7 @@
 
 namespace="kube-system"
 if [ -n "$1" ]; then
-	$namespace = "$1"
+	namespace="$1"
 fi
 
 sudo kubectl logs -f --namespace $namespace \

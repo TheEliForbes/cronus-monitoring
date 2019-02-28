@@ -2,7 +2,7 @@
 
 namespace="tick"
 if [ -n "$1" ]; then
-	$namespace = "$1"
+	namespace="$1"
 fi
 
 #this is bugged, don't try it
