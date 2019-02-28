@@ -100,6 +100,8 @@ Then you can start using Grafana!
 
 > You may also modify the [login details](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/grafana/values.yaml#L112) if you haven't already.
 
+> Note: The page will only load if all Grafana pods are ready.
+
 ## Testing
 
 - Chart Services & Deployments
