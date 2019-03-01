@@ -26,21 +26,21 @@ kubectl create serviceaccount tiller --namespace kube-system
 
 #TODO - Determine correct condition to create Tiller RBAC Config
 #if [ -z "$(kubectl api-versions | grep rbac.authorization.k8s.io/v1)" ]; then
-kubectl create -f rbac-config.yaml
-#else
-#  echo "Default RBAC Configuration already exists."
-#fi
-helm init --service-account tiller 
-echo ""
-echo "Please wait 30 seconds for Tiller to set up"
-echo "------------------------------"
-for ((i=30; i>0; i--))
-do	
-  echo -n "#"
-  sleep 1
-done
-echo ""
-echo "------------------------------"
+# kubectl create -f rbac-config.yaml
+# #else
+# #  echo "Default RBAC Configuration already exists."
+# #fi
+# helm init --service-account tiller 
+# echo ""
+# echo "Please wait 30 seconds for Tiller to set up"
+# echo "------------------------------"
+# for ((i=30; i>0; i--))
+# do	
+#   echo -n "#"
+#   sleep 1
+# done
+# echo ""
+# echo "------------------------------"
 
 #echo "Initializing cronus-monitoring"
 #sudo ./create.sh

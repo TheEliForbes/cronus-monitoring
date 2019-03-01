@@ -66,27 +66,35 @@ You may modify the [login details](https://github.com/Eliforbes42/cronus-monitor
                    
          sudo ./init.sh
 
-3. Run the install script
+3.   Set up the Namespace you intend to use
+
+        3.1. Default Namespace (kube-system): `./setupNamespace.sh`
+
+        3.2. Custom Namespace: `./setupNamespace.sh namespace`
+
+        > This will create the namespace if necessary and set up Tiller's roles.
+
+4. Run the install script
 
          ./create.sh
 
-4.   Verify that the stack setup is operational
+5.   Verify that the stack setup is operational
 
          ./verifySetup.sh
 
-5.   Now that the stack is set up, define the TICKscripts.
+6.   Now that the stack is set up, define the TICKscripts.
 
-        5.1 `./copyTickScripts.sh`  
+        6.1. `./copyTickScripts.sh`  
 
-        5.2 `./defineTickTasks.sh`
+        6.2. `./defineTickTasks.sh`
 
-        5.2.1 -- If 5.2 doesn't work, run the commands below.       
+        6.2.1. -- If 6.2 doesn't work, run the commands below.       
 
-        5.2.2 `./connectToKapacitorContainer.sh`
+        6.2.2. `./connectToKapacitorContainer.sh`
 
-        5.2.3 `chmod +x TICKscripts/defineTasks.sh`
+        6.2.3. `chmod +x TICKscripts/defineTasks.sh`
 
-        5.2.4 `./TICKscripts/defineTasks.sh`
+        6.2.4. `./TICKscripts/defineTasks.sh`
 
 ## Usage
 
