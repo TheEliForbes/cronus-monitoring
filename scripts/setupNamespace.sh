@@ -9,13 +9,16 @@ if [ -n "$1" ]; then
     fi
 
     kubectl create serviceaccount tiller --namespace $1
+    
     echo "Replacing namespace values in Role Configuration Files"
-    sed "s/NAMESPACE/$1/g" role-tiller-template.yaml > role-tiller.yaml
-    sed "s/NAMESPACE/$1/g" rolebinding-tiller-template.yaml > rolebinding-tiller.yaml
+    sed "s/NAMESPACE/$1/g" role-tiller-template.yaml > role-tiller-$1.yaml
+    sed "s/NAMESPACE/$1/g" rolebinding-tiller-template.yaml > rolebinding-tiller-$1.yaml
+    sed "s/kube-system/$1/g" rbac-config.yaml > rbac-config-$1.yaml
     echo "Name replacement complete."
     echo "Creating Tiller Roles in namespace '$1'"
-    kubectl create -f role-tiller.yaml
-    kubectl create -f rolebinding-tiller.yaml
+    kubectl create -f rbac-config-$1.yaml
+    kubectl create -f role-tiller-$1.yaml
+    kubectl create -f rolebinding-tiller-$1.yaml
     helm init --service-account tiller --tiller-namespace $1
 
     read -p "Set up stack using the given namespace? (y/n)" yn
@@ -24,9 +27,9 @@ if [ -n "$1" ]; then
     esac
 else
     echo "Setting up Tiller in default namespace (kube-system)"
-    kubectl create serviceaccount tiller --namespace kube-system
+    #kubectl create serviceaccount tiller --namespace kube-system
     kubectl create -f rbac-config.yaml
-    helm init --service-account tiller
+    #helm init --service-account tiller
 
     read -p "Set up stack? (y/n)" yn
     case $yn in

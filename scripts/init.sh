@@ -30,7 +30,7 @@ kubectl create serviceaccount tiller --namespace kube-system
 # #else
 # #  echo "Default RBAC Configuration already exists."
 # #fi
-# helm init --service-account tiller 
+helm init --service-account tiller 
 # echo ""
 # echo "Please wait 30 seconds for Tiller to set up"
 # echo "------------------------------"
