@@ -47,7 +47,7 @@ data:
       enabled = true
       name = "default"
       default = false
-      urls = [{{ .Values.influxURL | quote }}]
+      urls = [{{ http://data-influxdb.{{ .Release.Namespace }}:8086 | quote }}]
       username = ""
       password = ""
       ssl-ca = ""

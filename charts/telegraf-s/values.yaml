@@ -64,10 +64,7 @@ config:
     hostname: "telegraf-polling-service"
     omit_hostname: false
   outputs:
-    - influxdb:
-        urls:
-          - 'http://data-influxdb.kube-system:8086'
-        database: "telegraf"
+    
 ##        retention_policy: ""
 ##        write_consistency: "any"
 ##        timeout: "5s"
@@ -150,22 +147,6 @@ config:
     - processes:
     - swap:
     - system:
-    - http_response:
-        address: "http://data-influxdb.kube-system:8086/query?q=show+databases"
-        response_timeout: "5s"
-        method: "GET"
-    - http_response:
-        address: "http://alerts-kapacitor.kube-system:9092/"
-        response_timeout: "5s"
-        method: "GET"
-    - http_response:
-        address: "http://metrics-kube-state-metrics.kube-system:8085/metrics"
-        response_timeout: "5s"
-        method: "GET"
-    - http_response:
-        address: "http://10.110.97.192:80"
-        response_timeout: "5s"
-        method: "GET"
 ## This one above is the words web api
         
 ##      aerospike:
@@ -259,18 +240,6 @@ config:
 ##      haproxy:
 ##        servers:
 ##          - "http://myhaproxy.com:1936/haproxy?stats"
-    - influxdb:
-        urls:
-          - "http://data-influxdb.kube-system:8086/debug/vars"
-        timeout: "5s"
-    - kapacitor:
-        urls:
-          - "http://kap-kapacitor.kube-system:9092/debug/vars"
-        timeout: "5s"
-    - kapacitor:
-        urls:
-          - "http://kap2-kapacitor.kube-system:9092/debug/vars"
-        timeout: "5s"
 ##      lustre2:
 ##        ost_procfiles:
 ##          - "/proc/fs/lustre/obdfilter/*/stats"
@@ -364,10 +333,7 @@ config:
 ##        databases:
 ##          - "app_production"
 ##          - "testing"
-      prometheus:
-        urls:
-          - "http://metrics-kube-state-metrics.kube-system.svc.cluster.local:8085/metrics"
-##          - "https://kubernetes.default:443/metrics"
+##         
 ##        name_prefix: "prom_"
 ##        bearer_token: "/var/run/secrets/kubernetes.io/serviceaccount/token"
 ##        insecure_skip_verify: true

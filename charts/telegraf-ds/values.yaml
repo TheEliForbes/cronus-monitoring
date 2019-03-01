@@ -35,15 +35,7 @@ config:
     flush_interval: "10s"
     flush_jitter: "0s"
   outputs:
-    - influxdb:
-        url: "http://data-influxdb.kube-system:8086"
-        database: "telegraf"
-        retention_policy: ""
-        timeout: "5s"
-        username: ""
-        password: ""
-        user_agent: "telegraf"
-        insecure_skip_verify: false
+    
   inputs:    
     - cpu:
         percpu: false

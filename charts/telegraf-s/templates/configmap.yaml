@@ -8,22 +8,58 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
 data:
-currentnamespace: "{{ .Release.Namespace }}"
-
-{{- $file := .Files }}
-{{- range $path, $byte := .Files.Glob "**.yaml" }}
-  {{- $list := $path | splitList "/"}}
-  {{- $length := len $list }}
-  {{- $last := add $length -1 }}
-  {{ index $list $last }}: |-
-    {{- range $line := $file.Lines $path }}
-    {{ $line | replace "kube-system" metadata.namespace }}
-    {{- end }}
-{{- end }}
-
 
   telegraf.conf: |+
     {{ template "global_tags" .Values.config.global_tags }}
     {{ template "agent" .Values.config.agent }}
     {{ template "outputs" .Values.config.outputs }}
+    [[outputs.influxdb]]
+      database = "telegraf"
+      urls = [
+        "http://data-influxdb.{{ .Release.Namespace }}:8086"
+      ]
+    [[inputs.cpu]]
+      percpu = false
+      totalcpu = true
+    [[inputs.disk]]
+      ignore_fs = [
+        "tmpfs",
+        "devtmpfs"
+      ]
     {{ template "inputs" .Values.config.inputs -}}
+    [[inputs.http_response]]
+      address = "http://data-influxdb.{{ .Release.Namespace }}:8086/query?q=show+databases"
+      method = "GET"
+      response_timeout = "5s"
+    [[inputs.http_response]]
+      address = "http://alerts-kapacitor.{{ .Release.Namespace }}:9092/"
+      method = "GET"
+      response_timeout = "5s"
+    [[inputs.http_response]]
+      address = "http://metrics-kube-state-metrics.{{ .Release.Namespace }}:8085/metrics"
+      method = "GET"
+      response_timeout = "5s"
+    [[inputs.http_response]]
+      address = "http://your.ip.address.here:yourPort"
+      method = "GET"
+      response_timeout = "5s"
+    [[inputs.influxdb]]
+      timeout = "5s"
+      urls = [
+        "http://data-influxdb.{{ .Release.Namespace }}:8086/debug/vars"
+      ]
+    [[inputs.kapacitor]]
+      timeout = "5s"
+      urls = [
+        "http://kap-kapacitor.{{ .Release.Namespace }}:9092/debug/vars"
+      ]
+    [[inputs.kapacitor]]
+      timeout = "5s"
+      urls = [
+        "http://kap2-kapacitor.{{ .Release.Namespace }}:9092/debug/vars"
+      ]
+    [[inputs.prometheus]]
+      urls = [
+        "http://metrics-kube-state-metrics.{{ .Release.Namespace }}.svc.cluster.local:8085/metrics"
+      ]
+    

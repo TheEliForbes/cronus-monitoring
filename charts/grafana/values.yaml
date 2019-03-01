@@ -143,6 +143,7 @@ plugins: [grafana-influxdb-flux-datasource]
 ## Configure grafana datasources
 ## ref: http://docs.grafana.org/administration/provisioning/#datasources
 ##
+#This is left as an example, this is dynamically namespaced over in templates/configmap.yaml
 datasources:
   datasources.yaml:
     apiVersion: 1

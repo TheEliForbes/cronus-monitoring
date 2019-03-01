@@ -1,4 +1,3 @@
-
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -9,18 +8,6 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
 data:
-
-{{- $file := .Files }}
-{{- $var := .Release.Namespace }}
-{{- range $path, $byte := .Files.Glob "values.yaml" }}
-  {{- $list := $path | splitList "/"}}
-  {{- $length := len $list }}
-  {{- $last := add $length -1 }}
-  {{ index $list $last }}: |-
-    {{- range $line := $file.Lines $path }}
-    {{ $line | replace "kube-system" $var }}
-    {{- end }}
-{{- end }}
 
   telegraf.conf: |+
     {{- if .Values.config.global_tags }}
@@ -44,5 +31,14 @@ data:
       hostname = "$HOSTNAME"
       omit_hostname = false
 
+    [[outputs.influxdb]]
+      database = "telegraf"
+      insecure_skip_verify = false
+      password = ""
+      retention_policy = ""
+      timeout = "5s"
+      url = "http://data-influxdb.{{ .Release.Namespace }}:8086"
+      user_agent = "telegraf"
+      username = ""
     {{ template "outputs" .Values.config.outputs }}
     {{ template "inputs" .Values.config.inputs -}}
