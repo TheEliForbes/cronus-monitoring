@@ -2,7 +2,7 @@
 
 namespace="kube-system"
 if [ -n "$1" ]; then
-	$namespace = "$1"
+	$namespace="$1"
 fi
 
 KURL=$(sudo kubectl get svc --namespace $namespace alerts-kapacitor -o json | jq -r .spec.clusterIP)

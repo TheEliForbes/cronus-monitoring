@@ -31,21 +31,16 @@ kubectl create -f rbac-config.yaml
 #  echo "Default RBAC Configuration already exists."
 #fi
 helm init --service-account tiller 
-echo ""
-echo "Please wait 30 seconds for Tiller to set up"
-echo "------------------------------"
-for ((i=30; i>0; i--))
-do	
-  echo -n "#"
-  sleep 1
-done
-echo ""
-echo "------------------------------"
-
-#echo "Initializing cronus-monitoring"
-#sudo ./create.sh
-#TODO - Remove this block after the install script is done
-# Install Script - Choose between creating in the default namespace (kube-system) or custom namespace
+# echo ""
+# echo "Please wait 30 seconds for Tiller to set up"
+# echo "------------------------------"
+# for ((i=30; i>0; i--))
+# do	
+#   echo -n "#"
+#   sleep 1
+# done
+# echo ""
+# echo "------------------------------"
 
 if ! [ -x "$(command -v jq)" ]; then
   echo "JQ is not installed."
@@ -55,5 +50,8 @@ fi
 
 echo "Installing Helm Unit-Test. . ."
 helm plugin install https://github.com/lrills/helm-unittest
+
+#echo "Initializing cronus-monitoring"
+#sudo ./create.sh
 
 echo "Done. . ."

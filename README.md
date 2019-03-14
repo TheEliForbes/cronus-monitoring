@@ -4,6 +4,10 @@ A modified version of the InfluxData 'TICK' Stack which uses Grafana as its UI a
 
 ## Requirements
 
+- Linux system with a Graphical User Interface
+
+- Firefox
+
 - Docker (v18.06+)
 
 - A functional Kubernetes cluster (v.1.13+)
