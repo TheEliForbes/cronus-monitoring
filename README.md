@@ -12,7 +12,7 @@ A modified version of the InfluxData 'TICK' Stack which uses Grafana as its UI a
 
 - A functional Kubernetes cluster (v.1.13+)
 
-    > [Set up a Kubernetes Cluster](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network)
+    > [Set up a Kubernetes Cluster](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)
 
 - 2GB RAM or more per node
 
