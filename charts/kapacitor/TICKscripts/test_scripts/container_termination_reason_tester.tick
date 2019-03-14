@@ -1,0 +1,16 @@
+//dbrp "telegraf"."autogen"
+
+stream
+	|from()
+		.measurement('kube_pod_container_status_terminated_reason')
+		.groupBy('pod','reason')
+	//|window()
+		//.period(1m)
+		//.every(1m)
+	|alert()
+		.warn(lambda: "reason" != 'Completed')
+	.message('warning: Pod {{ index .Tags "pod"}} has terminated with status: {{ index .Tags "reason" }}')
+	//.slack()
+	.stateChangesOnly()
+
+	

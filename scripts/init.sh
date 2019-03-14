@@ -12,23 +12,24 @@ chmod +x ../siege/initSiege.sh
 echo "Test Software Initialized. . ."
 
 if ! [ -x "$(command -v helm)" ]; then
-  echo "Helm is not installed."
-  read -p "Do you wish to install Helm? (y/n)" yn
-  case $yn in
- 	[Yy]* ) sudo ./installHelm.sh;;
- 	[Nn]* ) true;;
-		* ) echo "Please answer y/n.";;
-  esac
+  echo "Installing Helm"
+  sudo ./installHelm.sh	
 fi
 
-#kubectl create namespace tick
-#kubectl create serviceaccount tiller --namespace tick
+#TODO - Readme on how to re-namespace
+# See Helm RBAC Manual for now: https://github.com/helm/helm/blob/master/docs/rbac.md
+#kubectl create namespace kube-system
+kubectl create serviceaccount tiller --namespace kube-system
 #kubectl create -f role-tiller.yaml
 #kubectl create -f rolebinding-tiller.yaml
-#helm init --service-account tiller --tiller-namespace tick
-if ! [ -x "$(command -v kubectl api-versions | grep rbac.authorization.k8s.io/v1)"]; then
-  kubectl create -f rbac-config.yaml
-fi
+#helm init --service-account tiller --tiller-namespace kube-system
+
+#TODO - Determine correct condition to create Tiller RBAC Config
+#if [ -z "$(kubectl api-versions | grep rbac.authorization.k8s.io/v1)" ]; then
+kubectl create -f rbac-config.yaml
+#else
+#  echo "Default RBAC Configuration already exists."
+#fi
 helm init --service-account tiller 
 echo ""
 echo "Please wait 30 seconds for Tiller to set up"
@@ -41,8 +42,10 @@ done
 echo ""
 echo "------------------------------"
 
-echo "Initializing cronus-monitoring"
-sudo ./create.sh
+#echo "Initializing cronus-monitoring"
+#sudo ./create.sh
+#TODO - Remove this block after the install script is done
+# Install Script - Choose between creating in the default namespace (kube-system) or custom namespace
 
 if ! [ -x "$(command -v jq)" ]; then
   echo "JQ is not installed."

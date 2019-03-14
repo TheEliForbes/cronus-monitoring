@@ -61,47 +61,85 @@ tests:
       warn: 3
       crit: 0
 
-#example test cases
-  # alert_weather.tick triggers a critical alert when the measurement 
-  # temperature in the dbrp weather:default is bigger than 80
-  - name: "Alert weather:: critical when temperature > 120"  
-    task_name: alert_weather.tick
-    db: weather
+#Container Termination Reason Tests
+  - name: "Alert Container Termination:: Warning when container terminates"  
+    task_name: container_termination_reason_tester.tick
+    db: telegraf
     rp: autogen
     type: stream
     data:
-      - temperature,location=us-midwest temperature=70
-      - temperature,location=us-midwest temperature=120
-    expects:
-      ok: 0
-      warn: 0
-      crit: 1
-
-  # alert_weather.tick triggers a warning alert when the measurement temperature 
-  # in the dbrp weather:default is bigger than 80
-  - name: "Alert weather:: warning when 80 < temperature < 120"  
-    task_name: alert_weather.tick
-    db: weather
-    rp: autogen
-    type: stream
-    data:
-      - temperature,location=us-midwest temperature=70
-      - temperature,location=us-midwest temperature=82
+      - kube_pod_container_status_terminated_reason reason="Completed"
+      - kube_pod_container_status_terminated_reason reason="failure"
     expects:
       ok: 0
       warn: 1
       crit: 0
 
-  # alert_weather.tick failed test
-  - name: "Alert weather:: failure"  
-    task_name: alert_weather.tick
-    db: weather
+  - name: "Alert Container Termination:: No warning on ok data"  
+    task_name: container_termination_reason_tester.tick
+    db: telegraf
     rp: autogen
     type: stream
     data:
-      - temperature,location=us-midwest temperature=70
-      - temperature,location=us-midwest temperature=82
+      - kube_pod_container_status_terminated_reason reason="Completed"
+      - kube_pod_container_status_terminated_reason reason="Completed"
+    expects:
+      ok: 0
+      warn: 0
+      crit: 0
+
+#number of containers stopped tests
+  - name: "Num Containers Stopped:: showing 3 stopped containers"  
+    task_name: num_containers_stopped_tester.tick
+    db: telegraf
+    rp: autogen
+    type: stream
+    data:
+      - docker n_containers_stopped=2
+      - docker n_containers_stopped=3
     expects:
       ok: 0
       warn: 1
+      crit: 0
+
+  - name: "Num Containers Stopped:: no alert on zero stopped containers"  
+    task_name: num_containers_stopped_tester.tick
+    db: telegraf
+    rp: autogen
+    type: stream
+    data:
+      - docker n_containers_stopped=0
+      - docker n_containers_stopped=0
+    expects:
+      ok: 0
+      warn: 0
+      crit: 0
+
+#spid blocking alert tests
+  - name: "Spid Blocking Alert:: warning when blocking is recorded"  
+    task_name: spid_blocking_alert_tester.tick
+    db: telegraf
+    rp: autogen
+    type: stream
+    data:
+      - processes blocked=0
+      - processes blocked=6
+      
+    expects:
+      ok: 0
+      warn: 1
+      crit: 0
+
+  - name: "Spid Blocking Alert:: no warning when there is no blocking"  
+    task_name: spid_blocking_alert_tester.tick
+    db: telegraf
+    rp: autogen
+    type: stream
+    data:
+      - processes blocked=0
+      - processes blocked=0
+      
+    expects:
+      ok: 0
+      warn: 0
       crit: 0

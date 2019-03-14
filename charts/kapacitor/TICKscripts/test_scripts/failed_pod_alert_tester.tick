@@ -12,5 +12,5 @@ data
 		.message('warning: Pod {{ index .Tags "pod"}} is not running')
 		.warn(lambda: "phase" == 'Failed' AND "gauge" == int(1))
 		.stateChangesOnly()
-		.slack()
+		//.slack()
  
