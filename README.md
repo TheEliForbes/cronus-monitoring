@@ -24,9 +24,13 @@ A modified version of the InfluxData 'TICK' Stack which uses Grafana as its UI a
 
 ## Installation
 
-Clone the repo and dive in!
+Clone the repository and dive in!
 
 `git clone https://github.com/Eliforbes42/cronus-monitoring.git`
+
+Installation will take place on the Master Node of your Kubernetes Cluster.
+
+> If you intend to perform installation from a machine other than the Master Node, [set up your machine to control the cluster](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#optional-controlling-your-cluster-from-machines-other-than-the-master).
 
 ### Pre-Configuration
 
@@ -90,7 +94,15 @@ You may modify the [login details](https://github.com/Eliforbes42/cronus-monitor
 
         5.2.3 `chmod +x TICKscripts/defineTasks.sh`
 
-        5.2.4 `./TICKscripts/defineTasks.sh`
+        5.2.4 `cd TICKscripts`
+
+        5.2.5 `./defineTasks.sh`
+
+6.   You can also allow access to Grafana from an externally facing IP/Port combination.
+
+         ./portForwardGrafana.sh "ip" "port"
+
+    > This gives one the ability to set the stack up on a machine that does not have a Graphical User Interface (GUI).
 
 ## Usage
 
