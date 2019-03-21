@@ -7,4 +7,4 @@ Kapacitor uses a Domain Specific Language(DSL) named TICKscript to define tasks.
  2. Run the set up for the monitroing project (see readme on the main page)
  3. If you are not already there, navigate to the scripts folder of the repository
  4. Run this command: `./connectToKapacitorContainer.sh`
- 5. 
+ 5. Once the script is done running, the terminal will be in the Kapacitor pod where you will be able to issue kapacitor commands.
