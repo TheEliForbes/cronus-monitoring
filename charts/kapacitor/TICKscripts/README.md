@@ -2,9 +2,14 @@
 Kapacitor uses a Domain Specific Language(DSL) named TICKscript to define tasks. In this project, it is used to send variaous alerts to a slack channel. These alerts cover various things that may go wrong with the kubernetes cluster. For example if a node is showing an unhealthy status, an alert will be pushed to the slack channel. This is done by monitoring data from Kube State Metrics as it is inserted into InflixDB. If data is inserted into the database that causes the alert to trigger, you can expect a notification to be in slack within 30 seconds to a minute after the event occurs. 
 ## Getting started
 ### Connect to the kubernetes pod
-
  1. First, clone this repository on the machine that hosts the master node of your kubernetes cluster
  2. Run the set up for the monitroing project (see readme on the main page)
  3. If you are not already there, navigate to the scripts folder of the repository
  4. Run this command: `./connectToKapacitorContainer.sh`
  5. Once the script is done running, the terminal will be in the Kapacitor pod where you will be able to issue kapacitor commands.
+### Copy TICK scripts into Kapacitor pod
+The Kapacitor pod is not able to access the local machine's file system. This means that to be able to use the TICk scripts, they will need to be copied into the pod. Luckily, we provide a script to do this. 
+
+ 1. Navigate to the scripts folder.
+ 2. Run this command: `./copyTickScripts.sh`
+ 3. Once the script is done running, the whole TICKScripts folder (this folder) will be present in the kapacitor pod.
