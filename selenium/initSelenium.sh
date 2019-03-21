@@ -2,7 +2,7 @@
 
 if ! [ -x "$(command -v pip)" ]; then
 	echo "Installing Pip. . ."
-	sudo apt install -y python-pip;;
+	sudo apt install -y python-pip
 fi
 
 if ! [ -x "$(command -v selenium)" ]; then
