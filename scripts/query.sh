@@ -2,9 +2,6 @@
 # This has some standard queries for dev use.
 
 namespace="kube-system"
-if [ -n "$1" ]; then
-	$namespace="$1"
-fi
 
 usage() {
 echo ""
