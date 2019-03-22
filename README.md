@@ -86,9 +86,15 @@ You may modify the [login details](https://github.com/Eliforbes42/cronus-monitor
 
 5.   Now that the stack is set up, define the TICKscripts.
 
-        5.1 `./copyTickScripts.sh`  
+        5.1   `./copyTickScripts.sh`  
 
-        5.2 `./defineTickTasks.sh`
+        5.2.1 `./connectToKapacitorContainer.sh`
+
+        5.2.3 `cd TICKscripts`
+
+        5.2.2 `chmod +x defineTasks.sh`
+
+        5.2.4 `./defineTasks.sh`
 
 6.   You can also allow access to Grafana from an externally facing IP/Port combination.
 
