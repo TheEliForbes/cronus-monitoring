@@ -88,21 +88,11 @@ You may modify the [login details](https://github.com/Eliforbes42/cronus-monitor
 
         5.2 `./defineTickTasks.sh`
 
-        5.2.1 -- If 5.2 doesn't work, run the commands below.       
-
-        5.2.2 `./connectToKapacitorContainer.sh`
-
-        5.2.3 `chmod +x TICKscripts/defineTasks.sh`
-
-        5.2.4 `cd TICKscripts`
-
-        5.2.5 `./defineTasks.sh`
-
 6.   You can also allow access to Grafana from an externally facing IP/Port combination.
 
          ./portForwardGrafana.sh "ip" "port"
 
-    > This gives one the ability to set the stack up on a machine that does not have a Graphical User Interface (GUI).
+    > This is optional, but gives one the ability to set the stack up on a machine that does not have a Graphical User Interface (GUI).
 
 ## Usage
 
