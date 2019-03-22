@@ -76,7 +76,7 @@ You may modify the [login details](https://github.com/Eliforbes42/cronus-monitor
                    
          sudo ./init.sh
 
-3. Run the install script
+3.   Run the install script
 
          ./create.sh
 
