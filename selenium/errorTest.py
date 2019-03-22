@@ -30,7 +30,7 @@ dashboard.click()
 
 browser.get("http://%s/d/wd92dgsa/restarts-dashboard?orgId=1" % sys.argv[1])
 time.sleep(2)
-infobox = browser.find_element_by_xpath("//*[@class=\"panel-info-corner-inner\"][1]") 
+infobox = browser.find_element_by_xpath("//span[@class=\"panel-info-corner-inner\"][1]") 
 assert infobox.value_of_css_property("color") == "rgb(142, 142, 142)"
 #print("Good color means no error. Color displayed below..")
 #print(infobox.value_of_css_property("color"))
