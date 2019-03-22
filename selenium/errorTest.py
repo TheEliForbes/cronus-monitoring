@@ -25,6 +25,7 @@ login_attempt.click()
 
 # Click to Restarts Dashboard
 browser.get("http://%s/dashboards" % sys.argv[1])
+time.sleep(2)
 dashboard = browser.find_element_by_xpath("//*[@class=\"search-item search-item--indent\"][2]")
 dashboard.click()
 
