@@ -140,7 +140,7 @@ Then you can start using Grafana!
 
     - `./scripts/testTickScripts.sh`
 
-    - *These tests are not truly functional yet*
+    > *Kapacitor-Unit is not set up by default, see instructions below. Note that these tests are not fully functional yet*
 
 - Stress Testing
 
