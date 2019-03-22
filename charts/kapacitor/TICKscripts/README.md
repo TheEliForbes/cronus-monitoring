@@ -16,11 +16,11 @@ The Kapacitor pod is not able to access the local machine's file system. This me
  3. Once the script is done running, the whole TICKScripts folder (this folder) will be present in the Kapacitor pod.
 ### Deploying a Script
 Once the scripts have been copied to the pod, we can now deploy them as Kapacitor tasks. This will take a couple of steps.
-First, connect to the Kapacitor pod and navigate to the directory where the scripts reside.
-Pick a tick script to deploy
-Run this command: `kapacitor define <taskName> -tick <scriptName>.tick`
-Example: `kapacitor define cpu_alert -tick cpu_alert.tick`
-To see if the task has been defined successfully, run this command: `kapacitor list tasks`
-When the task is defined, it will default to being disabled.
-Run this command: `kapacitor enable <taskName>`
+1. First, connect to the Kapacitor pod and navigate to the directory where the scripts reside.
+2. Pick a tick script to deploy
+3. Run this command: `kapacitor define <taskName> -tick <scriptName>.tick`
+4. Example: `kapacitor define cpu_alert -tick cpu_alert.tick`
+5. To see if the task has been defined successfully, run this command: `kapacitor list tasks`
+6. When the task is defined, it will default to being disabled.
+7. Run this command: `kapacitor enable <taskName>`
 
