@@ -18,6 +18,8 @@ A modified version of the InfluxData 'TICK' Stack which uses Grafana as its UI a
 
 - C Compiler
 
+- Python
+
 - Linux "Make"
 
 > Recommended: Kubernetes v1.13 cluster running on three Ubuntu 18.04 Server VMs
