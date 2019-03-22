@@ -142,7 +142,9 @@ Then you can start using Grafana!
 
 - Stress Testing
 
-    - `./siege/laySiege.sh`
+    - `sudo ./siege/laySiege.sh`
+
+    - This will likely need sudo privileges.
 
 - Test Framework Initialization
 
@@ -154,7 +156,7 @@ Then you can start using Grafana!
 
     - Kapacitor-Unit: `./scripts/initKapacitorUnit.sh`
 
-        - *This framework is the only one not automatically installed.*
+        > *This framework is the only one not automatically installed.*
 
 ## Stack Manipulation
 
