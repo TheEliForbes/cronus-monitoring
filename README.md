@@ -98,6 +98,8 @@ You may modify the [login details](https://github.com/Eliforbes42/cronus-monitor
 
         5.2.4 `./defineTasks.sh`
 
+        5.2.5 `exit`
+
 6.   You can also allow access to Grafana from an externally facing IP/Port combination.
 
          ./portForwardGrafana.sh "ip" "port"
