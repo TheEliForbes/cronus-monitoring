@@ -66,21 +66,23 @@ You may modify the [login details](https://github.com/Eliforbes42/cronus-monitor
 ### Setup
 1.   Make all scripts executable, if you desire.
          
-         cd cronus-monitoring/scripts
+        cd cronus-monitoring/scripts
 
-         chmod +x *.sh
+        chmod +x *.sh
 
 2.   Run the initialization script.
                    
-         sudo ./init.sh
+        sudo ./init.sh
 
 3. Run the install script
 
-         ./create.sh
+        ./create.sh
 
 4.   Verify that the stack setup is operational
 
-         ./verifySetup.sh
+        ./verifySetup.sh
+
+        > This runs a series of queries on the data endpoints, which should produce a large amount of data.
 
 5.   Now that the stack is set up, define the TICKscripts.
 
