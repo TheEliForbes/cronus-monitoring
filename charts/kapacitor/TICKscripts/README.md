@@ -5,11 +5,11 @@ Kapacitor uses a Domain Specific Language(DSL) named TICKscript to define tasks.
 ### Connect to the Kubernetes Pod
  1. First, clone this repository on the machine that hosts the master node of your Kubernetes cluster
  2. Run the setup for the monitoring project (see readme on the main page)
- 3. If you are not already there, navigate to the scripts folder of the repository
+ 3. Navigate to the scripts folder of the repository
  4. Run this command: `./connectToKapacitorContainer.sh`
  5. Once the script is done running, the terminal will be in the Kapacitor pod where you will be able to issue Kapacitor commands.
 ### Copy TICK Scripts into Kapacitor Pod
-The Kapacitor pod is not able to access the local machine's file system. This means that to be able to use the TICk scripts, they will need to be copied into the pod. Luckily, we provide a script to do this. 
+The Kapacitor pod is not able to access the local machine's file system. This means that to be able to use the TICK scripts, they will need to be copied into the pod. Luckily, we provide a script to do this. 
 
  1. Navigate to the scripts folder.
  2. Run this command: `./copyTickScripts.sh`
