@@ -1,6 +1,6 @@
 
 # TICK Scripts
-Kapacitor uses a Domain Specific Language(DSL) named TICKscript to define tasks. In this project, it is used to send various alerts to a slack channel. These alerts cover various things that may go wrong with the Kubernetes cluster. For example, if a node is showing an unhealthy status, an alert will be pushed to the slack channel. This is done by monitoring data from Kube State Metrics as it is inserted into InfluxDB. If data is inserted into the database that causes the alert to trigger, you can expect a notification to be in slack within 30 seconds to a minute after the event occurs. 
+Kapacitor uses a Domain Specific Language(DSL) named TICKscript to define tasks. In this project, it is used to send various alerts to a Slack channel. These alerts cover various things that may go wrong with the Kubernetes cluster. For example, if a node is showing an unhealthy status, an alert will be pushed to the Slack channel. This is done by monitoring data from Kube State Metrics as it is inserted into InfluxDB. If data is inserted into the database that causes the alert to trigger, you can expect a notification to be in Slack within 30 seconds to a minute after the event occurs. 
 ## Getting started
 ### Connect to the Kubernetes Pod
  1. First, clone this repository on the machine that hosts the master node of your Kubernetes cluster
