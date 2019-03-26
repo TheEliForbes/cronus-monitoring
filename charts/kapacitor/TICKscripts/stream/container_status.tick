@@ -1,3 +1,4 @@
+dbrp "telegraf"."autogen"
 stream
 	|from()
 		.database('telegraf')
