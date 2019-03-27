@@ -11,6 +11,3 @@ tests:
       - matchRegex:
           path: metadata.name
           pattern: -grafana$
-      - equal:
-          path: spec.template.spec.containers[2].image
-          value: grafana/grafana:5.3.2
