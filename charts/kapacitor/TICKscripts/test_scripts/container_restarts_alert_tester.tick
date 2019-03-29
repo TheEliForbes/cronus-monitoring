@@ -1,4 +1,4 @@
-dbrp "telegraf"."autogen"
+//dbrp "telegraf"."autogen"
 
 var cur_data = batch
 	|query('select container,max(counter) from "telegraf"."autogen"."kube_pod_container_status_restarts_total"')
@@ -22,7 +22,7 @@ cur_data
 		.warn(lambda: (("cur.max" - "prev.max") >=5 AND ("cur.max" - "prev.max") <= 10))
 		.crit(lambda: (("cur.max" - "prev.max") >10))
 		.message('warning: Node {{ index .Tags "container" }} has gone from {{ index .Fields "prev.max" }} restarts to {{ index .Fields "cur.max" }} restarts in the past hour')
-		.slack()
+		//.slack()
 		
 
 
