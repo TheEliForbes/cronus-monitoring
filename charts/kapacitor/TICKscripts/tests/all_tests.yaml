@@ -145,7 +145,7 @@ tests:
       crit: 0
 # container restarts alert batch script tests
   - name: "Container Restarts Alert:: no warning when data is stagnant"  
-    task_name: container_restarts_alert_tester.tick
+    task_name: container_restarts_alert_testr.tick
     db: telegraf
     rp: autogen
     type: batch
@@ -156,18 +156,4 @@ tests:
     expects:
       ok: 0
       warn: 0
-      crit: 0
-
-  - name: "Container Restarts Alert:: warning when data is has changed"  
-    task_name: container_restarts_alert_tester.tick
-    db: telegraf
-    rp: autogen
-    type: batch
-    data:
-      - kube_pod_container_status_restarts_total,container=test counter=0
-      - kube_pod_container_status_restarts_total,container=test counter=5
-      
-    expects:
-      ok: 0
-      warn: 1
       crit: 0
