@@ -4,15 +4,21 @@ A modified version of the InfluxData 'TICK' Stack which uses Grafana as its UI a
 
 ## Requirements
 
+- Linux system with a Graphical User Interface
+
+- Firefox
+
 - Docker (v18.06+)
 
 - A functional Kubernetes cluster (v.1.13+)
 
-    > [Set up a Kubernetes Cluster](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network)
+    > [Set up a Kubernetes Cluster](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/)
 
 - 2GB RAM or more per node
 
 - C Compiler
+
+- Python
 
 - Linux "Make"
 
@@ -20,9 +26,15 @@ A modified version of the InfluxData 'TICK' Stack which uses Grafana as its UI a
 
 ## Installation
 
-Clone the repo and dive in!
+Installation will take place on the Master Node of your Kubernetes Cluster.
+
+> If you intend to perform installation from a machine other than the Master Node, [set up your machine to control the cluster](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#optional-controlling-your-cluster-from-machines-other-than-the-master).
+
+Once your machine is chosen and ready, you can clone the repository and dive in!
 
 `git clone https://github.com/Eliforbes42/cronus-monitoring.git`
+
+
 
 ### Pre-Configuration
 
@@ -66,7 +78,7 @@ You may modify the [login details](https://github.com/Eliforbes42/cronus-monitor
                    
          sudo ./init.sh
 
-3. Run the install script
+3.   Run the install script
 
          ./create.sh
 
@@ -74,19 +86,27 @@ You may modify the [login details](https://github.com/Eliforbes42/cronus-monitor
 
          ./verifySetup.sh
 
-5.   Now that the stack is set up, define the TICKscripts.
+        > This runs a series of queries on the data endpoints, which should produce a large amount of data.
 
-        5.1 `./copyTickScripts.sh`  
+5.   Now that the stack is set up, define the TICKscripts. An automated method is given below, but you may read further on [TICKscripts](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/kapacitor/TICKscripts/README.md) if you choose.
 
-        5.2 `./defineTickTasks.sh`
+        5.1   `./copyTickScripts.sh`  
 
-        5.2.1 -- If 5.2 doesn't work, run the commands below.       
+        5.2.1 `./connectToKapacitorContainer.sh`
 
-        5.2.2 `./connectToKapacitorContainer.sh`
+        5.2.3 `cd TICKscripts`
 
-        5.2.3 `chmod +x TICKscripts/defineTasks.sh`
+        5.2.2 `chmod +x defineTasks.sh`
 
-        5.2.4 `./TICKscripts/defineTasks.sh`
+        5.2.4 `./defineTasks.sh`
+
+        5.2.5 `exit`
+
+6.   You can also allow access to Grafana from an externally facing IP/Port combination.
+
+         ./portForwardGrafana.sh "ip" "port"
+
+    > This is optional, but gives one the ability to set the stack up on a machine that does not have a Graphical User Interface (GUI).
 
 ## Usage
 
@@ -122,11 +142,13 @@ Then you can start using Grafana!
 
     - `./scripts/testTickScripts.sh`
 
-    - *These tests are not truly functional yet*
+    > *Kapacitor-Unit is not set up by default, see instructions below. Note that these tests are not fully functional yet*
 
 - Stress Testing
 
-    - `./siege/laySiege.sh`
+    - `sudo ./siege/laySiege.sh`
+
+    - This will likely need sudo privileges.
 
 - Test Framework Initialization
 
@@ -138,7 +160,7 @@ Then you can start using Grafana!
 
     - Kapacitor-Unit: `./scripts/initKapacitorUnit.sh`
 
-        - *This framework is the only one not automatically installed.*
+        > *This framework is the only one not automatically installed.*
 
 ## Stack Manipulation
 
