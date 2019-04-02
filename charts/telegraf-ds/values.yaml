@@ -21,6 +21,9 @@ resources:
 ##
 tolerations: []
 
+## Service account to provide API permissions
+serviceaccount: 'telegraf-ds'
+
 ## Exposed telegraf configuration
 ## ref: https://docs.influxdata.com/telegraf/v1.8/administration/configuration/
 config:

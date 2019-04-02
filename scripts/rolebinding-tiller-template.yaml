@@ -2,11 +2,11 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: tiller-binding
-  namespace: kube-system
+  namespace: NAMESPACE
 subjects:
 - kind: ServiceAccount
   name: tiller
-  namespace: kube-system
+  namespace: NAMESPACE
 roleRef:
   kind: Role
   name: tiller-manager
