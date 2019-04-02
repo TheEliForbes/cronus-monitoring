@@ -5,8 +5,8 @@ NGINX Ingress is an ingress controller which allows for the routing of external 
 # Setup procedure
 Install NGINX ingress using the following command:
 ```sh
-helm install stable/nginx-ingress --namespace kube-system --set \ controller.stats.enabled=true, \
-controller.metrics.enabled=true, \
+helm install stable/nginx-ingress --namespace kube-system --set \ controller.stats.enabled=true,\
+controller.metrics.enabled=true,\
 controller.service.type=NodePort \
 --name ingress
 ```
