@@ -17,6 +17,7 @@ if ! [ -x "$(command -v helm)" ]; then
 fi
 
 # See Helm RBAC Manual for now: https://github.com/helm/helm/blob/master/docs/rbac.md
+kubectl create clusterrolebinding --namespace kube-system --clusterrole=cluster-admin --serviceaccount=kube-system:tiller tiller-cluster-admin
 
 #TODO - Determine correct condition to create Tiller RBAC Config
 #if [ -z "$(kubectl api-versions | grep rbac.authorization.k8s.io/v1)" ]; then
