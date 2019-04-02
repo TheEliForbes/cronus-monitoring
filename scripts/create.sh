@@ -9,7 +9,14 @@ components=("kube-state-metrics" "influxdb" "telegraf-s" "telegraf-ds" "kapacito
 releases=("metrics" "data" "polling" "hosts" "alerts" "dash")
 namespace="kube-system"
 
-for ((i=0;i<${#components[@]};++i)); do
-  helm install --name "${releases[i]}" --namespace $namespace ../charts/"${components[i]}"/
-done
+if [ -n "$1" ]; then
+	$namespace="$1"
+	for ((i=0;i<${#components[@]};++i)); do
+  	helm install --name "${releases[i]}" --tiller-namespace $namespace --namespace $namespace ../charts/"${components[i]}"/
+	done
+else
+	for ((i=0;i<${#components[@]};++i)); do
+  	helm install --name "${releases[i]}" --namespace $namespace ../charts/"${components[i]}"/
+	done
+fi
 
