@@ -26,7 +26,7 @@ If you need to re-install Siege, run `initSiege.sh`.
 
 Tests are run through the `laySiege.sh` script, which dynamically gets the IP address of the running Kube-State-Metrics, InfluxDB, and Grafana instances and runs the tests on them.
 
-> Note: Sudo privileges may be required when running the test script, depending on your configuration.
+> Note: Sudo privileges may be required to access Siege's home directory when running the test script, depending on your configuration.
 
 Siege Testing will run a slew of GET requests on the provided endpoints using specified number of simulated users and requests per time-span.
 
