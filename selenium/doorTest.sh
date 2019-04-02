@@ -6,5 +6,5 @@ if [ -n "$1" ]; then
 fi
 ip=$(sudo kubectl get svc --namespace $namespace dash-grafana -o json | jq -r .spec.clusterIP)
 
-python errorTest.py $ip
+python login.py $ip
 python dashboardTest.py $ip
