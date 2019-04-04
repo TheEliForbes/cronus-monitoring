@@ -24,3 +24,5 @@ Once the scripts have been copied to the pod, we can now deploy them as Kapacito
 6. When the task is defined, it will default to being disabled.
 7. Run this command: `kapacitor enable <taskName>`
 
+## Writing Scripts
+In this project, we utilized the functionality of Kapacitor and TICK scripts to monitor the data flowing through InfluxDB. The main purpose being to identify if an event has happened in the Kubernetes cluster that warents a notification be sent to the adminstrator or team that is responsible for the cluster. This was mainly achived by writing stream scripts, but a batch script was also implemented. These alerts are configured to send messages to a slack channel that is configured in the kapacitor set up.
