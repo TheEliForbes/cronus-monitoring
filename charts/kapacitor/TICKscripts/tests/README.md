@@ -63,3 +63,6 @@ stream
 
 1. Navigate to the scripts folder
 2. run the command: `./testTickScripts.sh`
+
+The output should look something like this:
+**![](https://lh4.googleusercontent.com/0L6EdSdhYAg_fMgqN0Z8Gmb-gEWgkQ-imP4rBPGbcaYm2W-POTh2TtRr-fgdPnb7L7Q7d8avZU62q03B1aoZ3Ab1Nz_1i1YvPoyddl8VI5ftUVg-Xm3SdvRLB-3QgJa7-auP5Q7b)**
