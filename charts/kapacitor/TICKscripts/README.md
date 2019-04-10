@@ -94,4 +94,4 @@ Some things to note about this script:
  3. Once the data in the first and second query are equivelent, we can join them together and assign them synonyms `'cur'` and `'prev'`.
  4. Notice the call to the `.tolerance()` function, this makes the join ignore small differences in the timestamps in case the queries don't exactly align. 
  5. In the alert logic, we use the we use the synonyms from the join with dot notation to compare the data from the two queries against each other.
-	 >  ("cur.max" - "prev.max") >=5
+	 > Ex. `("cur.max" - "prev.max") >=5`
