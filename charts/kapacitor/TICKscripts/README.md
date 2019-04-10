@@ -29,3 +29,8 @@ In this project, we utilized the functionality of Kapacitor and TICK scripts to 
 The main purpose being to identify if an event has happened in the Kubernetes cluster that warents a notification be sent to the adminstrator or team that is responsible for the cluster.
 This was mainly achived by writing stream scripts, but a batch script was also implemented.
 These alerts are configured to send messages to a slack channel that is configured in the kapacitor set up.
+
+### Stream Scripts
+Stream scripts are what we used for most of the alerts. This is because they naturally work with InfluxDB since they just monitor data as it is entered into the database.
+Most of them check the data and triger an alert if an unhealthy status is detected. 
+Here is an example of a stream script:
