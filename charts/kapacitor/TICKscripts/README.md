@@ -66,4 +66,31 @@ There are a few things to note about this script:
  This was the container restarts alert. This was because in order to identify how many times a container had restarted in the last hour,
  we had to find the difference between the current restarts count and the count from an hour prior.
  Meaning that a query for current data  needed to be joined with a query of data from the smae measurement that was an hour old.
+Here is the script:
+```
+dbrp "telegraf"."autogen"
 
+var cur_data = batch
+	|query('select container,max(counter) from "telegraf"."autogen"."kube_pod_container_status_restarts_total"')
+	.groupBy('container')
+	.period(1m)
+	.every(1m)
+
+var prev_data = batch	
+	|query('select container,max(counter) from "telegraf"."autogen"."kube_pod_container_status_restarts_total"')
+	.groupBy('container')
+	.period(1m)
+	.every(1m)
+	.offset(1h)
+	|shift(1h)
+
+cur_data
+	|join(prev_data)
+		.as('cur','prev')
+		.tolerance(1m)
+	|alert()
+		.warn(lambda: (("cur.max" - "prev.max") >=5 AND ("cur.max" - "prev.max") <= 10))
+		.crit(lambda: (("cur.max" - "prev.max") >10))
+		.message('warning: Node {{ index .Tags "container" }} has gone from {{ index .Fields "prev.max" }} restarts to {{ index .Fields "cur.max" }} restarts in the past hour')
+		.slack()
+```
