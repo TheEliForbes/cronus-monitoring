@@ -130,11 +130,17 @@ Then you can start using Grafana!
 
     -  `./scripts/helmTest.sh`
 
+    - [Further reading on Helm Test](https://github.com/helm/helm/blob/master/docs/chart_tests.md)
+
+    - [Further reading on Helm UnitTest](https://github.com/lrills/helm-unittest)
+
 - Grafana
 
     - Simulated User Testing on Grafana dashboards
 
     - `./selenium/doorTest.sh`
+    
+    - [Further reading on Selenium Testing](https://github.com/Eliforbes42/cronus-monitoring/blob/master/selenium/README.md)
 
 - Kapacitor
 
@@ -142,13 +148,17 @@ Then you can start using Grafana!
 
     - `./scripts/testTickScripts.sh`
 
-    > *Kapacitor-Unit is not set up by default, see instructions below. Note that these tests are not fully functional yet*
+    - [Further reading on TICKscripts](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/kapacitor/TICKscripts/README.md)
+
+    > *Kapacitor-Unit is not set up by default, see instructions below.*
 
 - Stress Testing
 
     - `sudo ./siege/laySiege.sh`
 
     - This will likely need sudo privileges.
+
+    - [Further reading on Siege](https://github.com/Eliforbes42/cronus-monitoring/blob/master/siege/README.md)
 
 - Test Framework Initialization
 
