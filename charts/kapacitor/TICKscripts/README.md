@@ -28,7 +28,7 @@ Once the scripts have been copied to the pod, we can now deploy them as Kapacito
 In this project, we utilized the functionality of Kapacitor and TICK scripts to monitor the data flowing through InfluxDB.
 The main purpose being to identify if an event has happened in the Kubernetes cluster that warrants a notification be sent to the administrator or team that is responsible for the cluster.
 This was mainly achieved by writing stream scripts, but a batch script was also implemented.
-These alerts are configured to send messages to a slack channel that is configured in the Kapacitor set up.
+These alerts are configured to send messages to a Slack channel that is configured in the Kapacitor set up.
 
 ### Stream Scripts
 Stream scripts are what we used for most of the alerts. This is because they naturally work with InfluxDB since they just monitor data as it is entered into the database.
@@ -53,12 +53,12 @@ dbrp "telegraf"."autogen"
 There are a few things to note about this script:
  1. In the warn function is where the logic goes that will trigger the alert to send the error/alert message
  2. The alert message is specified in the `.message()` function.
- 3. Calling `.slack()` tells Kapacitor to send the message to the slack webhook that Kapacitor was set up with.
- 4. The window section is setting the script to only look at the last minute of data, and to only send one alert per minute.
+ 3. Calling `.slack()` tells Kapacitor to send the message to the Slack webhook that Kapacitor was set up with.
+ 4. The window clause is setting the script to only look at the last minute of data, and to only send one alert per minute.
  This stops a spam of alerts if something enters an alert state for an extended period of time. 
  5. The double brackets in the message is the syntax for embedding measurement information into the error message,
  in this case, the name of the host computer that is experiencing system blocking. 
- 6. the `.stateChangesOnly()` function also reduces alert spamming by only sending an alert if the system goes from an ok state to an alert state.
+ 6. The `.stateChangesOnly()` function also reduces alert spamming by only sending an alert if the system goes from an "ok" state to an "alert" state.
  meaning if something fails continuously for 40 minutes, instead of getting 40 alerts (one for every minute), only the first alert will be sent.
 
  ### Batch Scripts
