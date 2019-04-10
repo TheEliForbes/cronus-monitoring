@@ -13,4 +13,19 @@ There are two parts to writing unit tests with Kapacitor-Unit.
  The other part is modifying a TICK script to be compatable with the framework. This is necessary because,
  being an open source project, Kapacitor-Unit only supports a specific format of TICK script.
  For example having a Window clause in the query will cause Kapacitor-Unit to not work correctly,
- so it needs to be commented out of the test version of a script.  
+ so it needs to be commented out of the test version of a script.
+ Here is an example of a unit test configuration in the YAML file:
+```
+ - name: "Spid Blocking Alert:: warning when blocking is recorded"
+	task_name: spid_blocking_alert_tester.tick
+	db: telegraf
+	rp: autogen
+	type: stream
+	data:
+		- processes blocked=0
+		- processes blocked=6
+	expects:
+	ok: 0
+	warn: 1
+	crit: 0
+```  
