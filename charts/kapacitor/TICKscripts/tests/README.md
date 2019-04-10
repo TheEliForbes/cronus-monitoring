@@ -50,3 +50,10 @@ stream
 		//.slack()
 		.stateChangesOnly()
 ```
+**Things to note about this test script:**
+
+ 1. Notice that the window clause is commented out, this is because it causes the unit test to not work properly.
+ Usually by not producing any alerts which causes the test to fail if it is expecting an alert.
+ 2. The `.slack()' function is commented out. Since Kapacitor-Unit uses Kapacitor to run it's tests,
+ any alerts triggered by a unit test will be sent to the Slack web hook that is configured with the Kapacitor installation.
+ To prevent this, we simply comment out the Slack function.
