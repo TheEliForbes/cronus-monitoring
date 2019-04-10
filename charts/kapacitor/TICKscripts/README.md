@@ -94,3 +94,10 @@ cur_data
 		.message('warning: Node {{ index .Tags "container" }} has gone from {{ index .Fields "prev.max" }} restarts to {{ index .Fields "cur.max" }} restarts in the past hour')
 		.slack()
 ```
+Some things to note about this script:
+
+ 1. Notice that the second query has a `.offset()` function call, this tells the script how far back in time to query.
+ 2. The shift clause then adds an hour to all of the timestamps from the second query. This is necessary in order to join the two queries, since kapacitor can only join on timestamp.
+ 3. Once the data in the first and second query are equivelent, we can join them together and assign them synonims 'cur' and 'prev'.
+ 4. Notice the call to the `.tolerance()' function, this makes the join ignore small differences in the timestamps incase the queries don't exactly align. 
+ 5. In the alert logic, we use the we use the synonyms from the join with dot notation to compare the data from the two queries against eachother. 
