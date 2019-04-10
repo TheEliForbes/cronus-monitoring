@@ -34,3 +34,23 @@ These alerts are configured to send messages to a slack channel that is configur
 Stream scripts are what we used for most of the alerts. This is because they naturally work with InfluxDB since they just monitor data as it is entered into the database.
 Most of them check the data and triger an alert if an unhealthy status is detected. 
 Here is an example of a stream script:
+```	
+dbrp "telegraf"."autogen"
+	stream
+		|from()
+			.measurement('processes')
+			.groupBy('host','blocked')
+		|window()
+			.period(1m)
+			.every(1m)
+		|alert()
+			.warn(lambda: "blocked" > 5)
+		.message('warning: There is proccess blocking on Host: {{ index .Tags "host" }} ')
+		.slack()
+		.stateChangesOnly()
+```
+
+There are a few things to note about this script:
+ 1. In the warn function is where the logic goes that will trigger the alert to send the error/alert message
+ 2. The alert message is specified in the `.message()` function.
+ 3. Calling `.slack()` tells kapacitor to send the message to the slack web hook that kapacitor was set up with.
