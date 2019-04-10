@@ -61,4 +61,9 @@ There are a few things to note about this script:
  6. the `.stateChangesOnly()` function also reduces alert spamming by only sending an alert if the system goes from an ok state to an alert state.
  meaning if something fails continuously for 40 minutes, instead of getting 40 alerts (one for every minute), only the first alert will be sent.
 
+ ### Batch Scripts
+ Over the course of this project, the team only ran into one instance where a batch script was required to achieve the desired functionality.
+ This was the container restarts alert. This was because in order to identify how many times a container had restarted in the last hour,
+ we had to find the difference between the current restarts count and the count from an hour prior.
+ Meaning that a query for current data  needed to be joined with a query of data from the smae measurement that was an hour old.
 
