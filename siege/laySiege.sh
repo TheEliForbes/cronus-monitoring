@@ -24,4 +24,4 @@ read -p "Continue? (enter)" c
 siege "http://$HOSTK/metrics" -c 5 -r 25
 sleep 1
 
-echo "Siege has been completed. . ."
+echo "Siege testing has been completed. . ."
