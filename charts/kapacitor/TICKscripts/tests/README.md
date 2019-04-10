@@ -34,7 +34,8 @@ There are two parts to writing unit tests with Kapacitor-Unit.
   1. The "task_name" field is where you specify the TICK script that you wish to test
   2. Under data, "processes" is the name of the measurement and "blocked" is the column being used in the script logic to trigger an alert. 
   3. The "expects" section is where you assert what behavior the script should have when given the data above, in this case the test is expecting the script to return one warning.   
- **Here is the corresponding test script:**
+ 
+**Here is the corresponding test script:**
 ```
 dbrp "telegraf"."autogen"
 stream
@@ -57,3 +58,5 @@ stream
  2. The `.slack()' function is commented out. Since Kapacitor-Unit uses Kapacitor to run it's tests,
  any alerts triggered by a unit test will be sent to the Slack web hook that is configured with the Kapacitor installation.
  To prevent this, we simply comment out the Slack function.
+ 
+ 
