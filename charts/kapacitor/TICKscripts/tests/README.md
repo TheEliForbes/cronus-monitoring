@@ -14,7 +14,8 @@ There are two parts to writing unit tests with Kapacitor-Unit.
  being an open source project, Kapacitor-Unit only supports a specific format of TICK script.
  For example having a Window clause in the query will cause Kapacitor-Unit to not work correctly,
  so it needs to be commented out of the test version of a script.
- Here is an example of a unit test configuration in the YAML file:
+
+**Here is an example of a unit test configuration in the YAML file:**
 ```
  - name: "Spid Blocking Alert:: warning when blocking is recorded"
 	task_name: spid_blocking_alert_tester.tick
@@ -29,8 +30,22 @@ There are two parts to writing unit tests with Kapacitor-Unit.
 	warn: 1
 	crit: 0
 ```
-Things to Note about this unit test:
+**Things to Note about this unit test:**
   1. The "task_name" field is where you specify the TICK script that you wish to test
   2. Under data, "processes" is the name of the measurement and "blocked" is the column being used in the script logic to trigger an alert. 
   3. The "expects" section is where you assert what behavior the script should have when given the data above, in this case the test is expecting the script to return one warning.   
-  
+ **Here is the coorisponding test script:**
+```
+dbrp "telegraf"."autogen"
+stream
+	|from()
+		.measurement('processes')
+		.groupBy('host','blocked')
+	//|window()
+		//.period(1m)
+		//.every(1m)
+	|alert()
+		.warn(lambda: "blocked" > 5)
+		.message('warning: There is proccess blocking on Host: {{ index .Tags "host" }} ')
+		//.slack()
+		.stateChangesOnly()
