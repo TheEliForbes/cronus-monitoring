@@ -1,6 +1,20 @@
 
 # Cronus Monitoring
-A modified version of the InfluxData 'TICK' Stack which uses Grafana as its UI and dynamically forms to the Kubernetes Cluster it is deployed on.
+A modified version of the InfluxData 'TICK' Stack which uses Grafana as its UI and dynamically forms to the Kubernetes Cluster it is deployed on. 
+
+Before you dive in, feel free to check out the documents we've written, which you may encounter along the way.
+
+- [NGINX Ingress Setup](https://github.com/Eliforbes42/cronus-monitoring/blob/master/NGINX-Ingress.md)
+
+- [Dynamic Dashboard Creation](https://github.com/Eliforbes42/cronus-monitoring/blob/master/GRAFANA.md)
+
+- [TICKscripts](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/kapacitor/TICKscripts/README.md)
+
+- [Selenium Testing](https://github.com/Eliforbes42/cronus-monitoring/blob/master/selenium/README.md)
+
+- [Siege Testing](https://github.com/Eliforbes42/cronus-monitoring/blob/master/siege/README.md)
+
+You may also find the official [InfluxData](https://docs.influxdata.com/) and [Grafana](https://grafana.com/docs/) Documentation useful while working with the stack.
 
 ## Requirements
 
