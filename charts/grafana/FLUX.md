@@ -26,5 +26,5 @@
 - Use the [`limit()`](https://docs.influxdata.com/flux/v0.12/functions/transformations/limit/) function to reduce the number of rows queried from InfluxDB, this should be done because the current iteration of the Grafana's Flux Plugin does not handle large quantities of rows
 - [`join()`](https://docs.influxdata.com/flux/v0.12/functions/transformations/join) is not a pipe function and does not use the pipe forward operator, `join()` instead is a start point for that line of the query
 - Avoid pressing the tab key while in the editor as it will autocomplete code that may not be intended for execution
-- Leave the `from(bucket: "undefined")` pre-made query until the query is written. This makes the query run on an undefined database in InfluxDB, so development can continue without overloading the Grafana IDE
+- Leave the `from(bucket: "undefined")` from the pre-made query until the query is ready to be executed. This forces the query to run on an undefined database in InfluxDB, so that mistakenly running the query before it is ready won't overload the Grafana IDE 
 - If using windowed data, the `window(every: inf)` query must be used to turn data back into a time series for use with grafana
