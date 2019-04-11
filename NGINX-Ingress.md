@@ -36,6 +36,6 @@ spec:
 
 Note that the 'host' value represents the DNS name of a node in the Kubernetes cluster, which in this case uses the skytap.example network that comes with a skytap environment.
 
-Once this is done, you can access the exposed service by connecting to the specified hostname on the port the ingress controller is bound to. In the case of a bare-metal installation, the required port will be visible on the NodePort service representing the Ingress controller.
+Once this is done, you can access the exposed service as normal for your application by connecting to the specified hostname on the port the ingress controller is bound to. In the case of a bare-metal installation, the required port will be visible on the NodePort service representing the Ingress controller.
 
 The url for this example would be host-2.skytap.example:30932 for a NodePort bound on port 30932.
