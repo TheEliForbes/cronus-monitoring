@@ -13,7 +13,7 @@ controller.service.type=NodePort \
 
 Once the NGINX ingress controller is installed, you may add Ingresses to access your services. This is useful for our project because Telegraf can hook into the metrics exposed by the ingress controller and receive insight into some application metrics such as how long responses are taking or how many requests are being received.
 
-The YAML for an Ingress service that would allow you to connect to Wordsmith is as follows:
+The YAML for an Ingress service that would allow you to connect to a NodePort service named 'web' running on port 8081 is as follows:
 
 ```yaml
 apiVersion: extensions/v1beta1
