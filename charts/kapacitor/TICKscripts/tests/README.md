@@ -5,7 +5,7 @@
  1. Navigate to the `scripts` folder.
  2. Run the command: `./initKapacitorUnit.sh`
  3. Next, export the path variable with this command: `export PATH=$PATH:/usr/local/go/bin`
-	 > This makes kapacitor-unit runnable from all locations
+	 > This makes Kapacitor-Unit runnable from all locations
 	 
  5. Kapacitor-Unit is now set up!
  
