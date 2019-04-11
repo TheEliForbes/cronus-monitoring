@@ -1,18 +1,19 @@
+
 # Kapacitor-Unit
 ## Installation
 
- 1. Navigate to the scripts folder.
+ 1. Navigate to the `scripts` folder.
  2. Run the command: `./initKapacitorUnit.sh`
  3. Next, export the path variable with this command: `export PATH=$PATH:/usr/local/go/bin`
- 4. Kapacitor-Unit is now set up!
+	 > This makes kapacitor-unit runnable from all locations
+	 
+ 5. Kapacitor-Unit is now set up!
  
  ## Writing Unit Tests
-There are two parts to writing unit tests with Kapacitor-Unit.
- First of all the framework takes a YAML file as an input with cofigurations for each test to be run.
- The other part is modifying a TICK script to be compatable with the framework. This is necessary because,
- being an open source project, Kapacitor-Unit only supports a specific format of TICK script.
- For example, having a window clause in the query will cause Kapacitor-Unit to not work correctly,
- so it needs to be commented out of the test version of a script.
+There are two parts to writing unit tests with Kapacitor-Unit:
+ 1. The framework takes a YAML file as an input with cofigurations for each test to be run. 
+ 2. Some TICK scripts require modification to be compatable with the framework. This is because, being an open source project, Kapacitor-Unit only supports a specific format of TICK script. 
+	 >For example, having a window clause in the query will cause Kapacitor-Unit to not work correctly, so it needs to be commented out of the test version of a script.
 
 **Here is an example of a unit test configuration in the YAML file:**
 ```
@@ -30,9 +31,9 @@ There are two parts to writing unit tests with Kapacitor-Unit.
 	crit: 0
 ```
 **Things to Note about this unit test:**
-  1. The "task_name" field is where you specify the TICK script that you wish to test.
-  2. Under data, "processes" is the name of the measurement and "blocked" is the column being used in the script logic to trigger an alert. 
-  3. The "expects" section is where you assert what behavior the script should have when given the data above, in this case the test is expecting the script to return one warning.   
+  1. The `task_name` field is where you specify the TICK script that you wish to test.
+  2. Under data, `processes` is the name of the measurement and `blocked` is the column being used in the script logic to trigger an alert. 
+  3. The `expects` section is where you assert what behavior the script should have when given the data above, in this case the test is expecting the script to return one warning.   
  
 **Here is the corresponding test script:**
 ```
@@ -52,16 +53,13 @@ stream
 ```
 **Things to note about this test script:**
 
- 1. Notice that the window clause is commented out, this is because it causes the unit test to not work properly.
- Usually by not producing any alerts which causes the test to fail if it is expecting an alert.
- 2. The `.slack()` function is commented out. Since Kapacitor-Unit uses Kapacitor to run it's tests,
- any alerts triggered by a unit test will be sent to the Slack web hook that is configured with the Kapacitor installation.
- To prevent this, we simply comment out the Slack function.
+ 1. Notice that the `|window()` clause is commented out, this is because it causes the unit test to not work properly. Usually by not producing any alerts which causes the test to fail if it is expecting an alert.
+ 2. The `.slack()` function is commented out. Since Kapacitor-Unit uses Kapacitor to run its tests, any alerts triggered by a unit test will be sent to the Slack web hook that is configured with the Kapacitor installation. To prevent this, we simply comment out the Slack function.
  
  ## Running Unit Tests
  The command for running Kapacitor-Unit is farly long and obscure, so we made a script for it so that it would be easy to run.
 
-1. Navigate to the scripts folder.
+1. Navigate to the `scripts` folder.
 2. Run the command: `./testTickScripts.sh`
 
 **The output should look something like this:**
