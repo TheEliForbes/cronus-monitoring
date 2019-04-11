@@ -10,6 +10,8 @@ Before you dive in, feel free to check out the documents we've written, which yo
 
 - [TICKscripts](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/kapacitor/TICKscripts/README.md)
 
+- [Kapacitor-Unit Testing](https://github.com/Eliforbes42/cronus-monitoring/tree/master/charts/kapacitor/TICKscripts/tests)
+
 - [Selenium Testing](https://github.com/Eliforbes42/cronus-monitoring/blob/master/selenium/README.md)
 
 - [Siege Testing](https://github.com/Eliforbes42/cronus-monitoring/blob/master/siege/README.md)
