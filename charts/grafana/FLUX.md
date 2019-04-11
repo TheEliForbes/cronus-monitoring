@@ -27,3 +27,4 @@
 - [`join()`](https://docs.influxdata.com/flux/v0.12/functions/transformations/join) is not a pipe function and does not use the pipe forward operator, `join()` instead is a start point for that line of the query
 - Avoid pressing the tab key while in the editor as it will autocomplete code that may not be intended for execution
 - Leave the `from(bucket: "undefined")` pre-made query until the query is written. This makes the query run on an undefined database in InfluxDB, so development can continue without overloading the Grafana IDE
+- If using windowed data, the `window(every: inf)` query must be used to turn data back into a time series for use with grafana
