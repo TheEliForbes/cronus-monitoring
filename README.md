@@ -8,6 +8,8 @@ Before you dive in, feel free to check out the documents we've written, which yo
 
 - [Dynamic Dashboard Creation](https://github.com/Eliforbes42/cronus-monitoring/blob/master/GRAFANA.md)
 
+- [Flux Query Language](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/grafana/FLUX.md)
+
 - [TICKscripts](https://github.com/Eliforbes42/cronus-monitoring/blob/master/charts/kapacitor/TICKscripts/README.md)
 
 - [Kapacitor-Unit Testing](https://github.com/Eliforbes42/cronus-monitoring/tree/master/charts/kapacitor/TICKscripts/tests)
