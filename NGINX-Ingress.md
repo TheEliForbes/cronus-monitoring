@@ -38,9 +38,9 @@ Note that the 'host' value represents the DNS name of a node in the Kubernetes c
 
 Once this is done, you can access the exposed service as normal for your application by connecting to the specified hostname on the port the ingress controller is bound to. In the case of a bare-metal installation, the required port will be visible on the NodePort service representing the Ingress controller.
 
-The url for this example would be host-2.skytap.example:30932 for a NodePort bound on port 30932.
+The url for this example would be host-2.skytap.example:*N* for a NodePort bound on port *N*.
 This port can be retrieved by executing the following:
 ```sh
 kubectl get svc -n kube-system ingress-nginx-ingress-controller
 ```
-It will list two port bindings, an HTTP binding to port 80 and an HTTPS binding to 443. For the previous example in this documentation, the binding to port 80 will be used.
+It will list two port bindings, an HTTP binding to port 80 and an HTTPS binding to 443. For the previous example in this documentation, the binding to port 80 will be used. This specification will read like "80:*N*"
