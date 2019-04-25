@@ -367,6 +367,7 @@ config:
       prometheus:
         urls:
           - "http://metrics-kube-state-metrics.kube-system.svc.cluster.local:8085/metrics"
+          - "http://ingress-nginx-ingress-controller-metrics.kube-system:9913/metrics"
 ##          - "https://kubernetes.default:443/metrics"
 ##        name_prefix: "prom_"
 ##        bearer_token: "/var/run/secrets/kubernetes.io/serviceaccount/token"
