@@ -56,6 +56,9 @@ Once your machine is chosen and ready, you can clone the repository and dive in!
 
 ### Pre-Configuration
 
+#### NGINX Ingress
+To collect application metrics from a web service, an ingress controller will be necessary. To install and setup NGINX-Ingress, the controller we used for development, see [this guide](https://github.com/Eliforbes42/cronus-monitoring/blob/master/NGINX-Ingress.md)
+
 #### Slack Alert Bot
 To allow Kapacitor to post alerts to your Slack channel, follow the instructions below.
 

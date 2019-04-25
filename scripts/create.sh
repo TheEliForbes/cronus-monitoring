@@ -12,7 +12,7 @@ namespace="kube-system"
 if [ -n "$1" ]; then
 	$namespace="$1"
 fi
-
 for ((i=0;i<${#components[@]};++i)); do
-  helm install --name "${releases[i]}" --namespace $namespace ../charts/"${components[i]}"/
+    helm install --name "${releases[i]}" --namespace $namespace ../charts/"${components[i]}"/
 done
+
